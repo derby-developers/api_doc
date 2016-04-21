@@ -1,168 +1,193 @@
 ---
-title: API Reference
+title: DerbyGames API Reference
 
 language_tabs:
-  - shell
-  - ruby
-  - python
-
-toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - curl
 
 includes:
   - errors
 
-search: true
+search: false
 ---
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the DerbyGames API. The API supports user verification, wagering, depositing, and race data. An application key is required for access. Please contact eric@derby.com for access.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+This document applies to V1, which is the current live version. To maintain compatibility with this version, it is recommended you add an accepts header:
 
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+`Accept: version=1`
 
-# Authentication
 
-> To authorize, use this code:
+# Application and User Authentication
 
-```ruby
-require 'kittn'
+The Authorization header on a request identifies both the application and the user token that the request applies to. All requests always have a application token, and any request that acts on a user account must have a bearer token as well.
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+For example:
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+`Authorization: Application ABC123 Bearer USERTOKEN123`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+Application tokens will be issued by us. See below on how to get a bearer token for a user.
 </aside>
 
-# Kittens
+# Bearer Tokens
 
-## Get All Kittens
+## Generate a new token
 
-```ruby
-require 'kittn'
+> Create a new token
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
+```curl
+curl -v -H "Authorization: Application ABC123" --data "email=email&password=password&client_id=client_id" /api/tokens
+
 ```
 
-```python
-import kittn
+> Header in the response
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
+```text
+Authorization: Bearer eyJpZCI6MiwidG9rZW4iOiI2T21vQzVOZXNlalwvUUhXbCtCU2JSVUxJMjBVZGZSc2sifQ==
 ```
 
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-> The above command returns JSON structured like this:
+> Failure:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+{ "error":"message here" }
 ```
 
-This endpoint retrieves all kittens.
+Successfull response will have JSON representing a user in the body and the header will container the bearer token you should use.
 
 ### HTTP Request
-
-`GET http://example.com/api/kittens`
+`POST /api/tokens`
 
 ### Query Parameters
+Parameter | Required? | Description
+--------- | --------- | -----------
+email | yes | email address of the user
+password | yes | password of the user
+client_id | yes | unique ID of the users device
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<aside class="warning">
+Keep those tokens safe!
 </aside>
 
-## Get a Specific Kitten
 
-```ruby
-require 'kittn'
+## Token Verification
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
+> Verify the token
+
+```curl
+curl -v -H "Authorization: Application ABC123" /api/tokens/ABC123
 ```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
 ### HTTP Request
+`GET /api/tokens/<TOKEN>`
 
-`GET http://example.com/kittens/<ID>`
+The response body will be empty. A 200 indicates the token exists and a 404 indicates it is invalid.
 
-### URL Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+# Races
 
+Racing centric data. Contains information about the race, posttime, runners, etc. If the race is final, it will also contain information about the winners.
+
+## Current Race
+
+This is the race that currently appears on the main DJ site.
+
+### HTTP Request
+`GET /api/races/current`
+
+## Specific Race
+
+### HTTP Request
+`GET /api/races/<ID>`
+
+## Previous Races
+
+### HTTP Request
+`GET /api/races`
+
+# Pool Data
+
+## Today's Pools
+
+A list of our chosen exoctic pools for the day (pick 4,5,6).
+
+### HTTP Request
+`GET /api/pools`
+
+## Specific Pool
+
+### HTTP Request
+`GET /api/pools/<ID>`
+
+## Wagered on by a User
+
+### HTTP Request
+`GET /api/pools/wagered`
+
+<aside class="notice">Requires a bearer token.</aside>
+
+## Next Pool
+
+The next available pool for lotto-style wagering.
+
+### HTTP Request
+`GET /api/pools/quick_play`
+
+## lotto pool?
+
+The next available pool for lotto-style wagering.
+
+### HTTP Request
+`GET /api/pools/lotto`
+
+# Chat & Realtime Data Stream
+
+You can connect to our streaming servers for chat and realtime race data changes. This method is recommended over polling other endpoints.
+
+```html
+<html>
+  <script src="https://stream.derbyjackpot.com/chat.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script type="text/javascript">
+    var client = new Faye.Client('https://stream.derbyjackpot.com/chat');
+
+    auth_extension = {
+      outgoing: function(message, callback) {
+        // on every outgoing message, attach the auth token
+        message['ext'] = {
+          auth_token: "F7VwDj2iw089TJLcLrRO9C6Gz8uVgHUGMftCGGipbJvazZjXVh663UZTTf78Mav0QjKRxTWsgIN89PJNJ14A3IlWeAxMajdzd6iL"
+        };
+        return callback(message);
+      }
+    };
+
+    client.addExtension(auth_extension);
+
+    var subscription = client.subscribe('/feed/v1/touchtunes', function(message) {
+      // handle message
+      console.log(message);
+
+      txt = '';
+      if (message['type'] == 'wager') {
+        user = message['user']['screen_name'] + "<img height=30 width=30 src='" + message['user']['image_url'] + "'>"
+        txt = user + " just wagered " + message['amount'];
+      }
+
+      if (message['type' == 'win']) {
+        txt = user + " won " + message['net_payoff_amount'];
+      }
+
+      if (message['type'] == 'race') {
+        txt = "Race " + message['name'] + " " + message['race_number'] + " changed.";
+      }
+
+      $("#content").append("<div>" + txt + "</div>");
+    });
+  </script>
+
+  <body>
+    <div id="content"></div>
+  </body>
+</html>
+```

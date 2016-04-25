@@ -28,7 +28,7 @@ Sandbox Stream
 
 `https://sandbox-stream.derbygames.com/chat`
 
-# Application and User Authentication
+# App & User Authentication
 
 The Authorization header on a request identifies both the application and the user token that the request applies to. All requests always have a application token, and any request that acts on a user account must have a bearer token as well.
 
@@ -94,6 +94,52 @@ The response body will be empty. A 200 indicates the token exists and a 404 indi
 
 
 
+
+# Users
+
+## Create a New User
+
+`POST /users`
+
+### Parameters
+Parameter | Required? | Description
+--------- | --------- | -----------
+email | yes | email address of the user (it will be validated in realtime)
+password | yes | password the user wants
+inviter_id | no | ID of who invited this user
+
+## Update a User
+
+Add additional information to user, such as address, SSN, etc. This endpoint will return a 422 once a user has opened a wagering account.
+
+`PUT /users`
+
+<aside class="notice">Requires a bearer token</aside>
+
+### Parameters
+Parameter | Description
+--------- | ---------
+first_name | users first name
+last_name | users last name
+birth_date | birthdate YYYY-MM-DD
+address_1 | address line 1
+address_2 | address line 2
+postal_code | postal code
+city | city (only needed if you are overriding the postal code's)
+state_code | 2 letter state/province code (only needed if you are overriding the postal code's)
+country_code | 2 letter ISO country code
+ssn | either the full 9 digit SSN, or last 4 (US only)
+national_identifier | national ID number (Brazil only)
+
+## Wagering Account
+
+Once you have updated the user with all the required information you can open a wagering account, provided they reside in one of our legal areas.
+
+`POST /user/account`
+
+
+
+
 # Races
 
 Racing centric data. Contains information about the race, posttime, runners, etc. If the race is final, it will also contain information about the winners.
@@ -122,9 +168,9 @@ Retreives a specific win for a race.
 ### HTTP Request
 `GET /races/<ID>/wins/<WIN_ID>`
 
-## Live Video
+## Race Replay Video
 
-Genereates a URL to stream the live video.
+Genereates a URL to replay the race. To get live video, use the track video endpoint.
 
 `GET /races/<ID>/video`
 
@@ -135,20 +181,44 @@ Parameter | Required? | Description
 --------- | --------- | -----------
 format | yes | 'flash' OR 'rtsp'
 
+## User Specific Race Info
+
+Returns which horses this user has favorited in this race and any previous horses this user has won on, with amounts.
+
+### HTTP Request
+`GET /races/<ID>/profile`
+
+<aside class="notice">Requires a bearer token</aside>
+
+
+
+# Player Profiles
+
+Public information about a player.
+
+### HTTP Request
+`GET /players/<SCREEN_NAME>`
+
+
+
+
 # Horses
 
 ## Specific Horse
 
+### HTTP Request
 `GET /horses/<ID>`
 
 ## Favorite a Horse
 
+### HTTP Request
 `POST /horses/<ID>/favorites`
 
 <aside class="notice">Requires a bearer token</aside>
 
 ## Unfavorite a Horse
 
+### HTTP Request
 `DELETE /horses/<ID>/favorites`
 
 <aside class="notice">Requires a bearer token</aside>
@@ -188,10 +258,12 @@ The next available pool for lotto-style wagering.
 
 ## Tracks with Races Today
 
+### HTTP Request
 `GET /tracks`
 
 ## Live Video
 
+### HTTP Request
 `GET /tracks/<ID>/video`
 
 <aside class="notice">Requires a bearer token</aside>
@@ -201,32 +273,137 @@ Parameter | Required? | Description
 --------- | --------- | -----------
 format | yes | 'flash' OR 'rtsp'
 
-# Users
 
-## Create a New User
 
-`POST /users`
 
-### Parameters
-Parameter | Required? | Description
---------- | --------- | -----------
-email | yes | email address of the user (it will be validated in realtime)
-password | yes | password the user wants
-inviter_id | no | ID of who invited this user
+# Wagers
 
-## Update a User
+## View Wagers
 
-Add additional information to user, such as address, SSN, etc. This endpoint will return a 422 once a user has opened a wagering account.
+See all wagers this user has placed.
 
-`PUT /users`
+### HTTP Request
+`GET /wagers`
+
+<aside class="notice">Requires a bearer token</aside>
+
+## Bet
+
+Place a wager on a pool.
+
+### HTTP Request
+`POST /wagers`
 
 <aside class="notice">Requires a bearer token</aside>
 
 ### Parameters
-Parameter | Description
---------- | ---------
-first_name | users first name
-last_name | users last name
+Parameter | Required? | Description
+--------- | --------- | -----------
+amount | yes | amount in decimal format (e.g., 2.00)
+pool | yes | object containing the id of the pool to wager into
+box | yes | true/false if this wager should be boxed
+runners | yes | array of runners with a position and ID of the runner
+jackpot | no | true/flase if this wager is for the progressive jackpot
+
+
+## Winners
+
+Get the latest large winning wagers.
+
+### HTTP Request
+`GET /wagers/big_winners`
+
+
+# Notifications
+
+## Inbox
+
+All user notifications that this user has received.
+
+### HTTP Request
+`GET /notifications`
+
+<aside class="notice">Requires a bearer token</aside>
+
+
+# Balance
+
+## Current Balance
+
+Users current balance.
+
+### HTTP Request
+`GET /balance`
+
+<aside class="notice">Requires a bearer token</aside>
+
+
+
+
+# Deposits
+
+## Saved Credit Cards
+
+All credit cards this user has saved.
+
+### HTTP Request
+`GET /credit_cards`
+
+<aside class="notice">Requires a bearer token</aside>
+
+## Prefered Payment Methods
+
+The prefered payment method for this user.
+
+### HTTP Request
+`GET /user_payment_method`
+
+## Deposit
+
+Deposit money into the users account. These params vary greatly depending on which payment methods are offered for your integration. They will be provided separatly.
+
+### HTTP Request
+`POST /deposits`
+
+<aside class="notice">Requires a bearer token</aside>
+
+
+
+# Withdrawals
+
+## Withdrawal
+
+Withdrawal to an account. These params vary greatly depending on which payment methods are offered for your integration. They will be provided separatly.
+
+### HTTP Request
+`POST /withdrawal`
+
+<aside class="notice">Requires a bearer token</aside>
+
+
+
+
+# Supporting Endpoints
+
+## Location of the User
+
+Returns the current location of the user and which provider services them.
+
+### HTTP Request
+`GET /locations`
+
+### Parameters
+Parameter | Required? | Description
+--------- | --------- | -----------
+latitude | no | gps latitude coordinate
+longitude | no | gps longitude coordinate
+
+## Postal Codes
+
+Returns the city/state and which provider services them.
+
+### HTTP Request
+`GET /postal_codes/<2_LETTER_COUNTRY_CODE>/<POSTAL_CODE>`
 
 
 

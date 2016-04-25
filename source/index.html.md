@@ -18,6 +18,15 @@ This document applies to V1, which is the current live version. To maintain comp
 
 `Accept: version=1`
 
+## URLs
+
+Sandbox API
+
+`https://sandbox.derbygames.com/api`
+
+Sandbox Stream
+
+`https://sandbox-stream.derbygames.com/chat`
 
 # Application and User Authentication
 
@@ -57,18 +66,17 @@ Authorization: Bearer eyJpZCI6MiwidG9rZW4iOiI2T21vQzVOZXNlalwvUUhXbCtCU2JSVUxJMj
 Successfull response will have JSON representing a user in the body and the header will container the bearer token you should use.
 
 ### HTTP Request
-`POST /api/tokens`
+`POST /tokens`
 
-### Query Parameters
+<aside class="warning">Tokens must be stored in a secure manner</aside>
+
+### Parameters
 Parameter | Required? | Description
 --------- | --------- | -----------
 email | yes | email address of the user
 password | yes | password of the user
 client_id | yes | unique ID of the users device
 
-<aside class="warning">
-Keep those tokens safe!
-</aside>
 
 
 ## Token Verification
@@ -76,13 +84,14 @@ Keep those tokens safe!
 > Verify the token
 
 ```curl
-curl -v -H "Authorization: Application ABC123" /api/tokens/ABC123
+curl -v -H "Authorization: Application ABC123" /tokens/ABC123
 ```
 
 ### HTTP Request
-`GET /api/tokens/<TOKEN>`
+`GET /tokens/<TOKEN>`
 
 The response body will be empty. A 200 indicates the token exists and a 404 indicates it is invalid.
+
 
 
 # Races
@@ -94,56 +103,137 @@ Racing centric data. Contains information about the race, posttime, runners, etc
 This is the race that currently appears on the main DJ site.
 
 ### HTTP Request
-`GET /api/races/current`
+`GET /races/current`
 
 ## Specific Race
 
 ### HTTP Request
-`GET /api/races/<ID>`
+`GET /races/<ID>`
 
 ## Previous Races
 
 ### HTTP Request
-`GET /api/races`
+`GET /races`
 
-# Pool Data
+## Race Win
+
+Retreives a specific win for a race.
+
+### HTTP Request
+`GET /races/<ID>/wins/<WIN_ID>`
+
+## Live Video
+
+Genereates a URL to stream the live video.
+
+`GET /races/<ID>/video`
+
+<aside class="notice">Requires a bearer token</aside>
+
+### Parameters
+Parameter | Required? | Description
+--------- | --------- | -----------
+format | yes | 'flash' OR 'rtsp'
+
+# Horses
+
+## Specific Horse
+
+`GET /horses/<ID>`
+
+## Favorite a Horse
+
+`POST /horses/<ID>/favorites`
+
+<aside class="notice">Requires a bearer token</aside>
+
+## Unfavorite a Horse
+
+`DELETE /horses/<ID>/favorites`
+
+<aside class="notice">Requires a bearer token</aside>
+
+
+
+# Pools
 
 ## Today's Pools
 
 A list of our chosen exoctic pools for the day (pick 4,5,6).
 
 ### HTTP Request
-`GET /api/pools`
+`GET /pools`
 
 ## Specific Pool
 
 ### HTTP Request
-`GET /api/pools/<ID>`
+`GET /pools/<ID>`
 
 ## Wagered on by a User
 
 ### HTTP Request
-`GET /api/pools/wagered`
+`GET /pools/wagered`
 
-<aside class="notice">Requires a bearer token.</aside>
+<aside class="notice">Requires a bearer token</aside>
 
 ## Next Pool
 
 The next available pool for lotto-style wagering.
 
 ### HTTP Request
-`GET /api/pools/quick_play`
+`GET /pools/quick_play`
 
-## lotto pool?
 
-The next available pool for lotto-style wagering.
+# Tracks
 
-### HTTP Request
-`GET /api/pools/lotto`
+## Tracks with Races Today
+
+`GET /tracks`
+
+## Live Video
+
+`GET /tracks/<ID>/video`
+
+<aside class="notice">Requires a bearer token</aside>
+
+### Parameters
+Parameter | Required? | Description
+--------- | --------- | -----------
+format | yes | 'flash' OR 'rtsp'
+
+# Users
+
+## Create a New User
+
+`POST /users`
+
+### Parameters
+Parameter | Required? | Description
+--------- | --------- | -----------
+email | yes | email address of the user (it will be validated in realtime)
+password | yes | password the user wants
+inviter_id | no | ID of who invited this user
+
+## Update a User
+
+Add additional information to user, such as address, SSN, etc. This endpoint will return a 422 once a user has opened a wagering account.
+
+`PUT /users`
+
+<aside class="notice">Requires a bearer token</aside>
+
+### Parameters
+Parameter | Description
+--------- | ---------
+first_name | users first name
+last_name | users last name
+
+
+
 
 # Chat & Realtime Data Stream
 
-You can connect to our streaming servers for chat and realtime race data changes. This method is recommended over polling other endpoints.
+You can connect to our streaming servers for chat and realtime data. This method is recommended over polling other endpoints. In real time, you can receive race changes, wagers as they are placed, and winning wagers when they are paid.
 
 ```html
 <html>

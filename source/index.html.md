@@ -387,7 +387,7 @@ Video
 
 # Real Money Gaming
 
-Not available.
+Available to select partners.
 
 
 

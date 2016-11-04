@@ -1,5 +1,5 @@
 ---
-title: DerbyGames API Reference
+title: DerbyGames API V1
 
 language_tabs:
   - curl
@@ -12,405 +12,390 @@ search: false
 
 # Introduction
 
-Welcome to the DerbyGames API. The API supports user verification, wagering, depositing, and race data. An application key is required for access. Please contact eric@derby.com for access.
+Oh hai.
+
+For API access, please contact eric@derbygames.com. You will be issued a application name, client ID, and client secret.
+
+# Interacting with the API
+
+## Making Requests
+
+All requests:
+
+* must be over HTTPS
+* must have an application name, either as a header 'Application-Name' or as a query string 'application_name'
+
+Arguments can be passed as params, form data or JSON with correct `Content-Type` header.
+
+## Localization
+
+There is limited support for localization using the `Accept-Language` header. Currently, we allow:
+
+* `en` - English (default)
+* `es` - Spanish
+
+Numbers, currency and datetime don’t rely on localization so they will be returned in standard format.
+
+## Versioning
 
 This document applies to V1, which is the current live version. To maintain compatibility with this version, it is recommended you add an accepts header:
 
 `Accept: version=1`
 
-## URLs
+## Endpoints
 
 Sandbox API
 
-`https://sandbox.derbygames.com/api`
+`https://sandbox-api.derbygames.com/api/`
 
-Sandbox Stream
+<!-- Sandbox Stream
 
-`https://sandbox-stream.derbygames.com/chat`
+`https://sandbox-stream.derbygames.com/chat` -->
 
-# App & User Authentication
+Production API
 
-The Authorization header on a request identifies both the application and the user token that the request applies to. All requests always have a application token, and any request that acts on a user account must have a bearer token as well.
-
-For example:
-
-`Authorization: Application ABC123 Bearer USERTOKEN123`
-
-<aside class="notice">
-Application tokens will be issued by us. See below on how to get a bearer token for a user.
-</aside>
-
-# Bearer Tokens
-
-## Generate a new token
-
-> Create a new token
-
-```curl
-curl -v -H "Authorization: Application ABC123" --data "email=email&password=password&client_id=client_id" /api/tokens
-
-```
-
-> Header in the response
-
-```text
-Authorization: Bearer eyJpZCI6MiwidG9rZW4iOiI2T21vQzVOZXNlalwvUUhXbCtCU2JSVUxJMjBVZGZSc2sifQ==
-```
-
-> Failure:
-
-```json
-{ "error":"message here" }
-```
-
-Successfull response will have JSON representing a user in the body and the header will container the bearer token you should use.
-
-### HTTP Request
-`POST /tokens`
-
-<aside class="warning">Tokens must be stored in a secure manner</aside>
-
-### Parameters
-Parameter | Required? | Description
---------- | --------- | -----------
-email | yes | email address of the user
-password | yes | password of the user
-client_id | yes | unique ID of the users device
-
-
-
-## Token Verification
-
-> Verify the token
-
-```curl
-curl -v -H "Authorization: Application ABC123" /tokens/ABC123
-```
-
-### HTTP Request
-`GET /tokens/<TOKEN>`
-
-The response body will be empty. A 200 indicates the token exists and a 404 indicates it is invalid.
-
-
-
+`https://api.derbygames.com/api/`
 
 # Users
 
-## Create a New User
+## User Object
+
+Any field not listed in the example should not be used.
+
+> Example User Response
+
+```json
+{
+  "id":32118,
+  "email":"gambler@derby.com",
+  "created_at":"2013-04-04T11:21:03.439-07:00",
+  "screen_name":"Wally The Dog",
+  "authentication_token":"3434fUYT5zTBzJBUxygx",
+  "first_name":"Wally",
+  "last_name":"Dog",
+  "birth_date":"1976-06-18",
+  "address_1":"902 Broadway",
+  "address_2":null,
+  "state_code":"NY",
+  "city":"New York",
+  "state_code":"NY",
+  "country_code":"US",
+  "postal_code":"10011",
+  "wager_count":1576,
+  "multi_race_wager_count":81,
+  "instant_racing_wager_count":0,
+  "triple_threat_spin_count":0,
+  "image_url": "https://avatars.derbycdn.net/1b/ef5a60ad7811e59098a34b698f19df.jpg",
+  "phone_number":"12125551212",
+  "mobile_phone_number":"12125551212",
+  "accounts":[
+    {"type":"virtual","balance":0.5,"available_balance":null}
+  ]
+}
+```
+
+Field | Description
+------| -----------
+id | user id
+email | email address, can be blank
+screen_name | name to be shown to other users
+authentication_token | token for authentication to chat
+first_name |
+last_name |
+birth_date | format: YYYY-MM-DD
+address_1 | main address line
+address_2 | apartment info
+state_code | 2 letter state/province code
+city | name of city
+country_code | 2 letter ISO country code
+postal_code | postal/zip code
+wager_count | total number of real money wagers
+multi_race_wager_count | total number of multi race wagers placed
+instant_racing_wager_count | total instant (virtual) racing wagers placed
+triple_threat_spin_count | total number of TT spins
+image_url | full URL of the users avatar
+phone_number | phone number
+mobile_phone_number | mobile phone
+accounts | array of Account objects (real money gaming, virtual, etc.)
+
+Account Object
+
+Field | Description
+------| -----------
+type | type of the account (virtual, rmg, etc.)
+balance | current balance
+available_balance | ?
+
+
+## Create User
+
+> Examples
 
 `POST /users`
 
-### Parameters
+### Using an Email and Password
+
+```curl
+curl --header "Application-Name: super-fun-game" \
+  --data "email=hi@example.com&password=123456" \
+  https://api.derbygames.com/api/users
+```
+
 Parameter | Required? | Description
 --------- | --------- | -----------
-email | yes | email address of the user (it will be validated in realtime)
-password | yes | password the user wants
+email | yes | email address
+password | yes | password
 inviter_id | no | ID of who invited this user
 
-## Update a User
 
-Add additional information to user, such as address, SSN, etc. This endpoint will return a 422 once a user has opened a wagering account.
+### Using an Installation/Device ID
+
+Coming soon.
+
+### Returns
+
+A user object.
+
+## Update User
+
+Add additional information to user, such as address, etc.
 
 `PUT /users`
 
-<aside class="notice">Requires a bearer token</aside>
-
-### Parameters
-Parameter | Description
---------- | ---------
-first_name | users first name
-last_name | users last name
-birth_date | birthdate YYYY-MM-DD
+Parameter | Description | Notes
+--------- | ----------- | -----
+first_name | first name
+last_name | last name
+birth_date | birthdate | format: YYYY-MM-DD
 address_1 | address line 1
 address_2 | address line 2
 postal_code | postal code
-city | city (only needed if you are overriding the postal code's)
-state_code | 2 letter state/province code (only needed if you are overriding the postal code's)
+city | city | only if you are overriding the postal code
+state_code | 2 letter state/province code | only if you are overriding the postal code)
 country_code | 2 letter ISO country code
-ssn | either the full 9 digit SSN, or last 4 (US only)
-national_identifier | national ID number (Brazil only)
 
-## Wagering Account
+### Returns
 
-Once you have updated the user with all the required information you can open a wagering account, provided they reside in one of our legal areas.
+A user object.
 
-`POST /user/account`
+# User Authentication
 
+User auth is performed using OAuth 2.
 
+Any request consuming user specific data requires a bearer token. Both access and refresh tokens are used. You must get a new access token once it has expired. The token is added to the header of each request:
 
+`Authorization: Bearer f95f9cf38e829104949ae6e160957f549abab252336c3b1007a5961fda940a09`
 
-# Races
+## Generating a New Token
 
-Racing centric data. Contains information about the race, posttime, runners, etc. If the race is final, it will also contain information about the winners.
+`POST /api/oauth/tokens`
 
-## Current Race
+### Via Email/Password
 
-This is the race that currently appears on the main DJ site.
+```curl
+curl --header "Application-Name: super-fun-game" \
+  --data "grant_type=password&email=user@domain.com&password=123456" \
+  https://api.derbygames.com/api/oauth/token
+```
 
-### HTTP Request
-`GET /races/current`
-
-## Specific Race
-
-### HTTP Request
-`GET /races/<ID>`
-
-## Previous Races
-
-### HTTP Request
-`GET /races`
-
-## Race Win
-
-Retreives a specific win for a race.
-
-### HTTP Request
-`GET /races/<ID>/wins/<WIN_ID>`
-
-## Race Replay Video
-
-Genereates a URL to replay the race. To get live video, use the track video endpoint.
-
-`GET /races/<ID>/video`
-
-<aside class="notice">Requires a bearer token</aside>
-
-### Parameters
 Parameter | Required? | Description
 --------- | --------- | -----------
-format | yes | 'flash' OR 'rtsp'
+grant_type | yes | 'password'
+email | yes | email address of the user
+password | yes | password of the user
 
-## User Specific Race Info
+### Token Exchange from Another OAuth Provider
 
-Returns which horses this user has favorited in this race and any previous horses this user has won on, with amounts.
+Exchange another OAuth providers token for a DerbyGames token. Currently, only facebook is supported.
 
-### HTTP Request
-`GET /races/<ID>/profile`
+> Example
 
-<aside class="notice">Requires a bearer token</aside>
+```curl
+curl --header "Application-Name: super-fun-game" \
+  --data "grant_type=assertion&assertion=FBTOKEN123456" \
+  https://api.derbygames.com/api/oauth/token
+```
 
-
-
-# Player Profiles
-
-Public information about a player.
-
-### HTTP Request
-`GET /players/<SCREEN_NAME>`
-
-
-
-
-# Horses
-
-## Specific Horse
-
-### HTTP Request
-`GET /horses/<ID>`
-
-## Favorite a Horse
-
-### HTTP Request
-`POST /horses/<ID>/favorites`
-
-<aside class="notice">Requires a bearer token</aside>
-
-## Unfavorite a Horse
-
-### HTTP Request
-`DELETE /horses/<ID>/favorites`
-
-<aside class="notice">Requires a bearer token</aside>
-
-
-
-# Pools
-
-## Today's Pools
-
-A list of our chosen exoctic pools for the day (pick 4,5,6).
-
-### HTTP Request
-`GET /pools`
-
-## Specific Pool
-
-### HTTP Request
-`GET /pools/<ID>`
-
-## Wagered on by a User
-
-### HTTP Request
-`GET /pools/wagered`
-
-<aside class="notice">Requires a bearer token</aside>
-
-## Next Pool
-
-The next available pool for lotto-style wagering.
-
-### HTTP Request
-`GET /pools/quick_play`
-
-
-# Tracks
-
-## Tracks with Races Today
-
-### HTTP Request
-`GET /tracks`
-
-## Live Video
-
-### HTTP Request
-`GET /tracks/<ID>/video`
-
-<aside class="notice">Requires a bearer token</aside>
-
-### Parameters
 Parameter | Required? | Description
 --------- | --------- | -----------
-format | yes | 'flash' OR 'rtsp'
+grant_type | yes | 'assertion'
+provider | yes | 'facebook'
+assertion | yes | OAuth token from provider
 
+### Via Refresh Token
 
+Once the access token has expired, get a new one using the refresh token.
 
+> Example
 
-# Wagers
+```curl
+curl --header "Application-Name: super-fun-game" \
+  --data "grant_type=refresh_token&refresh_token=f95f9cf38e829104949ae6e160957f549abab252336c3b1007a5961fda940a09" \
+  https://api.derbygames.com/api/oauth/token
+```
 
-## View Wagers
-
-See all wagers this user has placed.
-
-### HTTP Request
-`GET /wagers`
-
-<aside class="notice">Requires a bearer token</aside>
-
-## Bet
-
-Place a wager on a pool.
-
-### HTTP Request
-`POST /wagers`
-
-<aside class="notice">Requires a bearer token</aside>
-
-### Parameters
 Parameter | Required? | Description
 --------- | --------- | -----------
-amount | yes | amount in decimal format (e.g., 2.00)
-pool | yes | object containing the id of the pool to wager into
-box | yes | true/false if this wager should be boxed
-runners | yes | array of runners with a position and ID of the runner
-jackpot | no | true/flase if this wager is for the progressive jackpot
+grant_type | yes | 'refresh_token'
+refresh_token | yes | the refresh token
+
+### Returns
+
+A token object on success, or an error message.
+
+> Success
+
+```json
+{
+  "access_token": "c07f8370d9f659fdee0dfea45af6f8b2fe37e4c5d77cf292d990a96ea403ca10",
+  "token_type": "bearer",
+  "expires_in": 604800,
+  "refresh_token": "f95f9cf38e829104949ae6e160957f549abab252336c3b1007a5961fda940a09",
+  "scope": "user",
+  "created_at": 1478276432
+}
+```
+
+> Failure
+
+```json
+{ 
+  "error": "Invalid email or password",
+  "error_description": "The authorization server encountered an unexpected condition which prevented it from fulfilling the request."
+}
+```
 
 
-## Winners
 
-Get the latest large winning wagers.
-
-### HTTP Request
-`GET /wagers/big_winners`
-
-
-# Notifications
-
-## Inbox
-
-All user notifications that this user has received.
-
-### HTTP Request
-`GET /notifications`
-
-<aside class="notice">Requires a bearer token</aside>
-
-
-# Balance
-
-## Current Balance
+# User Account Balances
 
 Users current balance.
 
-### HTTP Request
 `GET /balance`
 
-<aside class="notice">Requires a bearer token</aside>
 
-
-
-
-# Deposits
-
-## Saved Credit Cards
+# User Saved Credit Cards
 
 All credit cards this user has saved.
 
-### HTTP Request
 `GET /credit_cards`
 
-<aside class="notice">Requires a bearer token</aside>
+# User Notifications
 
-## Prefered Payment Methods
+## Inbox
 
-The prefered payment method for this user.
+`GET /notifications`
 
-### HTTP Request
-`GET /user_payment_method`
+> Example
 
-## Deposit
+```curl
+curl --header "Authorization: Bearer ABC123" \
+  https://api.derbygames.com/api/notifications
+```
 
-Deposit money into the users account. These params vary greatly depending on which payment methods are offered for your integration. They will be provided separatly.
+> Response
 
-### HTTP Request
-`POST /deposits`
+```json
+[
+  {
+    "id": 1,
+    "message": "Hello, player!", 
+    "thumbnail_image_url": null,
+    "expires_at": "2016-11-03T00:00:00.000-07:00",
+    "bonus": {},
+    "read": false,
+    "created_at": "2016-11-01T14:17:56.991-07:00",
+    "expired": false, 
+    "claimed": true,
+    "claimed_at":"2016-11-01T14:52:50.443-07:00"
+  }
+]
 
-<aside class="notice">Requires a bearer token</aside>
+```
+
+## Mark Message as Read
+
+`PUT /notifications/:id/read`
+
+# Player Profiles
+
+## Get Profile
+
+`GET /profiles/:id`
+
+```json
+{
+  "screen_name": "Wally T. Dog",
+  "image_url":"https://avatars.derbycdn.net/1b/ef5a60ad7811e59098a34b698f19df.jpg",
+  "city": "New York", 
+  "state":"NY",
+  "bio": "games are fun" ,
+  "joined_at": "2013-04-04T11:21:03-07:00",
+  "player_statuses": [
+    {"name":"instant_racing","level":5}
+  ],
+  "stats":{
+    "jackpot": [],
+    "instant_racing": [
+      {"key":"wager_count","description":"Wager Count","value":16},
+      {"key":"biggest_win_amount","description":"Biggest Win Amount","value":3600.0},
+      {"key":"races_played","description":"Races Played","value":4},
+      {"key":"favorite_game","description":"Favorite Game","value":"triple-threat"}
+    ],
+    "casino": []
+  }
+}
+```
 
 
+## Update Profile
 
-# Withdrawals
-
-## Withdrawal
-
-Withdrawal to an account. These params vary greatly depending on which payment methods are offered for your integration. They will be provided separatly.
-
-### HTTP Request
-`POST /withdrawal`
-
-<aside class="notice">Requires a bearer token</aside>
+`PUT /profile`
 
 
+bio only right now?
+
+Remove Avatar
+
+`DELETE /profile/avatar`
 
 
-# Supporting Endpoints
+# Instant Racing
 
-## Location of the User
+## Races
 
-Returns the current location of the user and which provider services them.
+View a race
 
-### HTTP Request
-`GET /locations`
+`GET /instant_racing/races/:uuid`
 
-### Parameters
-Parameter | Required? | Description
---------- | --------- | -----------
-latitude | no | gps latitude coordinate
-longitude | no | gps longitude coordinate
+Current Users Wagers on a Race
 
-## Postal Codes
+`GET /instant_racing/races/:uuid/wagers`
 
-Returns the city/state and which provider services them.
+Video
 
-### HTTP Request
-`GET /postal_codes/<2_LETTER_COUNTRY_CODE>/<POSTAL_CODE>`
+`GET /instant_racing/races/:uuid/video`
 
+## Wagers
+
+`POST /instant_racing/wagers`
+
+`POST /instant_racing/triple_threat_spins`
+
+`POST /instant_racing/super_slot_spins`
+
+
+# Real Money Gaming
+
+Not available.
 
 
 
 # Chat & Realtime Data Stream
 
-You can connect to our streaming servers for chat and realtime data. This method is recommended over polling other endpoints. In real time, you can receive race changes, wagers as they are placed, and winning wagers when they are paid.
+You can connect to our streaming servers for chat and realtime data. This method is recommended over polling other endpoints. Talk to the nerds for more information.
+
+> Example Script
 
 ```html
 <html>

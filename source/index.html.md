@@ -162,17 +162,19 @@ Add additional information to user, such as address, etc.
 
 `PUT /users`
 
-Parameter | Description | Notes
---------- | ----------- | -----
-first_name | first name
-last_name | last name
-birth_date | birthdate | format: YYYY-MM-DD
-address_1 | address line 1
-address_2 | address line 2
-postal_code | postal code
-city | city | only if you are overriding the postal code
-state_code | 2 letter state/province code | only if you are overriding the postal code)
-country_code | 2 letter ISO country code
+The follow fields are updatable.
+
+Field | Notes
+----- | -----
+first_name |
+last_name |
+birth_date | format: YYYY-MM-DD
+address_1 |
+address_2 |
+postal_code | format validated based on country code
+city | only if you are overriding the postal code
+state_code | only if you are overriding the postal code)
+country_code |
 
 ### Returns
 

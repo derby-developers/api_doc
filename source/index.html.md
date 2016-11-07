@@ -287,18 +287,7 @@ All credit cards this user has saved.
 
 # User Notifications
 
-## Inbox
-
-`GET /notifications`
-
-> Example
-
-```curl
-curl --header "Authorization: Bearer ABC123" \
-  https://api.derbygames.com/api/notifications
-```
-
-> Response
+## Notification Object
 
 ```json
 [
@@ -318,15 +307,46 @@ curl --header "Authorization: Bearer ABC123" \
 
 ```
 
+`GET /notifications`
+
+> Example
+
+```curl
+curl --header "Authorization: Bearer ABC123" \
+  https://api.derbygames.com/api/notifications
+```
+
+### Returns
+
+Array of Notification objects.
+
 ## Mark Message as Read
 
 `PUT /notifications/:id/read`
 
+> Example
+
+```curl
+curl -X PUT --header "Authorization: Bearer ABC123" \
+  https://api.derbygames.com/api/notifications/1/read
+```
+
+Marks a message as read.
+
 # Player Profiles
 
-## Get Profile
+## Profile Object
 
-`GET /profiles/:id`
+Field | Description
+------| -----------
+screen_name | users name
+image_url | fully qualified URL of their avatar
+city |
+state | 
+bio |
+joined_at | date the user registered
+player_status | highest level reached per group, see below
+stats | metrics, see below
 
 ```json
 {
@@ -352,6 +372,44 @@ curl --header "Authorization: Bearer ABC123" \
 }
 ```
 
+`stats` and `player_statues` are split into groups:
+
+Group Name | Description
+-----------| -----------
+jackpot | real money gaming
+instant_racing | virtual instant racing games
+casino | virtual casino games
+
+### `stats`
+
+jackpot
+
+key | description
+--- | -----------
+public_vip_score | integer of users VIP level
+favorite_count | number of horses favorited
+comment_count | number of comments on horses
+wager_count | total wagers placed
+biggest_win_amount | largest payout
+biggest_win_date | date of the above win
+instant_racing
+
+key | description
+--- | -----------
+wager_count | number of wagers placed
+biggest_win_amount | largest win
+races_played | races that user bet on
+favorite|game | game name of most used game
+
+casino
+
+key | description
+--- | -----------
+N/A |
+
+## Get Profile
+
+`GET /profiles/:id`
 
 ## Update Profile
 

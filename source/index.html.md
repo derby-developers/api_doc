@@ -65,8 +65,6 @@ Production API
 
 Any field not listed in the example should not be used.
 
-> Example User Response
-
 ```json
 {
   "id":32118,
@@ -121,7 +119,7 @@ phone_number | phone number
 mobile_phone_number | mobile phone
 accounts | array of Account objects (real money gaming, virtual, etc.)
 
-Account Object
+## Account Object
 
 Field | Description
 ------| -----------
@@ -160,6 +158,13 @@ Coming soon.
 A user object.
 
 ## Update User
+
+```curl
+curl -X PUT \
+  --header "Application-Name: super-fun-game" \
+  --data "birth_date=2000-01-01" \
+  https://api.derbygames.com/api/users
+```
 
 Add additional information to user, such as address, etc.
 
@@ -272,11 +277,11 @@ A token object on success, or an error message.
 
 
 
-# User Account Balances
+<!-- # User Account Balances
 
 Users current balance.
 
-`GET /balance`
+`GET /balance` -->
 
 
 # User Saved Credit Cards
@@ -307,14 +312,30 @@ All credit cards this user has saved.
 
 ```
 
-`GET /notifications`
+Field | Description
+------| -----------
+id |
+message | text of the message
+thumbnail_image_url | fully qualified thumbail URL, if provided
+expires_at | expiration
+bonus | Bonus Object, if applicable
+read | boolean if message has been read
+created_at | date of the message
+expired | boolean if notification has expired
+claimed | boolean if this is a bonus that has been claimed
+claimed_at |
+
+## Get Notifications
 
 > Example
 
 ```curl
-curl --header "Authorization: Bearer ABC123" \
+curl --header "Application-Name: super-fun-game" \ 
+  --header "Authorization: Bearer ABC123" \
   https://api.derbygames.com/api/notifications
 ```
+
+`GET /notifications`
 
 ### Returns
 
@@ -322,31 +343,22 @@ Array of Notification objects.
 
 ## Mark Message as Read
 
-`PUT /notifications/:id/read`
-
 > Example
 
 ```curl
-curl -X PUT --header "Authorization: Bearer ABC123" \
+curl -X PUT \
+  --header "Application-Name: super-fun-game" \
+  --header "Authorization: Bearer ABC123" \
   https://api.derbygames.com/api/notifications/1/read
 ```
+
+`PUT /notifications/:id/read`
 
 Marks a message as read.
 
 # Player Profiles
 
 ## Profile Object
-
-Field | Description
-------| -----------
-screen_name | users name
-image_url | fully qualified URL of their avatar
-city |
-state | 
-bio |
-joined_at | date the user registered
-player_status | highest level reached per group, see below
-stats | metrics, see below
 
 ```json
 {
@@ -371,6 +383,17 @@ stats | metrics, see below
   }
 }
 ```
+
+Field | Description
+------| -----------
+screen_name | users name
+image_url | fully qualified URL of their avatar
+city |
+state | 
+bio |
+joined_at | date the user registered
+player_status | highest level reached per group, see below
+stats | metrics, see below
 
 `stats` and `player_statues` are split into groups:
 
@@ -409,19 +432,48 @@ N/A |
 
 ## Get Profile
 
+> Example
+
+```curl
+curl --header "Application-Name: super-fun-game" \
+  https://api.derbygames.com/api/profiles/32118
+```
+
 `GET /profiles/:id`
 
 ## Update Profile
 
+> Example
+
+```curl
+curl -X PUT \
+  --header "Application-Name: super-fun-game" \
+  --header "Authorization: Bearer ABC123" \
+  --data "bio=blahblahblah" \
+  https://api.derbygames.com/api/profile
+```
+
 `PUT /profile`
 
+Updatable fields
 
-bio only right now?
+Field |
+------|
+bio |
 
-Remove Avatar
+
+## Remove Avatar
+
+> Example
+
+```curl
+curl -X DELETE 
+  --header "Application-Name: super-fun-game" \
+  --header "Authorization: Bearer ABC123" \
+  https://api.derbygames.com/api/profile/avatar
+```
 
 `DELETE /profile/avatar`
-
 
 # Instant Racing
 

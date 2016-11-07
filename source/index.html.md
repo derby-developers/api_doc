@@ -365,7 +365,8 @@ Marks a message as read.
   "screen_name": "Wally T. Dog",
   "image_url":"https://avatars.derbycdn.net/1b/ef5a60ad7811e59098a34b698f19df.jpg",
   "city": "New York", 
-  "state":"NY",
+  "state_code":"NY",
+  "country_code": "US",
   "bio": "games are fun" ,
   "joined_at": "2013-04-04T11:21:03-07:00",
   "player_statuses": [
@@ -388,9 +389,10 @@ Field | Description
 ------| -----------
 screen_name | users name
 image_url | fully qualified URL of their avatar
-city |
-state | 
-bio |
+city | city
+state | 2 letter code of the state/province
+country_code | 2 letter code of the country
+bio | text blob about the user
 joined_at | date the user registered
 player_status | highest level reached per group, see below
 stats | metrics, see below

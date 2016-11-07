@@ -33,6 +33,9 @@ There is limited support for localization using the `Accept-Language` header. Cu
 
 * `en` - English (default)
 * `es` - Spanish
+* `pt` - Portuguese (Brazil)
+
+Any non supported locale will default to English.
 
 Numbers, currency and datetime don’t rely on localization so they will be returned in standard format.
 
@@ -184,7 +187,7 @@ A user object.
 
 User auth is performed using OAuth 2.
 
-Any request consuming user specific data requires a bearer token. Both access and refresh tokens are used. You must get a new access token once it has expired. The token is added to the header of each request:
+Any request consuming user specific data requires a bearer token. Both access and refresh tokens are used. You must get a new access token once it has expired (you will receive a 401). If you The token needs to be added to the header of each request:
 
 `Authorization: Bearer f95f9cf38e829104949ae6e160957f549abab252336c3b1007a5961fda940a09`
 

@@ -269,7 +269,7 @@ A token object on success, or an error message.
 > Failure
 
 ```json
-{ 
+{
   "error": "Invalid email or password",
   "error_description": "The authorization server encountered an unexpected condition which prevented it from fulfilling the request."
 }
@@ -298,13 +298,13 @@ All credit cards this user has saved.
 [
   {
     "id": 1,
-    "message": "Hello, player!", 
+    "message": "Hello, player!",
     "thumbnail_image_url": null,
     "expires_at": "2016-11-03T00:00:00.000-07:00",
     "bonus": {},
     "read": false,
     "created_at": "2016-11-01T14:17:56.991-07:00",
-    "expired": false, 
+    "expired": false,
     "claimed": true,
     "claimed_at":"2016-11-01T14:52:50.443-07:00"
   }
@@ -330,7 +330,7 @@ claimed_at |
 > Example
 
 ```curl
-curl --header "Application-Name: super-fun-game" \ 
+curl --header "Application-Name: super-fun-game" \
   --header "Authorization: Bearer ABC123" \
   https://api.derbygames.com/api/notifications
 ```
@@ -364,7 +364,7 @@ Marks a message as read.
 {
   "screen_name": "Wally T. Dog",
   "image_url":"https://avatars.derbycdn.net/1b/ef5a60ad7811e59098a34b698f19df.jpg",
-  "city": "New York", 
+  "city": "New York",
   "state_code":"NY",
   "country_code": "US",
   "bio": "games are fun" ,
@@ -469,7 +469,7 @@ bio |
 > Example
 
 ```curl
-curl -X DELETE 
+curl -X DELETE
   --header "Application-Name: super-fun-game" \
   --header "Authorization: Bearer ABC123" \
   https://api.derbygames.com/api/profile/avatar
@@ -491,7 +491,9 @@ Current Users Wagers on a Race
 
 Video
 
-`GET /instant_racing/races/:uuid/video`
+`GET /instant_racing/races/:uuid/video?quality=[256|656|1056|hls]`
+
+Numbered bitrates will return URLs to MP4s. HLS will return a m3u8 playlist.
 
 ## Wagers
 

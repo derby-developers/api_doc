@@ -188,6 +188,18 @@ country_code |
 
 A user object.
 
+## Get User
+
+> Examples
+
+`GET /user`
+
+### Returns
+
+A user object of the user specified in the Authentication header. Otherwise, a 401 will be returned.
+
+
+
 # User Authentication
 
 User auth is performed using OAuth 2.

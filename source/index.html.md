@@ -45,15 +45,16 @@ This document applies to V1, which is the current live version. To maintain comp
 
 `Accept: version=1`
 
+## Objects
+
+Any field not explicitly listed should be avoided as it is subject to change.
+
+
 ## Endpoints
 
 Sandbox API
 
 `https://sandbox-api.derbygames.com/api/`
-
-<!-- Sandbox Stream
-
-`https://sandbox-stream.derbygames.com/chat` -->
 
 Production API
 
@@ -62,8 +63,6 @@ Production API
 # Users
 
 ## User Object
-
-Any field not listed in the example should not be used.
 
 ```json
 {
@@ -244,6 +243,23 @@ grant_type | yes | 'assertion'
 provider | yes | 'facebook'
 assertion | yes | OAuth token from provider
 
+### Guest Access (using device ID)
+
+```curl
+curl --header "Application-Name: super-fun-game" \
+  --data "grant_type=guest&device_id" \
+  https://api.derbygames.com/api/oauth/token
+```
+
+Parameter | Required? | Description
+--------- | --------- | -----------
+grant_type | yes | 'guest'
+device_id | yes | GUID of the device/installation
+
+This will create a user account for the device if the ID is not found.
+
+[this will be in production the first week of December]
+
 ### Via Refresh Token
 
 Once the access token has expired, get a new one using the refresh token.
@@ -287,7 +303,17 @@ A token object on success, or an error message.
 }
 ```
 
+## Revoking a Token
 
+`POST /api/oauth/revoke`
+
+Revokes the current token.
+
+## Token Information
+
+`GET /api/oauth/token/info`
+
+Returns a token object.
 
 <!-- # User Account Balances
 

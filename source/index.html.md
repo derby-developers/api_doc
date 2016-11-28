@@ -735,6 +735,20 @@ An array of VirtualCurrencyPackages.
 
 In-app purchasing is supported.
 
+# Push Subscriptions
+
+## Register a Device
+
+`POST /push_subscriptions`
+
+Parameter | Required? | Description
+--------- | --------- | -----------
+client_id | yes | unique device/client ID
+token | yes | device token
+
+### Returns
+
+An empty response. 200 is successful, 422 if not.
 
 # Instant Racing
 

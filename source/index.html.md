@@ -174,7 +174,7 @@ inviter_id | no | ID of who invited this user
 
 ### Using an Installation/Device ID
 
-Coming soon.
+See 'Guest Access' under 'Generating a New Token'.
 
 ### Returns
 
@@ -230,6 +230,27 @@ User auth is performed using OAuth 2.
 Any request consuming user specific data requires a bearer token. Both access and refresh tokens are used. You must get a new access token once it has expired (you will receive a 401). If you The token needs to be added to the header of each request:
 
 `Authorization: Bearer f95f9cf38e829104949ae6e160957f549abab252336c3b1007a5961fda940a09`
+
+## Token Object
+
+```json
+{
+  "access_token": "c07f8370d9f659fdee0dfea45af6f8b2fe37e4c5d77cf292d990a96ea403ca10",
+  "token_type": "bearer",
+  "expires_in": 604800,
+  "refresh_token": "f95f9cf38e829104949ae6e160957f549abab252336c3b1007a5961fda940a09",
+  "scope": "user",
+  "created_at": 1478276432
+}
+```
+
+Field | Description
+------| -----------
+access_token | token that is included in the Authorization header
+token_type | 'bearer'
+expires_in | time until expiration, in seconds
+refresh_token | refresh token to get a new access token once expires_in is 0
+scope | 'user'
 
 ## Generating a New Token
 
@@ -301,22 +322,9 @@ refresh_token | yes | the refresh token
 
 ### Returns
 
-A token object on success, or an error message.
+A token object if successful, or an error message (with HTTP status 401) if not.
 
-> Success
-
-```json
-{
-  "access_token": "c07f8370d9f659fdee0dfea45af6f8b2fe37e4c5d77cf292d990a96ea403ca10",
-  "token_type": "bearer",
-  "expires_in": 604800,
-  "refresh_token": "f95f9cf38e829104949ae6e160957f549abab252336c3b1007a5961fda940a09",
-  "scope": "user",
-  "created_at": 1478276432
-}
-```
-
-> Failure
+> Failure Example
 
 ```json
 {

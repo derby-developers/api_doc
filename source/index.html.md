@@ -599,9 +599,49 @@ An array of Leaders.
 
 An array of Leaders.
 
-# Bonuses
+# Promo Codes
 
-## Coming Soon
+## Redeem a Promo
+
+> Example
+
+```curl
+curl -X POST
+  --header "Application-Name: super-fun-game" \
+  --header "Authorization: Bearer ABC123" \
+  --data "promo_code=super-fun-code" \
+  https://api.derbygames.com/api/redeemed_promos
+```
+
+`POST /redeemed_promos`
+
+Parameter | Required? | Description
+--------- | --------- | -----------
+promo_code | yes | promo to redeem
+
+### Returns
+
+> Success
+
+A slim User object with updated balances, and a slim Promo object with the amount that was added.
+
+```json
+{
+  "user": {"practice_balance":2063136.67},
+  "promo": {"code":"name-here","amount":1000000.0}
+}
+```
+
+Array of error messages if it failed.
+
+> Failure
+
+```json
+{
+  "errors": ["Promo has already been taken"]
+}
+```
+
 
 # Virtual Currency Packages
 

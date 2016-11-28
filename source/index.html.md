@@ -704,7 +704,7 @@ An AwardedBonus object.
 ```
 
 Field | Description
---------- | -----------
+----- | -----------
 id | package id
 price | purchase price
 virtual_currency_value | number of credits
@@ -750,31 +750,145 @@ token | yes | device token
 
 An empty response. 200 is successful, 422 if not.
 
-# Instant Racing
+# Instant Racing: Races
 
-## Races
+## Race Object
 
-View a race
+```json
+{
+  "id":"e1a0f337-f439-4eb6-849f-e3dc5b47b10d",
+  "race_type": "Thoroughbred",
+  "runners": [
+    {
+      "badges": ["top_trainer"],
+      "color": "Chestnut",
+      "jockey_rating":61,
+      "number":4,
+      "odds": null,
+      "pedigree_rating":52,
+      "place_multiplier":4.6,
+      "show_multiplier":1.3,
+      "speed_rating":32,
+      "trophies":6,
+      "win_multiplier":11.6
+    }
+  ]
+}
+```
 
-`GET /instant_racing/races/:uuid`
+Field | Description
+----- | -----------
+id | unique race (per user)
+race_type | Thoroughbred, Harness
+decided_at | date this race was closed for wagering, null if still open
+runners | array of Runner objects
 
-Current Users Wagers on a Race
+## Runner Object
 
-`GET /instant_racing/races/:uuid/wagers`
+Field | Description
+----- | -----------
+badges | array of badges
+jockey_rating | 0-100
+number | position in field
+odds | null until race is decided
+pedigree_rating | 0-100
+speed_rating | 0-100
+place_multiplier |
+show_multiplier |
+win_multiplier |
+trophies | total trophies received
 
-Video
+Badges |
+---------- |
+top_trainer |
 
-`GET /instant_racing/races/:uuid/video?quality=[256|656|1056|hls]`
 
-Numbered bitrates will return URLs to MP4s. HLS will return a m3u8 playlist.
 
-## Wagers
+## Get a Race
+
+Gets the current race for the user. The same race will be returned until the `decide` endpoint has been called.
+
+> Example
+
+```curl
+curl --header "Application-Name: super-fun-game" \
+  --header "Authorization: Bearer ABC123" \
+  https://api.derbygames.com/api/instant_racing/races/current
+```
+
+`GET /instant_racing/races/current`
+
+### Returns
+
+A Race object.
+
+## Decide a Race
+
+Close the race for wagering. You can then request video and results.
+
+`PUT /instant_racing/races/:id/decide`
+
+# Instant Racing: Wagers
+
+## Wager Object
+
+```json
+{
+
+}
+```
+
+## Get Wagers on a Race
+
+`GET /instant_racing/races/:id/wagers`
+
+### Returns
+
+An array of Wager objects.
+
+## New Wager
 
 `POST /instant_racing/wagers`
 
+## New Triple Threat Spin
+
 `POST /instant_racing/triple_threat_spins`
 
+## New Super Slot Spin
+
 `POST /instant_racing/super_slot_spins`
+
+
+# Instant Racing: Video
+
+## Video Object
+
+```json
+{
+  "video_url":"https://instant-racing-video.derbycdn.net/2b/2b368e19-ad1a-44a7-835f-98790948707e/256.mp4",
+  "video_duration_seconds":81
+}
+```
+
+Field | Description
+----- | -----------
+video_url | URL of the video (link expires in 5 minutes)
+video_duration_seconds | total length, in seconds
+
+## Viewing Video
+
+> Example
+
+```curl
+curl --header "Application-Name: super-fun-game" \
+  --header "Authorization: Bearer ABC123" \
+  https://api.derbygames.com/api/instant_racing/races/:id/video?quality=low
+```
+
+`GET /instant_racing/races/:id/video?quality=[low|high|hls]`
+
+'low' and 'high' will be an MP4. HLS will return a m3u8 playlist.
+
 
 
 # Real Money Gaming

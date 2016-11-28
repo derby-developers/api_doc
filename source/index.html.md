@@ -12,8 +12,6 @@ search: false
 
 # Introduction
 
-Oh hai.
-
 For API access, please contact eric@derbygames.com. You will be issued a application name, client ID, and client secret.
 
 # Interacting with the API
@@ -81,15 +79,27 @@ Production API
   "state_code":"NY",
   "country_code":"US",
   "postal_code":"10011",
-  "wager_count":1576,
-  "multi_race_wager_count":81,
   "instant_racing_wager_count":0,
   "triple_threat_spin_count":0,
   "image_url": "https://avatars.derbycdn.net/1b/ef5a60ad7811e59098a34b698f19df.jpg",
   "phone_number":"12125551212",
   "mobile_phone_number":"12125551212",
   "accounts":[
-    {"type":"virtual","balance":0.5,"available_balance":null}
+    { "type":"virtual","balance":0.5 }
+  ],
+  "player_statues": [
+    {
+      "id":22,
+      "current_level_points":0,
+      "earned_level_up_bonus":false,
+      "level":1,
+      "level_up_bonus_amount":0,
+      "lifetime_points":0,
+      "locks":[],
+      "max_bet_amount":200,
+      "name":"casino",
+      "progress":0
+    }
   ]
 }
 ```
@@ -117,6 +127,7 @@ image_url | full URL of the users avatar
 phone_number | phone number
 mobile_phone_number | mobile phone
 accounts | array of Account objects (real money gaming, virtual, etc.)
+player_statues | array of PlayerStatus objects, each one corresponding to a group of applications
 
 ## Account Object
 
@@ -124,8 +135,21 @@ Field | Description
 ------| -----------
 type | type of the account (virtual, rmg, etc.)
 balance | current balance
-available_balance | ?
 
+## PlayerStatus Object
+
+Field | Description
+------| -----------
+id |
+name | application group name
+level |
+current_level_points |
+earned_level_up_bonus |
+level_up_bonus_amount |
+lifetime_points |
+locks |
+max_bet_amount |
+progress |
 
 ## Create User
 
@@ -258,8 +282,6 @@ device_id | yes | GUID of the device/installation
 
 This will create a user account for the device if the ID is not found.
 
-[this will be in production the first week of December]
-
 ### Via Refresh Token
 
 Once the access token has expired, get a new one using the refresh token.
@@ -313,20 +335,22 @@ Revokes the current token.
 
 `GET /api/oauth/token/info`
 
-Returns a token object.
+### Returns
 
-<!-- # User Account Balances
-
-Users current balance.
-
-`GET /balance` -->
+A Token object.
 
 
 # User Saved Credit Cards
 
 All credit cards this user has saved.
 
+## Get User's Saved Cards
+
 `GET /credit_cards`
+
+### Returns
+
+A CreditCard object.
 
 # User Notifications
 
@@ -432,7 +456,7 @@ state | 2 letter code of the state/province
 country_code | 2 letter code of the country
 bio | text blob about the user
 joined_at | date the user registered
-player_status | highest level reached per group, see below
+player_statuses | array of slim PlayerStatus objects with name/level
 stats | metrics, see below
 
 `stats` and `player_statues` are split into groups:
@@ -481,6 +505,10 @@ curl --header "Application-Name: super-fun-game" \
 
 `GET /profiles/:id`
 
+### Returns
+
+A Profile object.
+
 ## Update Profile
 
 > Example
@@ -501,6 +529,9 @@ Field |
 ------|
 bio |
 
+### Returns
+
+A Profile object.
 
 ## Remove Avatar
 
@@ -521,10 +552,10 @@ curl -X DELETE
 ## Leader Object
 
 ```json
-  { 
-    "id": 248941, 
-    "score": 19200, 
-    "rank": 1, 
+  {
+    "id": 248941,
+    "score": 19200,
+    "rank": 1,
     "screen_name": "Joe S.",
     "board": "daily",
     "image_url": "https://avatars.derbycdn.net/15/121b70929811e491181d7fc65910e6.jpg"
@@ -533,7 +564,7 @@ curl -X DELETE
 
 Field | Description
 --------- | -----------
-id | 
+id |
 score | integer score, higher the better
 rank | position in this board
 screen_name | user chosen name
@@ -544,20 +575,66 @@ image_url | avatar of the user
 
 `GET /leaders`
 
-Paramaters
-
 Parameter | Required? | Description
 --------- | --------- | -----------
 show | no | number of leaders to show (default: all)
 
+### Returns
+
+An array of Leaders.
 
 ## Leaders near the current user
 
 `GET /headers/around_me`
 
+### Returns
+
+An array of Leaders.
+
 # Bonuses
 
 ## Coming Soon
+
+# Virtual Currency Packages
+
+## VirtualCurrencyPackage Object
+
+```json
+  { "id":1,"price":4.99,"virtual_currency_value":240000.0}
+```
+
+Field | Description
+--------- | -----------
+id | package id
+price | purchase price
+virtual_currency_value | number of credits
+
+## Get Packages
+
+> Example
+
+```curl
+curl --header "Application-Name: super-fun-game" \
+  --header "Authorization: Bearer ABC123" \
+  https://api.derbygames.com/api/virtual_currency_packages
+```
+
+`GET /virtual_currency_packages`
+
+Authentication is not required, but recommended.
+
+Parameter | Required? | Description
+--------- | --------- | -----------
+promo_code | no | a promo code to show promotional pricing
+
+### Returns
+
+An array of VirtualCurrencyPackages.
+
+## Purchasing via ApplePay / AndroidPay
+
+In-app purchasing is supported.
+
 
 # Instant Racing
 

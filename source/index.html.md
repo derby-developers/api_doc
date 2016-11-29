@@ -333,12 +333,6 @@ A token object if successful, or an error message (with HTTP status 401) if not.
 }
 ```
 
-## Revoking a Token
-
-`POST /api/oauth/revoke`
-
-Revokes the current token.
-
 ## Token Information
 
 `GET /api/oauth/token/info`

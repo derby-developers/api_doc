@@ -1168,7 +1168,28 @@ An array of Wager objects.
 
 ## New Wager
 
+> Example
+
+```curl
+curl --header "Application-Name: super-fun-game" \
+  --header "Authorization: Bearer ABC123" \
+  --data "amount=10&game_name=exotic-pro&pool=exacta&race_id=46860996-e83d-4ef8-bcd2-8486ed440dea&runners%5B%5D%5Bnumber%5D=3&runners%5B%5D%5Bnumber%5D=7" \
+  https://api.derbygames.com/api/instant_racing/wagers
+```
+
 `POST /instant_racing/wagers`
+
+Parameter | Required? | Description
+--------- | --------- | -----------
+race_id | yes | the race id
+pool | yes | the pool ("win", "exacta", "trifecta", "superfecta", "win_place", "win_place_show")
+game_name | yes | the game ("super-slots", "win-place-show", "triple-threat", "exotic-pro")
+amount | yes | the wager amount
+runners | yes | an array of objects indicating runner numbers ex: [{number: 2}, {number: 7}]
+
+### Returns
+
+A Wager object.
 
 ## New Triple Threat Spin
 

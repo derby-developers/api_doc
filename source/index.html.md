@@ -740,7 +740,7 @@ After a sucessful in-app purchase, to add the credits into the user's account, t
 Parameter | Required? | Description
 --------- | --------- | -----------
 service | yes | 'google' or 'apple'
-(all others) | yes | different params depending on the service (TBD)
+receipt | yes | receipt blob
 
 [This endpoint is not yet live and subject to change]
 

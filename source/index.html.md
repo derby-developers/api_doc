@@ -935,6 +935,227 @@ runners | an array of Runner objects
 user | a User object
 
 
+## Spin Object
+
+```json
+{
+  "race_id": "46860996-e83d-4ef8-bcd2-8486ed440dea",
+  "wagers": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "race_id": "46860996-e83d-4ef8-bcd2-8486ed440dea",
+      "amount": 2,
+      "payoff_amount": null,
+      "pool": "trifecta",
+      "box": null,
+      "bonus_multiplier": 1,
+      "runners": [
+        {
+          "number": 5,
+          "color": "Bay",
+          "odds": "favorite",
+          "badges": [
+            "favorite"
+          ],
+          "trophies": 0,
+          "speed_rating": null,
+          "pedigree_rating": 0,
+          "jockey_rating": null,
+          "win_multiplier": 1,
+          "place_multiplier": 2,
+          "show_multiplier": 1.3,
+          "position": 0
+        },
+        {
+          "number": 4,
+          "color": "Bay",
+          "odds": "favorite",
+          "badges": [
+            "favorite"
+          ],
+          "trophies": 0,
+          "speed_rating": null,
+          "pedigree_rating": 0,
+          "jockey_rating": null,
+          "win_multiplier": 1,
+          "place_multiplier": 2,
+          "show_multiplier": 1.3,
+          "position": 1
+        },
+        {
+          "number": 1,
+          "color": "Bay",
+          "odds": "favorite",
+          "badges": [
+            "favorite"
+          ],
+          "trophies": 0,
+          "speed_rating": null,
+          "pedigree_rating": 0,
+          "jockey_rating": null,
+          "win_multiplier": 1,
+          "place_multiplier": 2,
+          "show_multiplier": 1.3,
+          "position": 2
+        }
+      ],
+      "game_name": "triple-threat",
+      "user": {
+        "id": 1,
+        "screen_name": "Joe S.",
+        "image_url": "https://derbycdn.net/towelie.jpg",
+        "practice_balance": 16,
+        "instant_racing_wager_count": 2,
+        "accounts": [
+          {
+            "type": "derby",
+            "balance": 100,
+            "available_balance": 100
+          },
+          {
+            "type": "virtual",
+            "balance": 16,
+            "available_balance": null
+          }
+        ],
+        "player_statuses": [
+          {
+            "id": 1,
+            "name": "casino",
+            "level": 1,
+            "lifetime_points": 0,
+            "current_level_points": 0,
+            "progress": 0,
+            "max_bet_amount": 200,
+            "earned_level_up_bonus": false,
+            "level_up_bonus_amount": 0,
+            "locks": []
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "user_id": 1,
+      "race_id": "46860996-e83d-4ef8-bcd2-8486ed440dea",
+      "amount": 2,
+      "payoff_amount": null,
+      "pool": "trifecta",
+      "box": null,
+      "bonus_multiplier": 1,
+      "runners": [
+        {
+          "number": 2,
+          "color": "Bay",
+          "odds": "favorite",
+          "badges": [
+            "favorite"
+          ],
+          "trophies": 0,
+          "speed_rating": null,
+          "pedigree_rating": 0,
+          "jockey_rating": null,
+          "win_multiplier": 1,
+          "place_multiplier": 2,
+          "show_multiplier": 1.3,
+          "position": 0
+        },
+        {
+          "number": 5,
+          "color": "Bay",
+          "odds": "favorite",
+          "badges": [
+            "favorite"
+          ],
+          "trophies": 0,
+          "speed_rating": null,
+          "pedigree_rating": 0,
+          "jockey_rating": null,
+          "win_multiplier": 1,
+          "place_multiplier": 2,
+          "show_multiplier": 1.3,
+          "position": 1
+        },
+        {
+          "number": 3,
+          "color": "Bay",
+          "odds": "favorite",
+          "badges": [
+            "favorite"
+          ],
+          "trophies": 0,
+          "speed_rating": null,
+          "pedigree_rating": 0,
+          "jockey_rating": null,
+          "win_multiplier": 1,
+          "place_multiplier": 2,
+          "show_multiplier": 1.3,
+          "position": 2
+        }
+      ],
+      "game_name": "triple-threat",
+      "user": {
+        "id": 1,
+        "screen_name": "Joe S.",
+        "image_url": "https://derbycdn.net/towelie.jpg",
+        "practice_balance": 16,
+        "instant_racing_wager_count": 2,
+        "accounts": [
+          {
+            "type": "derby",
+            "balance": 100,
+            "available_balance": 100
+          },
+          {
+            "type": "virtual",
+            "balance": 16,
+            "available_balance": null
+          }
+        ],
+        "player_statuses": [
+          {
+            "id": 1,
+            "name": "casino",
+            "level": 1,
+            "lifetime_points": 0,
+            "current_level_points": 0,
+            "progress": 0,
+            "max_bet_amount": 200,
+            "earned_level_up_bonus": false,
+            "level_up_bonus_amount": 0,
+            "locks": []
+          }
+        ]
+      }
+    }
+  ],
+  "user": {
+    "triple_threat_spin_count": 1,
+    "instant_racing_wager_count": 2,
+    "player_statuses": [
+      {
+        "id": 1,
+        "name": "casino",
+        "level": 1,
+        "lifetime_points": 0,
+        "current_level_points": 0,
+        "progress": 0,
+        "max_bet_amount": 200,
+        "earned_level_up_bonus": false,
+        "level_up_bonus_amount": 0,
+        "locks": []
+      }
+    ]
+  }
+}
+```
+
+Field | Description
+----- | -----------
+race_id | race id
+wagers | an array of Wager objects
+user | a User object
 
 
 ## Get Wagers on a Race

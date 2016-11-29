@@ -1384,12 +1384,16 @@
 <td>Thoroughbred, Harness</td>
 </tr>
 <tr>
-<td>decided_at</td>
-<td>date this race was closed for wagering, null if still open</td>
+<td>decide_at</td>
+<td>datetime race will close for wagering</td>
 </tr>
 <tr>
 <td>runners</td>
 <td>array of Runner objects</td>
+</tr>
+<tr>
+<td>payouts</td>
+<td>array of Payout objects (only shown after the race is decided)</td>
 </tr>
 </tbody></table>
 
@@ -1415,7 +1419,7 @@
 </tr>
 <tr>
 <td>odds</td>
-<td>null until race is decided</td>
+<td>null, &#39;long_shot&rsquo; or &#39;favorite&rsquo; until race is decided, then the runner&rsquo;s odds (e.g. 9/2)</td>
 </tr>
 <tr>
 <td>pedigree_rating</td>
@@ -1426,30 +1430,114 @@
 <td>0-100</td>
 </tr>
 <tr>
-<td>place_multiplier</td>
-<td></td>
-</tr>
-<tr>
-<td>show_multiplier</td>
-<td></td>
+<td>color</td>
+<td>the color of the horse, &ldquo;Bay&rdquo;, &ldquo;Gray&rdquo;, &ldquo;Chestnut&rdquo;, &ldquo;Dark Bay&rdquo; or &ldquo;Black&rdquo;</td>
 </tr>
 <tr>
 <td>win_multiplier</td>
-<td></td>
+<td>approximate multiple of wager paid out if horse finishes first</td>
+</tr>
+<tr>
+<td>place_multiplier</td>
+<td>approximate multiple of wager paid out if horse finishes second</td>
+</tr>
+<tr>
+<td>show_multiplier</td>
+<td>approximate multiple of wager paid out if horse finishes third</td>
 </tr>
 <tr>
 <td>trophies</td>
 <td>total trophies received</td>
+</tr>
+<tr>
+<td>name</td>
+<td>the horse&rsquo;s name (only shown after the race is decided)</td>
+</tr>
+<tr>
+<td>final_position</td>
+<td>the horse&rsquo;s final position (only shown after the race is decided)</td>
 </tr>
 </tbody></table>
 
 <table><thead>
 <tr>
 <th>Badges</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>top_trainer</td>
+<td>horse&rsquo;s trainer has an exceptional record</td>
+</tr>
+<tr>
+<td>top_jockey</td>
+<td>horse&rsquo;s jockey has an exceptional record</td>
+</tr>
+<tr>
+<td>money_bags</td>
+<td>horse&rsquo;s lifetime earnings are in the top 20%</td>
+</tr>
+<tr>
+<td>extra_classy</td>
+<td>horse&rsquo;s class rating is in the top 20%</td>
+</tr>
+<tr>
+<td>first_timer</td>
+<td>horse&rsquo;s first race</td>
+</tr>
+<tr>
+<td>star_sire</td>
+<td>horse&rsquo;s father has an exceptional record</td>
+</tr>
+<tr>
+<td>star_dam</td>
+<td>horse&rsquo;s mother has an exceptional record</td>
+</tr>
+<tr>
+<td>streak_one</td>
+<td>won its last race</td>
+</tr>
+<tr>
+<td>streak_two</td>
+<td>won its last two races</td>
+</tr>
+<tr>
+<td>streak_three</td>
+<td>won its last three races</td>
+</tr>
+<tr>
+<td>long_shot</td>
+<td>horse has long odds (less likely to win)</td>
+</tr>
+<tr>
+<td>favorite</td>
+<td>horse has short odds (more likely to win)</td>
+</tr>
+</tbody></table>
+
+<h2 id="payout-object">Payout Object</h2>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>wager_amount</td>
+<td></td>
+</tr>
+<tr>
+<td>payoff_amount</td>
+<td>the amount paid out for a wager of <code class="prettyprint">wager_amount</code></td>
+</tr>
+<tr>
+<td>finish</td>
+<td>the finish associated with a winning payout</td>
+</tr>
+<tr>
+<td>pool</td>
+<td>the type of wager being paid out</td>
 </tr>
 </tbody></table>
 

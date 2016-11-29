@@ -1168,6 +1168,8 @@ An array of Wager objects.
 
 ## New Wager
 
+`POST /instant_racing/wagers`
+
 > Example
 
 ```curl
@@ -1176,8 +1178,6 @@ curl --header "Application-Name: super-fun-game" \
   --data "amount=10&game_name=exotic-pro&pool=exacta&race_id=46860996-e83d-4ef8-bcd2-8486ed440dea&runners%5B%5D%5Bnumber%5D=3&runners%5B%5D%5Bnumber%5D=7" \
   https://api.derbygames.com/api/instant_racing/wagers
 ```
-
-`POST /instant_racing/wagers`
 
 Parameter | Required? | Description
 --------- | --------- | -----------
@@ -1195,9 +1195,46 @@ A Wager object.
 
 `POST /instant_racing/triple_threat_spins`
 
+> Example
+
+```curl
+curl --header "Application-Name: super-fun-game" \
+  --header "Authorization: Bearer ABC123" \
+  --data "amount=10&race_id=46860996-e83d-4ef8-bcd2-8486ed440dea&count=2" \
+  https://api.derbygames.com/api/instant_racing/triple_threat_spins
+```
+
+Parameter | Required? | Description
+--------- | --------- | -----------
+race_id | yes | the race id
+amount | yes | the wager amount
+count | yes | the number of wagers to include in this spin
+
+### Returns
+
+A Spin object.
+
 ## New Super Slot Spin
 
 `POST /instant_racing/super_slot_spins`
+
+> Example
+
+```curl
+curl --header "Application-Name: super-fun-game" \
+  --header "Authorization: Bearer ABC123" \
+  --data "amount=10&race_id=46860996-e83d-4ef8-bcd2-8486ed440dea" \
+  https://api.derbygames.com/api/instant_racing/super_slot_spins
+```
+
+Parameter | Required? | Description
+--------- | --------- | -----------
+race_id | yes | the race id
+amount | yes | the wager amount
+
+### Returns
+
+A Spin object.
 
 
 # Instant Racing: Video

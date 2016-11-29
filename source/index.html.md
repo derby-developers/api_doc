@@ -767,7 +767,8 @@ An empty response. 200 is successful, 422 if not.
   "race_type": "Thoroughbred",
   "runners": [
     {
-      "badges": ["top_trainer"],
+      "badges": [
+        "top_trainer"],
       "color": "Chestnut",
       "jockey_rating":61,
       "number":4,
@@ -797,18 +798,29 @@ Field | Description
 badges | array of badges
 jockey_rating | 0-100
 number | position in field
-odds | null until race is decided
+odds | null, 'long_shot' or 'favorite' until race is decided, then the runner's odds (e.g. 9/2)
 pedigree_rating | 0-100
 speed_rating | 0-100
+color | the color of the horse, "Bay", "Gray", "Chestnut", "Dark Bay" or "Black"
 place_multiplier |
 show_multiplier |
 win_multiplier |
 trophies | total trophies received
 
-Badges |
----------- |
-top_trainer |
-
+Badges     | Description
+---------- | -----------
+top_trainer | horse's trainer has an exceptional record
+top_jockey |  horse's jockey has an exceptional record
+money_bags | horse's lifetime earnings are in the top 20%
+extra_classy | horse's class rating is in the top 20%
+first_timer | horse's first race
+star_sire | horse's father has an exceptional record
+star_dam | horse's mother has an exceptional record
+streak_one | won its last race
+streak_two |  won its last two races
+streak_three | won its last three races
+long_shot | horse has long odds (less likely to win)
+favorite | horse has short odds (more likely to win)
 
 
 ## Get a Race

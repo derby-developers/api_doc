@@ -778,6 +778,22 @@ payouts | array of Payout objects (only shown after the race is decided)
 
 ## Runner Object
 
+```json
+{
+  "badges": ["top_trainer"],
+  "color": "Chestnut",
+  "jockey_rating":61,
+  "number":4,
+  "odds": null,
+  "pedigree_rating":52,
+  "place_multiplier":4.6,
+  "show_multiplier":1.3,
+  "speed_rating":32,
+  "trophies":6,
+  "win_multiplier":11.6
+}
+```
+
 Field | Description
 ----- | -----------
 badges | array of badges
@@ -847,9 +863,79 @@ Close the race for wagering. You can then request video and results.
 
 ```json
 {
-
+  "id": 1,
+  "user_id": 1,
+  "race_id": "755d855c-31af-412e-989e-8a63492683bf",
+  "amount": 10,
+  "payoff_amount": null,
+  "pool": "win",
+  "box": null,
+  "bonus_multiplier": 1,
+  "runners": [
+    {
+      "number": 3,
+      "color": "Bay",
+      "odds": "favorite",
+      "badges": [
+        "favorite"
+      ],
+      "trophies": 0,
+      "speed_rating": null,
+      "pedigree_rating": 0,
+      "jockey_rating": null,
+      "win_multiplier": 1,
+      "place_multiplier": 2,
+      "show_multiplier": 1.3,
+      "position": 0
+    }
+  ],
+  "game_name": "win-place-show",
+  "user": {
+    "id": 1,
+    "screen_name": "Joe S.",
+    "image_url": "https://derbycdn.net/towelie.jpg",
+    "practice_balance": 10,
+    "instant_racing_wager_count": 1,
+    "accounts": [
+      {
+        "type": "virtual",
+        "balance": 10
+      }
+    ],
+    "player_statuses": [
+      {
+        "id": 1,
+        "name": "casino",
+        "level": 1,
+        "lifetime_points": 0,
+        "current_level_points": 0,
+        "progress": 0,
+        "max_bet_amount": 200,
+        "earned_level_up_bonus": false,
+        "level_up_bonus_amount": 0,
+        "locks": []
+      }
+    ]
+  }
 }
 ```
+
+Field | Description
+----- | -----------
+id | wager id
+user_id | user id
+race_id | race id
+amount | wager amount
+payoff_amount | amount the wager paid out (shown when the race has been decided)
+pool | the pool ("win", "exacta", "trifecta", "superfecta", "win_place", "win_place_show")
+game_name | the game that created this wager ("super-slots", "win-place-show", "triple-threat", "exotic-pro")
+box | boolean; true if runners can came in any order, false if they must come in exact order
+bonus_multiplier | the payout multiplier being applied to the wager
+runners | an array of Runner objects
+user | a User object
+
+
+
 
 ## Get Wagers on a Race
 

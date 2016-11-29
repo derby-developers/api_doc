@@ -767,8 +767,7 @@ An empty response. 200 is successful, 422 if not.
   "race_type": "Thoroughbred",
   "runners": [
     {
-      "badges": [
-        "top_trainer"],
+      "badges": ["top_trainer"],
       "color": "Chestnut",
       "jockey_rating":61,
       "number":4,
@@ -788,8 +787,9 @@ Field | Description
 ----- | -----------
 id | unique race (per user)
 race_type | Thoroughbred, Harness
-decided_at | date this race was closed for wagering, null if still open
+decide_at | datetime race will close for wagering
 runners | array of Runner objects
+payouts | array of Payout objects (only shown after the race is decided)
 
 ## Runner Object
 
@@ -802,10 +802,12 @@ odds | null, 'long_shot' or 'favorite' until race is decided, then the runner's 
 pedigree_rating | 0-100
 speed_rating | 0-100
 color | the color of the horse, "Bay", "Gray", "Chestnut", "Dark Bay" or "Black"
-win_multiplier | approximate multiple of wager if horse finishes first
-place_multiplier | approximate multiple of wager if horse finishes second
-show_multiplier | approximate multiple of wager if horse finishes third
+win_multiplier | approximate multiple of wager paid out if horse finishes first
+place_multiplier | approximate multiple of wager paid out if horse finishes second
+show_multiplier | approximate multiple of wager paid out if horse finishes third
 trophies | total trophies received
+name | the horse's name (only shown after the race is decided)
+final_position | the horse's final position (only shown after the race is decided)
 
 Badges     | Description
 ---------- | -----------
@@ -822,6 +824,13 @@ streak_three | won its last three races
 long_shot | horse has long odds (less likely to win)
 favorite | horse has short odds (more likely to win)
 
+## Payout Object
+Field | Description
+----- | -----------
+wager_amount |
+payoff_amount | the amount paid out for a wager of `wager_amount`
+finish | the finish associated with a winning payout
+pool | the type of wager being paid out
 
 ## Get a Race
 

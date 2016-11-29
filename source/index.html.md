@@ -725,9 +725,20 @@ promo_code | no | a promo code to show promotional pricing
 
 An array of VirtualCurrencyPackages.
 
-## Purchasing via ApplePay / AndroidPay
+## In-App Purchasing
 
-In-app purchasing is supported.
+## Receipt Validation
+
+After a sucessful in-app purchase, to add the credits into the user's account, the IAP receipt must be validated.
+
+`POST /virtual_currency_purchase_receipts`
+
+Parameter | Required? | Description
+--------- | --------- | -----------
+service | yes | 'google' or 'apple'
+(all others) | yes | different params depending on the service (TBD)
+
+[This endpoint is not yet live and subject to change]
 
 # Push Subscriptions
 

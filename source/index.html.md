@@ -772,7 +772,7 @@ Field | Description
 ----- | -----------
 id | unique race (per user)
 race_type | Thoroughbred, Harness
-decide_at | datetime race will close for wagering
+decided | whether the race is decided (true or false)
 runners | array of Runner objects
 payouts | array of Payout objects (only shown after the race is decided)
 

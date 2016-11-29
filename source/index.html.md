@@ -617,11 +617,15 @@ promo_code | yes | promo to redeem
 
 > Success
 
-A slim User object with updated balances, and a slim Promo object with the amount that was added.
+A slim User object with an array of Accounts with updated balances and a slim Promo object with the amount of the promo.
 
 ```json
 {
-  "user": {"practice_balance":2063136.67},
+  "user": {
+    "accounts": [
+      {"type": "virtual", "balance": 2083136.67}
+    ]
+  },
   "promo": {"code":"name-here","amount":1000000.0}
 }
 ```

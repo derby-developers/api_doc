@@ -729,9 +729,7 @@ promo_code | no | a promo code to show promotional pricing
 
 An array of VirtualCurrencyPackages.
 
-## In-App Purchasing
-
-## Receipt Validation
+## IAP Receipt Validation
 
 After a sucessful in-app purchase, to add the credits into the user's account, the IAP receipt must be validated.
 

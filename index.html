@@ -1316,35 +1316,6 @@
 
 <p>[This endpoint is not yet live and subject to change]</p>
 
-<h1 id="push-subscriptions">Push Subscriptions</h1>
-
-<h2 id="register-a-device">Register a Device</h2>
-
-<p><code class="prettyprint">POST /push_subscriptions</code></p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required?</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>client_id</td>
-<td>yes</td>
-<td>unique device/client ID</td>
-</tr>
-<tr>
-<td>token</td>
-<td>yes</td>
-<td>device token</td>
-</tr>
-</tbody></table>
-
-<h3 id="returns">Returns</h3>
-
-<p>An empty response. 200 is successful, 422 if not.</p>
-
 <h1 id="instant-racing-races">Instant Racing: Races</h1>
 
 <h2 id="race-object">Race Object</h2>
@@ -1384,8 +1355,8 @@
 <td>Thoroughbred, Harness</td>
 </tr>
 <tr>
-<td>decide_at</td>
-<td>datetime race will close for wagering</td>
+<td>decided</td>
+<td>whether the race is decided (true or false)</td>
 </tr>
 <tr>
 <td>runners</td>

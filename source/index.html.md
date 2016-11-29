@@ -802,9 +802,9 @@ odds | null, 'long_shot' or 'favorite' until race is decided, then the runner's 
 pedigree_rating | 0-100
 speed_rating | 0-100
 color | the color of the horse, "Bay", "Gray", "Chestnut", "Dark Bay" or "Black"
-place_multiplier |
-show_multiplier |
-win_multiplier |
+win_multiplier | approximate multiple of wager if horse finishes first
+place_multiplier | approximate multiple of wager if horse finishes second
+show_multiplier | approximate multiple of wager if horse finishes third
 trophies | total trophies received
 
 Badges     | Description

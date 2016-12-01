@@ -1175,7 +1175,8 @@ An array of Wager objects.
 ```curl
 curl -H "Application-Name: super-fun-game" \
   -H "Authorization: Bearer ABC123" \
-  -d "amount=10&game_name=exotic-pro&pool=exacta&race_id=46860996-e83d-4ef8-bcd2-8486ed440dea&runners%5B%5D%5Bnumber%5D=3&runners%5B%5D%5Bnumber%5D=7" \
+  -H "Content-Type: application/json" \
+  -d '{"amount": 10, "game_name": "exotic-pro", "pool": "exacta", "race_id": "46860996-e83d-4ef8-bcd2-8486ed440dea", "runners": [{"number": 3},{"number":5}] }' \
   https://api.derbygames.com/api/instant_racing/wagers
 ```
 
@@ -1200,7 +1201,8 @@ A Wager object.
 ```curl
 curl -H "Application-Name: super-fun-game" \
   -H "Authorization: Bearer ABC123" \
-  -d "amount=10&race_id=46860996-e83d-4ef8-bcd2-8486ed440dea&count=2" \
+  -H "Content-Type: application/json" \
+  -d '{"amount": 10, "race_id": "46860996-e83d-4ef8-bcd2-8486ed440dea", "count": 2}' \
   https://api.derbygames.com/api/instant_racing/triple_threat_spins
 ```
 
@@ -1223,7 +1225,8 @@ A Spin object.
 ```curl
 curl -H "Application-Name: super-fun-game" \
   -H "Authorization: Bearer ABC123" \
-  -d "amount=10&race_id=46860996-e83d-4ef8-bcd2-8486ed440dea" \
+  -H "Content-Type: application/json" \
+  -d '{"amount": 10, "race_id": "46860996-e83d-4ef8-bcd2-8486ed440dea"}' \
   https://api.derbygames.com/api/instant_racing/super_slot_spins
 ```
 

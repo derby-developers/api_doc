@@ -377,8 +377,8 @@
 <p><code class="prettyprint">POST /users</code></p>
 
 <h3 id="using-an-email-and-password">Using an Email and Password</h3>
-<pre class="highlight plaintext"><code>curl --header "Application-Name: super-fun-game" \
-  --data "email=hi@example.com&amp;password=123456" \
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+  -d "email=hi@example.com&amp;password=123456" \
   https://api.derbygames.com/api/users
 </code></pre>
 
@@ -416,8 +416,8 @@
 
 <h2 id="update-user">Update User</h2>
 <pre class="highlight plaintext"><code>curl -X PUT \
-  --header "Application-Name: super-fun-game" \
-  --data "birth_date=2000-01-01" \
+  -H "Application-Name: super-fun-game" \
+  -d "birth_date=2000-01-01" \
   https://api.derbygames.com/api/users
 </code></pre>
 
@@ -539,8 +539,8 @@
 <p><code class="prettyprint">POST /api/oauth/tokens</code></p>
 
 <h3 id="via-email-password">Via Email/Password</h3>
-<pre class="highlight plaintext"><code>curl --header "Application-Name: super-fun-game" \
-  --data "grant_type=password&amp;email=user@domain.com&amp;password=123456" \
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+  -d "grant_type=password&amp;email=user@domain.com&amp;password=123456" \
   https://api.derbygames.com/api/oauth/token
 </code></pre>
 
@@ -575,8 +575,8 @@
 <blockquote>
 <p>Example</p>
 </blockquote>
-<pre class="highlight plaintext"><code>curl --header "Application-Name: super-fun-game" \
-  --data "grant_type=assertion&amp;assertion=FBTOKEN123456" \
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+  -d "grant_type=assertion&amp;assertion=FBTOKEN123456" \
   https://api.derbygames.com/api/oauth/token
 </code></pre>
 
@@ -605,8 +605,8 @@
 </tbody></table>
 
 <h3 id="guest-access-using-device-id">Guest Access (using device ID)</h3>
-<pre class="highlight plaintext"><code>curl --header "Application-Name: super-fun-game" \
-  --data "grant_type=guest&amp;device_id" \
+<pre class="highlight plaintext"><code>curl -D "Application-Name: super-fun-game" \
+  -d "grant_type=guest&amp;device_id" \
   https://api.derbygames.com/api/oauth/token
 </code></pre>
 
@@ -638,8 +638,8 @@
 <blockquote>
 <p>Example</p>
 </blockquote>
-<pre class="highlight plaintext"><code>curl --header "Application-Name: super-fun-game" \
-  --data "grant_type=refresh_token&amp;refresh_token=f95f9cf38e829104949ae6e160957f549abab252336c3b1007a5961fda940a09" \
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+  -d "grant_type=refresh_token&amp;refresh_token=f95f9cf38e829104949ae6e160957f549abab252336c3b1007a5961fda940a09" \
   https://api.derbygames.com/api/oauth/token
 </code></pre>
 
@@ -768,8 +768,8 @@
 <blockquote>
 <p>Example</p>
 </blockquote>
-<pre class="highlight plaintext"><code>curl --header "Application-Name: super-fun-game" \
-  --header "Authorization: Bearer ABC123" \
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
   https://api.derbygames.com/api/notifications
 </code></pre>
 
@@ -785,8 +785,8 @@
 <p>Example</p>
 </blockquote>
 <pre class="highlight plaintext"><code>curl -X PUT \
-  --header "Application-Name: super-fun-game" \
-  --header "Authorization: Bearer ABC123" \
+  -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
   https://api.derbygames.com/api/notifications/1/read
 </code></pre>
 
@@ -968,7 +968,7 @@
 <blockquote>
 <p>Example</p>
 </blockquote>
-<pre class="highlight plaintext"><code>curl --header "Application-Name: super-fun-game" \
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
   https://api.derbygames.com/api/profiles/32118
 </code></pre>
 
@@ -984,9 +984,9 @@
 <p>Example</p>
 </blockquote>
 <pre class="highlight plaintext"><code>curl -X PUT \
-  --header "Application-Name: super-fun-game" \
-  --header "Authorization: Bearer ABC123" \
-  --data "bio=blahblahblah" \
+  -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -d "bio=blahblahblah" \
   https://api.derbygames.com/api/profile
 </code></pre>
 
@@ -1014,8 +1014,8 @@
 <p>Example</p>
 </blockquote>
 <pre class="highlight plaintext"><code>curl -X DELETE
-  --header "Application-Name: super-fun-game" \
-  --header "Authorization: Bearer ABC123" \
+  -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
   https://api.derbygames.com/api/profile/avatar
 </code></pre>
 
@@ -1104,9 +1104,9 @@
 <p>Example</p>
 </blockquote>
 <pre class="highlight plaintext"><code>curl -X POST
-  --header "Application-Name: super-fun-game" \
-  --header "Authorization: Bearer ABC123" \
-  --data "promo_code=super-fun-code" \
+  -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -d "promo_code=super-fun-code" \
   https://api.derbygames.com/api/redeemed_promos
 </code></pre>
 
@@ -1205,9 +1205,9 @@
 <blockquote>
 <p>Example</p>
 </blockquote>
-<pre class="highlight plaintext"><code>curl --header "Application-Name: super-fun-game" \
-  --header "Authorization: Bearer ABC123" \
-  --data "bonus_name=instant_racing_refill" \
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -d "bonus_name=instant_racing_refill" \
   https://api.derbygames.com/api/awarded_bonuses
 </code></pre>
 
@@ -1262,8 +1262,8 @@
 <blockquote>
 <p>Example</p>
 </blockquote>
-<pre class="highlight plaintext"><code>curl --header "Application-Name: super-fun-game" \
-  --header "Authorization: Bearer ABC123" \
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
   https://api.derbygames.com/api/virtual_currency_packages
 </code></pre>
 
@@ -1533,8 +1533,8 @@
 <blockquote>
 <p>Example</p>
 </blockquote>
-<pre class="highlight plaintext"><code>curl --header "Application-Name: super-fun-game" \
-  --header "Authorization: Bearer ABC123" \
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
   https://api.derbygames.com/api/instant_racing/races/current
 </code></pre>
 
@@ -1912,9 +1912,10 @@
 <blockquote>
 <p>Example</p>
 </blockquote>
-<pre class="highlight plaintext"><code>curl --header "Application-Name: super-fun-game" \
-  --header "Authorization: Bearer ABC123" \
-  --data "amount=10&amp;game_name=exotic-pro&amp;pool=exacta&amp;race_id=46860996-e83d-4ef8-bcd2-8486ed440dea&amp;runners%5B%5D%5Bnumber%5D=3&amp;runners%5B%5D%5Bnumber%5D=7" \
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -H "Content-Type: application/json" \
+  -d '{"amount": 10, "game_name": "exotic-pro", "pool": "exacta", "race_id": "46860996-e83d-4ef8-bcd2-8486ed440dea", "runners": [{"number": 3},{"number":5}] }' \
   https://api.derbygames.com/api/instant_racing/wagers
 </code></pre>
 
@@ -1963,9 +1964,10 @@
 <blockquote>
 <p>Example</p>
 </blockquote>
-<pre class="highlight plaintext"><code>curl --header "Application-Name: super-fun-game" \
-  --header "Authorization: Bearer ABC123" \
-  --data "amount=10&amp;race_id=46860996-e83d-4ef8-bcd2-8486ed440dea&amp;count=2" \
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -H "Content-Type: application/json" \
+  -d '{"amount": 10, "race_id": "46860996-e83d-4ef8-bcd2-8486ed440dea", "count": 2}' \
   https://api.derbygames.com/api/instant_racing/triple_threat_spins
 </code></pre>
 
@@ -2004,9 +2006,10 @@
 <blockquote>
 <p>Example</p>
 </blockquote>
-<pre class="highlight plaintext"><code>curl --header "Application-Name: super-fun-game" \
-  --header "Authorization: Bearer ABC123" \
-  --data "amount=10&amp;race_id=46860996-e83d-4ef8-bcd2-8486ed440dea" \
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -H "Content-Type: application/json" \
+  -d '{"amount": 10, "race_id": "46860996-e83d-4ef8-bcd2-8486ed440dea"}' \
   https://api.derbygames.com/api/instant_racing/super_slot_spins
 </code></pre>
 
@@ -2063,8 +2066,8 @@
 <blockquote>
 <p>Example</p>
 </blockquote>
-<pre class="highlight plaintext"><code>curl --header "Application-Name: super-fun-game" \
-  --header "Authorization: Bearer ABC123" \
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
   https://api.derbygames.com/api/instant_racing/races/:id/video?quality=low
 </code></pre>
 

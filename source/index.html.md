@@ -129,13 +129,6 @@ mobile_phone_number | mobile phone
 accounts | array of Account objects (real money gaming, virtual, etc.)
 player_statues | array of PlayerStatus objects, each one corresponding to a group of applications
 
-## Account Object
-
-Field | Description
-------| -----------
-type | type of the account (virtual, rmg, etc.)
-balance | current balance
-
 ## PlayerStatus Object
 
 Field | Description
@@ -178,7 +171,7 @@ See 'Guest Access' under 'Generating a New Token'.
 
 ### Returns
 
-A user object.
+A `User` object.
 
 ## Update User
 
@@ -209,7 +202,7 @@ country_code |
 
 ### Returns
 
-A user object.
+A `User` object.
 
 ## Get User
 
@@ -219,9 +212,39 @@ A user object.
 
 ### Returns
 
-A user object of the user specified in the Authentication header. Otherwise, a 401 will be returned.
+A `User` object of the user specified in the Authentication header. Otherwise, a 401 will be returned.
 
+# Account Balances
 
+## Account Object
+
+```json
+{
+  "type":"virtual",
+  "balance":489200.0
+}
+```
+
+Field | Description
+------| -----------
+type | type of the account (virtual, rmg, etc.)
+balance | current balance
+
+## Get Balances
+
+> Example
+
+```curl
+curl -H "Application-Name: racechamp_mobile_app" \
+-H "Authorization: Bearer ABC123" \
+https://api.derbygames.com/api/accounts
+```
+
+`GET /accounts`
+
+### Returns
+
+An array of `Account` objects.
 
 # User Authentication
 
@@ -322,7 +345,7 @@ refresh_token | yes | the refresh token
 
 ### Returns
 
-A token object if successful, or an error message (with HTTP status 401) if not.
+A `Token` object if successful, or an error message (with HTTP status 401) if not.
 
 > Failure Example
 
@@ -339,7 +362,7 @@ A token object if successful, or an error message (with HTTP status 401) if not.
 
 ### Returns
 
-A Token object.
+A `Token` object.
 
 
 # User Saved Credit Cards
@@ -352,7 +375,7 @@ All credit cards this user has saved.
 
 ### Returns
 
-A CreditCard object.
+A `CreditCard` object.
 
 # User Notifications
 
@@ -403,7 +426,7 @@ curl -H "Application-Name: super-fun-game" \
 
 ### Returns
 
-Array of Notification objects.
+Array of `Notification` objects.
 
 ## Mark Message as Read
 
@@ -416,7 +439,7 @@ curl -X PUT \
   https://api.derbygames.com/api/notifications/1/read
 ```
 
-`PUT /notifications/:id/read`
+`PUT /notifications/<NOTIFICATION_ID>/read`
 
 Marks a message as read.
 
@@ -501,15 +524,15 @@ N/A |
 > Example
 
 ```curl
-curl -H "Application-Name: super-fun-game" \
+curl -H "ApplicationName: super-fun-game" \
   https://api.derbygames.com/api/profiles/32118
 ```
 
-`GET /profiles/:id`
+`GET /profiles/<USER_ID>`
 
 ### Returns
 
-A Profile object.
+A `Profile` object.
 
 ## Update Profile
 
@@ -533,7 +556,7 @@ bio |
 
 ### Returns
 
-A Profile object.
+A `Profile` object.
 
 ## Remove Avatar
 
@@ -583,7 +606,7 @@ show | no | number of leaders to show (default: all)
 
 ### Returns
 
-An array of Leaders.
+An array of `Leader` objects.
 
 ## Leaders near the current user
 
@@ -591,7 +614,7 @@ An array of Leaders.
 
 ### Returns
 
-An array of Leaders.
+An array of `Leader` objects.
 
 # Promo Codes
 
@@ -617,7 +640,7 @@ promo_code | yes | promo to redeem
 
 > Success
 
-A slim User object with an array of Accounts with updated balances and a slim Promo object with the amount of the promo.
+A slim `User` object with an array of `Account` obejcts with updated balances and a slim `Promo` object with the amount of the promo.
 
 ```json
 {
@@ -688,7 +711,7 @@ name | yes | name of the bonus to award
 
 ### Returns
 
-An AwardedBonus object.
+An `AwardedBonus` object.
 
 
 
@@ -727,7 +750,7 @@ promo_code | no | a promo code to show promotional pricing
 
 ### Returns
 
-An array of VirtualCurrencyPackages.
+An array of `VirtualCurrencyPackage` obejcts.
 
 ## IAP Receipt Validation
 
@@ -849,13 +872,13 @@ curl -H "Application-Name: super-fun-game" \
 
 ### Returns
 
-A Race object.
+A `Race` object.
 
 ## Decide a Race
 
 Close the race for wagering. You can then request video and results.
 
-`PUT /instant_racing/races/:id/decide`
+`PUT /instant_racing/races/<RACE_ID>/decide`
 
 # Instant Racing: Wagers
 
@@ -1160,11 +1183,15 @@ user | a User object
 
 ## Get Wagers on a Race
 
-`GET /instant_racing/races/:id/wagers`
+`GET /instant_racing/races/<RACE_ID>/wagers`
+
+<aside class="notice">
+Because the wager payoffs are calculated asyncronously after a call to `decide`, it may take a few seconds until payoff_amount is available.
+</aside>
 
 ### Returns
 
-An array of Wager objects.
+An array of `Wager` objects.
 
 ## New Wager
 
@@ -1190,7 +1217,7 @@ runners | yes | an array of objects indicating runner numbers ex: [{number: 2}, 
 
 ### Returns
 
-A Wager object.
+A `Wager` object.
 
 ## New Triple Threat Spin
 
@@ -1214,7 +1241,7 @@ count | yes | the number of wagers to include in this spin
 
 ### Returns
 
-A Spin object.
+A `Spin` object.
 
 ## New Super Slot Spin
 
@@ -1237,7 +1264,7 @@ amount | yes | the wager amount
 
 ### Returns
 
-A Spin object.
+A `Spin` object.
 
 
 # Instant Racing: Video
@@ -1263,20 +1290,98 @@ video_duration_seconds | total length, in seconds
 ```curl
 curl -H "Application-Name: super-fun-game" \
   -H "Authorization: Bearer ABC123" \
-  https://api.derbygames.com/api/instant_racing/races/:id/video?quality=low
+  https://api.derbygames.com/api/instant_racing/races/<RACE_ID>/video?quality=low
 ```
 
-`GET /instant_racing/races/:id/video?quality=[low|high|hls]`
+`GET /instant_racing/races/<RACE_ID>/video?quality=[low|high|hls]`
 
 'low' and 'high' will be an MP4. HLS will return a m3u8 playlist.
 
+<aside class="notice">
+A race must be decided to get a video URL, otherwise null will be returned. Video must also be requested within 5 minutes of being decided.
+</aside>
 
 
-# Real Money Gaming
+# Instant Racing: Example Flow
 
-Available to select partners.
+Below is an example of the endpoints you need to get a race, wager on the race, view the video, then see the results.
+
+## 1. Get a User & Credits
+
+First, you'll need a user token that has credits. If you need to, you can generate a guest user with the example to the right.
+
+```curl
+curl -X POST -H "Application-Name: racechamp_mobile_app" \
+--d "grant_type=guest&device_id=some-unique-device-id" \
+https://api.derbygames.com/api/oauth/token
+
+```
+
+If that user does not have credits, you can award the refill bonus. See the Bonus section. You will want the _instant_racing_refill_ bonus.
 
 
+## 2. Get a Race
+
+Races are user specific and this endpoint will continue to serve the same race until the decide endpoint is called.
+
+```curl
+curl -H "Authorization: Bearer ABC123" \
+-H "Application-Name: racechamp_mobile_app" \
+https://api.derbygames.com/api/instant_racing/races/current
+
+```
+
+## 3. Place a Wager
+
+```curl
+curl -H "Application-Name: racechamp_mobile_app" \
+-H "Authorization: Bearer ABC123" \
+-H "Content-Type: application/json" \
+-d '{ "amount": 10, "race_id": "<RACE_ID>"}' \d
+https://api.derbygames.com/api/instant_racing/super_slot_spins
+```
+
+Place a Super Slot wager.
+
+## 4. Decide the Race
+
+```curl
+curl -X PUT -H "Application-Name: racechamp_mobile_app" \
+-H "Authorization: Bearer ABC123" \
+https://api.derbygames.com/api/instant_racing/races/<RACE_ID>/decide
+```
+
+Close wagering and enqueue a job to calculate wager payoffs.
+
+## 5. Get the Video URL
+
+```curl
+curl -H "Application-Name: racechamp_mobile_app" \
+-H "Authorization: Bearer ABC123" \
+https://api.derbygames.com/api/instant_racing/races/<RACE_ID>/video?quality=low
+```
+
+Video must be requested within 5 minutes of hitting the decide endpoint.
+
+## 6. Get Wager Payoffs
+
+```curl
+curl -H "Application-Name: racechamp_mobile_app" \
+-H "Authorization: Bearer ABC123" \
+https://api.derbygames.com/api/instant_racing/races/<RACE_ID>/wagers
+```
+
+Wagers will have payoff_amounts now.
+
+## 7. Get Updated Account Balance
+
+The balance would be updated a few seconds after the decide enpoint was called, but you should avoid changing the users balance until the video is over to avoid spoilers.
+
+```curl
+curl -H "Application-Name: racechamp_mobile_app" \
+-H "Authorization: Bearer ABC123" \
+https://api.derbygames.com/api/accounts
+```
 
 # Chat & Realtime Data Stream
 

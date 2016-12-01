@@ -1186,7 +1186,7 @@ user | a User object
 `GET /instant_racing/races/<RACE_ID>/wagers`
 
 <aside class="notice">
-Because the wager payoffs are calculated asyncronously after a call to `decide`, it may take a few seconds until payoff_amount is available.
+Because the wager payoffs are calculated asynchronously after a call to `decide`, it may take a few seconds until payoff_amount is available.
 </aside>
 
 ### Returns
@@ -1310,34 +1310,47 @@ Below is an example of the endpoints you need to get a race, wager on the race, 
 
 First, you'll need a user token that has credits. If you need to, you can generate a guest user with the example to the right.
 
+> Token Example
+
 ```curl
 curl -X POST -H "Application-Name: racechamp_mobile_app" \
---d "grant_type=guest&device_id=some-unique-device-id" \
-https://api.derbygames.com/api/oauth/token
-
+  --d "grant_type=guest&device_id=some-unique-device-id" \
+  https://api.derbygames.com/api/oauth/token
 ```
 
-If that user does not have credits, you can award the refill bonus. See the Bonus section. You will want the _instant_racing_refill_ bonus.
+> Bonus Example
+
+```curl
+curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -d "bonus_name=instant_racing_refill" \
+  https://api.derbygames.com/api/awarded_bonuses
+```
+
+If that user does not have credits, you can award the refill bonus. You will want the _instant_racing_refill_ bonus.
 
 
 ## 2. Get a Race
 
 Races are user specific and this endpoint will continue to serve the same race until the decide endpoint is called.
 
+> Example
+
 ```curl
 curl -H "Authorization: Bearer ABC123" \
--H "Application-Name: racechamp_mobile_app" \
-https://api.derbygames.com/api/instant_racing/races/current
-
+  -H "Application-Name: racechamp_mobile_app" \
+  https://api.derbygames.com/api/instant_racing/races/current
 ```
 
 ## 3. Place a Wager
 
+> Example
+
 ```curl
 curl -H "Application-Name: racechamp_mobile_app" \
--H "Authorization: Bearer ABC123" \
--H "Content-Type: application/json" \
--d '{ "amount": 10, "race_id": "<RACE_ID>"}' \d
+  -H "Authorization: Bearer ABC123" \
+  -H "Content-Type: application/json" \
+  -d '{ "amount": 10, "race_id": "<RACE_ID>"}' \d
 https://api.derbygames.com/api/instant_racing/super_slot_spins
 ```
 
@@ -1345,30 +1358,36 @@ Place a Super Slot wager.
 
 ## 4. Decide the Race
 
+> Example
+
 ```curl
 curl -X PUT -H "Application-Name: racechamp_mobile_app" \
--H "Authorization: Bearer ABC123" \
-https://api.derbygames.com/api/instant_racing/races/<RACE_ID>/decide
+  -H "Authorization: Bearer ABC123" \
+  https://api.derbygames.com/api/instant_racing/races/<RACE_ID>/decide
 ```
 
 Close wagering and enqueue a job to calculate wager payoffs.
 
 ## 5. Get the Video URL
 
+> Example
+
 ```curl
 curl -H "Application-Name: racechamp_mobile_app" \
--H "Authorization: Bearer ABC123" \
-https://api.derbygames.com/api/instant_racing/races/<RACE_ID>/video?quality=low
+  -H "Authorization: Bearer ABC123" \
+  https://api.derbygames.com/api/instant_racing/races/<RACE_ID>/video?quality=low
 ```
 
 Video must be requested within 5 minutes of hitting the decide endpoint.
 
 ## 6. Get Wager Payoffs
 
+> Example
+
 ```curl
 curl -H "Application-Name: racechamp_mobile_app" \
--H "Authorization: Bearer ABC123" \
-https://api.derbygames.com/api/instant_racing/races/<RACE_ID>/wagers
+  -H "Authorization: Bearer ABC123" \
+  https://api.derbygames.com/api/instant_racing/races/<RACE_ID>/wagers
 ```
 
 Wagers will have payoff_amounts now.
@@ -1377,10 +1396,12 @@ Wagers will have payoff_amounts now.
 
 The balance would be updated a few seconds after the decide enpoint was called, but you should avoid changing the users balance until the video is over to avoid spoilers.
 
+> Example
+
 ```curl
 curl -H "Application-Name: racechamp_mobile_app" \
--H "Authorization: Bearer ABC123" \
-https://api.derbygames.com/api/accounts
+  -H "Authorization: Bearer ABC123" \
+  https://api.derbygames.com/api/accounts
 ```
 
 # Chat & Realtime Data Stream

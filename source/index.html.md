@@ -160,8 +160,8 @@ progress |
 ### Using an Email and Password
 
 ```curl
-curl --header "Application-Name: super-fun-game" \
-  --data "email=hi@example.com&password=123456" \
+curl -H "Application-Name: super-fun-game" \
+  -d "email=hi@example.com&password=123456" \
   https://api.derbygames.com/api/users
 ```
 
@@ -184,8 +184,8 @@ A user object.
 
 ```curl
 curl -X PUT \
-  --header "Application-Name: super-fun-game" \
-  --data "birth_date=2000-01-01" \
+  -H "Application-Name: super-fun-game" \
+  -d "birth_date=2000-01-01" \
   https://api.derbygames.com/api/users
 ```
 
@@ -259,8 +259,8 @@ scope | 'user'
 ### Via Email/Password
 
 ```curl
-curl --header "Application-Name: super-fun-game" \
-  --data "grant_type=password&email=user@domain.com&password=123456" \
+curl -H "Application-Name: super-fun-game" \
+  -d "grant_type=password&email=user@domain.com&password=123456" \
   https://api.derbygames.com/api/oauth/token
 ```
 
@@ -277,8 +277,8 @@ Exchange another OAuth providers token for a DerbyGames token. Currently, only f
 > Example
 
 ```curl
-curl --header "Application-Name: super-fun-game" \
-  --data "grant_type=assertion&assertion=FBTOKEN123456" \
+curl -H "Application-Name: super-fun-game" \
+  -d "grant_type=assertion&assertion=FBTOKEN123456" \
   https://api.derbygames.com/api/oauth/token
 ```
 
@@ -291,8 +291,8 @@ assertion | yes | OAuth token from provider
 ### Guest Access (using device ID)
 
 ```curl
-curl --header "Application-Name: super-fun-game" \
-  --data "grant_type=guest&device_id" \
+curl -D "Application-Name: super-fun-game" \
+  -d "grant_type=guest&device_id" \
   https://api.derbygames.com/api/oauth/token
 ```
 
@@ -310,8 +310,8 @@ Once the access token has expired, get a new one using the refresh token.
 > Example
 
 ```curl
-curl --header "Application-Name: super-fun-game" \
-  --data "grant_type=refresh_token&refresh_token=f95f9cf38e829104949ae6e160957f549abab252336c3b1007a5961fda940a09" \
+curl -H "Application-Name: super-fun-game" \
+  -d "grant_type=refresh_token&refresh_token=f95f9cf38e829104949ae6e160957f549abab252336c3b1007a5961fda940a09" \
   https://api.derbygames.com/api/oauth/token
 ```
 
@@ -394,8 +394,8 @@ claimed_at |
 > Example
 
 ```curl
-curl --header "Application-Name: super-fun-game" \
-  --header "Authorization: Bearer ABC123" \
+curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
   https://api.derbygames.com/api/notifications
 ```
 
@@ -411,8 +411,8 @@ Array of Notification objects.
 
 ```curl
 curl -X PUT \
-  --header "Application-Name: super-fun-game" \
-  --header "Authorization: Bearer ABC123" \
+  -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
   https://api.derbygames.com/api/notifications/1/read
 ```
 
@@ -501,7 +501,7 @@ N/A |
 > Example
 
 ```curl
-curl --header "Application-Name: super-fun-game" \
+curl -H "Application-Name: super-fun-game" \
   https://api.derbygames.com/api/profiles/32118
 ```
 
@@ -517,9 +517,9 @@ A Profile object.
 
 ```curl
 curl -X PUT \
-  --header "Application-Name: super-fun-game" \
-  --header "Authorization: Bearer ABC123" \
-  --data "bio=blahblahblah" \
+  -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -d "bio=blahblahblah" \
   https://api.derbygames.com/api/profile
 ```
 
@@ -541,8 +541,8 @@ A Profile object.
 
 ```curl
 curl -X DELETE
-  --header "Application-Name: super-fun-game" \
-  --header "Authorization: Bearer ABC123" \
+  -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
   https://api.derbygames.com/api/profile/avatar
 ```
 
@@ -601,9 +601,9 @@ An array of Leaders.
 
 ```curl
 curl -X POST
-  --header "Application-Name: super-fun-game" \
-  --header "Authorization: Bearer ABC123" \
-  --data "promo_code=super-fun-code" \
+  -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -d "promo_code=super-fun-code" \
   https://api.derbygames.com/api/redeemed_promos
 ```
 
@@ -674,9 +674,9 @@ user | slim version of a User Object, with only an Account array
 > Example
 
 ```curl
-curl --header "Application-Name: super-fun-game" \
-  --header "Authorization: Bearer ABC123" \
-  --data "bonus_name=instant_racing_refill" \
+curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -d "bonus_name=instant_racing_refill" \
   https://api.derbygames.com/api/awarded_bonuses
 ```
 
@@ -712,8 +712,8 @@ virtual_currency_value | number of credits
 > Example
 
 ```curl
-curl --header "Application-Name: super-fun-game" \
-  --header "Authorization: Bearer ABC123" \
+curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
   https://api.derbygames.com/api/virtual_currency_packages
 ```
 
@@ -840,8 +840,8 @@ Gets the current race for the user. The same race will be returned until the `de
 > Example
 
 ```curl
-curl --header "Application-Name: super-fun-game" \
-  --header "Authorization: Bearer ABC123" \
+curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
   https://api.derbygames.com/api/instant_racing/races/current
 ```
 
@@ -1173,9 +1173,9 @@ An array of Wager objects.
 > Example
 
 ```curl
-curl --header "Application-Name: super-fun-game" \
-  --header "Authorization: Bearer ABC123" \
-  --data "amount=10&game_name=exotic-pro&pool=exacta&race_id=46860996-e83d-4ef8-bcd2-8486ed440dea&runners%5B%5D%5Bnumber%5D=3&runners%5B%5D%5Bnumber%5D=7" \
+curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -d "amount=10&game_name=exotic-pro&pool=exacta&race_id=46860996-e83d-4ef8-bcd2-8486ed440dea&runners%5B%5D%5Bnumber%5D=3&runners%5B%5D%5Bnumber%5D=7" \
   https://api.derbygames.com/api/instant_racing/wagers
 ```
 
@@ -1198,9 +1198,9 @@ A Wager object.
 > Example
 
 ```curl
-curl --header "Application-Name: super-fun-game" \
-  --header "Authorization: Bearer ABC123" \
-  --data "amount=10&race_id=46860996-e83d-4ef8-bcd2-8486ed440dea&count=2" \
+curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -d "amount=10&race_id=46860996-e83d-4ef8-bcd2-8486ed440dea&count=2" \
   https://api.derbygames.com/api/instant_racing/triple_threat_spins
 ```
 
@@ -1221,9 +1221,9 @@ A Spin object.
 > Example
 
 ```curl
-curl --header "Application-Name: super-fun-game" \
-  --header "Authorization: Bearer ABC123" \
-  --data "amount=10&race_id=46860996-e83d-4ef8-bcd2-8486ed440dea" \
+curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -d "amount=10&race_id=46860996-e83d-4ef8-bcd2-8486ed440dea" \
   https://api.derbygames.com/api/instant_racing/super_slot_spins
 ```
 
@@ -1258,8 +1258,8 @@ video_duration_seconds | total length, in seconds
 > Example
 
 ```curl
-curl --header "Application-Name: super-fun-game" \
-  --header "Authorization: Bearer ABC123" \
+curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
   https://api.derbygames.com/api/instant_racing/races/:id/video?quality=low
 ```
 

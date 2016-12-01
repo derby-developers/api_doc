@@ -1350,8 +1350,8 @@ curl -H "Authorization: Bearer ABC123" \
 curl -H "Application-Name: racechamp_mobile_app" \
   -H "Authorization: Bearer ABC123" \
   -H "Content-Type: application/json" \
-  -d '{ "amount": 10, "race_id": "<RACE_ID>"}' \d
-https://api.derbygames.com/api/instant_racing/super_slot_spins
+  -d '{ "amount": 10, "race_id": "<RACE_ID>"}' \
+  https://api.derbygames.com/api/instant_racing/super_slot_spins
 ```
 
 Place a Super Slot wager.

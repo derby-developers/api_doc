@@ -300,24 +300,6 @@
 </tr>
 </tbody></table>
 
-<h2 id="account-object">Account Object</h2>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>type</td>
-<td>type of the account (virtual, rmg, etc.)</td>
-</tr>
-<tr>
-<td>balance</td>
-<td>current balance</td>
-</tr>
-</tbody></table>
-
 <h2 id="playerstatus-object">PlayerStatus Object</h2>
 
 <table><thead>
@@ -412,7 +394,7 @@
 
 <h3 id="returns">Returns</h3>
 
-<p>A user object.</p>
+<p>A <code class="prettyprint">User</code> object.</p>
 
 <h2 id="update-user">Update User</h2>
 <pre class="highlight plaintext"><code>curl -X PUT \
@@ -473,7 +455,7 @@
 
 <h3 id="returns">Returns</h3>
 
-<p>A user object.</p>
+<p>A <code class="prettyprint">User</code> object.</p>
 
 <h2 id="get-user">Get User</h2>
 
@@ -485,7 +467,48 @@
 
 <h3 id="returns">Returns</h3>
 
-<p>A user object of the user specified in the Authentication header. Otherwise, a 401 will be returned.</p>
+<p>A <code class="prettyprint">User</code> object of the user specified in the Authentication header. Otherwise, a 401 will be returned.</p>
+
+<h1 id="account-balances">Account Balances</h1>
+
+<h2 id="account-object">Account Object</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"virtual"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"balance"</span><span class="p">:</span><span class="mf">489200.0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>type of the account (virtual, rmg, etc.)</td>
+</tr>
+<tr>
+<td>balance</td>
+<td>current balance</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-balances">Get Balances</h2>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>curl -H "Application-Name: racechamp_mobile_app" \
+-H "Authorization: Bearer ABC123" \
+https://api.derbygames.com/api/accounts
+</code></pre>
+
+<p><code class="prettyprint">GET /accounts</code></p>
+
+<h3 id="returns">Returns</h3>
+
+<p>An array of <code class="prettyprint">Account</code> objects.</p>
 
 <h1 id="user-authentication">User Authentication</h1>
 
@@ -664,7 +687,7 @@
 
 <h3 id="returns">Returns</h3>
 
-<p>A token object if successful, or an error message (with HTTP status 401) if not.</p>
+<p>A <code class="prettyprint">Token</code> object if successful, or an error message (with HTTP status 401) if not.</p>
 
 <blockquote>
 <p>Failure Example</p>
@@ -681,7 +704,7 @@
 
 <h3 id="returns">Returns</h3>
 
-<p>A Token object.</p>
+<p>A <code class="prettyprint">Token</code> object.</p>
 
 <h1 id="user-saved-credit-cards">User Saved Credit Cards</h1>
 
@@ -693,7 +716,7 @@
 
 <h3 id="returns">Returns</h3>
 
-<p>A CreditCard object.</p>
+<p>A <code class="prettyprint">CreditCard</code> object.</p>
 
 <h1 id="user-notifications">User Notifications</h1>
 
@@ -777,7 +800,7 @@
 
 <h3 id="returns">Returns</h3>
 
-<p>Array of Notification objects.</p>
+<p>Array of <code class="prettyprint">Notification</code> objects.</p>
 
 <h2 id="mark-message-as-read">Mark Message as Read</h2>
 
@@ -790,7 +813,7 @@
   https://api.derbygames.com/api/notifications/1/read
 </code></pre>
 
-<p><code class="prettyprint">PUT /notifications/:id/read</code></p>
+<p><code class="prettyprint">PUT /notifications/&lt;NOTIFICATION_ID&gt;/read</code></p>
 
 <p>Marks a message as read.</p>
 
@@ -968,15 +991,15 @@
 <blockquote>
 <p>Example</p>
 </blockquote>
-<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+<pre class="highlight plaintext"><code>curl -H "ApplicationName: super-fun-game" \
   https://api.derbygames.com/api/profiles/32118
 </code></pre>
 
-<p><code class="prettyprint">GET /profiles/:id</code></p>
+<p><code class="prettyprint">GET /profiles/&lt;USER_ID&gt;</code></p>
 
 <h3 id="returns">Returns</h3>
 
-<p>A Profile object.</p>
+<p>A <code class="prettyprint">Profile</code> object.</p>
 
 <h2 id="update-profile">Update Profile</h2>
 
@@ -1006,7 +1029,7 @@
 
 <h3 id="returns">Returns</h3>
 
-<p>A Profile object.</p>
+<p>A <code class="prettyprint">Profile</code> object.</p>
 
 <h2 id="remove-avatar">Remove Avatar</h2>
 
@@ -1086,7 +1109,7 @@
 
 <h3 id="returns">Returns</h3>
 
-<p>An array of Leaders.</p>
+<p>An array of <code class="prettyprint">Leader</code> objects.</p>
 
 <h2 id="leaders-near-the-current-user">Leaders near the current user</h2>
 
@@ -1094,7 +1117,7 @@
 
 <h3 id="returns">Returns</h3>
 
-<p>An array of Leaders.</p>
+<p>An array of <code class="prettyprint">Leader</code> objects.</p>
 
 <h1 id="promo-codes">Promo Codes</h1>
 
@@ -1132,7 +1155,7 @@
 <p>Success</p>
 </blockquote>
 
-<p>A slim User object with an array of Accounts with updated balances and a slim Promo object with the amount of the promo.</p>
+<p>A slim <code class="prettyprint">User</code> object with an array of <code class="prettyprint">Account</code> obejcts with updated balances and a slim <code class="prettyprint">Promo</code> object with the amount of the promo.</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1229,7 +1252,7 @@
 
 <h3 id="returns">Returns</h3>
 
-<p>An AwardedBonus object.</p>
+<p>An <code class="prettyprint">AwardedBonus</code> object.</p>
 
 <h1 id="virtual-currency-packages">Virtual Currency Packages</h1>
 
@@ -1287,7 +1310,7 @@
 
 <h3 id="returns">Returns</h3>
 
-<p>An array of VirtualCurrencyPackages.</p>
+<p>An array of <code class="prettyprint">VirtualCurrencyPackage</code> obejcts.</p>
 
 <h2 id="iap-receipt-validation">IAP Receipt Validation</h2>
 
@@ -1542,13 +1565,13 @@
 
 <h3 id="returns">Returns</h3>
 
-<p>A Race object.</p>
+<p>A <code class="prettyprint">Race</code> object.</p>
 
 <h2 id="decide-a-race">Decide a Race</h2>
 
 <p>Close the race for wagering. You can then request video and results.</p>
 
-<p><code class="prettyprint">PUT /instant_racing/races/:id/decide</code></p>
+<p><code class="prettyprint">PUT /instant_racing/races/&lt;RACE_ID&gt;/decide</code></p>
 
 <h1 id="instant-racing-wagers">Instant Racing: Wagers</h1>
 
@@ -1899,11 +1922,15 @@
 
 <h2 id="get-wagers-on-a-race">Get Wagers on a Race</h2>
 
-<p><code class="prettyprint">GET /instant_racing/races/:id/wagers</code></p>
+<p><code class="prettyprint">GET /instant_racing/races/&lt;RACE_ID&gt;/wagers</code></p>
+
+<aside class="notice">
+Because the wager payoffs are calculated asyncronously after a call to `decide`, it may take a few seconds until payoff_amount is available.
+</aside>
 
 <h3 id="returns">Returns</h3>
 
-<p>An array of Wager objects.</p>
+<p>An array of <code class="prettyprint">Wager</code> objects.</p>
 
 <h2 id="new-wager">New Wager</h2>
 
@@ -1955,7 +1982,7 @@
 
 <h3 id="returns">Returns</h3>
 
-<p>A Wager object.</p>
+<p>A <code class="prettyprint">Wager</code> object.</p>
 
 <h2 id="new-triple-threat-spin">New Triple Threat Spin</h2>
 
@@ -1997,7 +2024,7 @@
 
 <h3 id="returns">Returns</h3>
 
-<p>A Spin object.</p>
+<p>A <code class="prettyprint">Spin</code> object.</p>
 
 <h2 id="new-super-slot-spin">New Super Slot Spin</h2>
 
@@ -2034,7 +2061,7 @@
 
 <h3 id="returns">Returns</h3>
 
-<p>A Spin object.</p>
+<p>A <code class="prettyprint">Spin</code> object.</p>
 
 <h1 id="instant-racing-video">Instant Racing: Video</h1>
 
@@ -2068,16 +2095,82 @@
 </blockquote>
 <pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
   -H "Authorization: Bearer ABC123" \
-  https://api.derbygames.com/api/instant_racing/races/:id/video?quality=low
+  https://api.derbygames.com/api/instant_racing/races/&lt;RACE_ID&gt;/video?quality=low
 </code></pre>
 
-<p><code class="prettyprint">GET /instant_racing/races/:id/video?quality=[low|high|hls]</code></p>
+<p><code class="prettyprint">GET /instant_racing/races/&lt;RACE_ID&gt;/video?quality=[low|high|hls]</code></p>
 
 <p>&#39;low&rsquo; and &#39;high&rsquo; will be an MP4. HLS will return a m3u8 playlist.</p>
 
-<h1 id="real-money-gaming">Real Money Gaming</h1>
+<aside class="notice">
+A race must be decided to get a video URL, otherwise null will be returned. Video must also be requested within 5 minutes of being decided.
+</aside>
 
-<p>Available to select partners.</p>
+<h1 id="instant-racing-example-flow">Instant Racing: Example Flow</h1>
+
+<p>Below is an example of the endpoints you need to get a race, wager on the race, view the video, then see the results.</p>
+
+<h2 id="1-get-a-user-amp-credits">1. Get a User &amp; Credits</h2>
+
+<p>First, you&rsquo;ll need a user token that has credits. If you need to, you can generate a guest user with the example to the right.</p>
+<pre class="highlight plaintext"><code>curl -X POST -H "Application-Name: racechamp_mobile_app" \
+--d "grant_type=guest&amp;device_id=some-unique-device-id" \
+https://api.derbygames.com/api/oauth/token
+
+</code></pre>
+
+<p>If that user does not have credits, you can award the refill bonus. See the Bonus section. You will want the <em>instant_racing_refill</em> bonus.</p>
+
+<h2 id="2-get-a-race">2. Get a Race</h2>
+
+<p>Races are user specific and this endpoint will continue to serve the same race until the decide endpoint is called.</p>
+<pre class="highlight plaintext"><code>curl -H "Authorization: Bearer ABC123" \
+-H "Application-Name: racechamp_mobile_app" \
+https://api.derbygames.com/api/instant_racing/races/current
+
+</code></pre>
+
+<h2 id="3-place-a-wager">3. Place a Wager</h2>
+<pre class="highlight plaintext"><code>curl -H "Application-Name: racechamp_mobile_app" \
+-H "Authorization: Bearer ABC123" \
+-H "Content-Type: application/json" \
+-d '{ "amount": 10, "race_id": "&lt;RACE_ID&gt;"}' \d
+https://api.derbygames.com/api/instant_racing/super_slot_spins
+</code></pre>
+
+<p>Place a Super Slot wager.</p>
+
+<h2 id="4-decide-the-race">4. Decide the Race</h2>
+<pre class="highlight plaintext"><code>curl -X PUT -H "Application-Name: racechamp_mobile_app" \
+-H "Authorization: Bearer ABC123" \
+https://api.derbygames.com/api/instant_racing/races/&lt;RACE_ID&gt;/decide
+</code></pre>
+
+<p>Close wagering and enqueue a job to calculate wager payoffs.</p>
+
+<h2 id="5-get-the-video-url">5. Get the Video URL</h2>
+<pre class="highlight plaintext"><code>curl -H "Application-Name: racechamp_mobile_app" \
+-H "Authorization: Bearer ABC123" \
+https://api.derbygames.com/api/instant_racing/races/&lt;RACE_ID&gt;/video?quality=low
+</code></pre>
+
+<p>Video must be requested within 5 minutes of hitting the decide endpoint.</p>
+
+<h2 id="6-get-wager-payoffs">6. Get Wager Payoffs</h2>
+<pre class="highlight plaintext"><code>curl -H "Application-Name: racechamp_mobile_app" \
+-H "Authorization: Bearer ABC123" \
+https://api.derbygames.com/api/instant_racing/races/&lt;RACE_ID&gt;/wagers
+</code></pre>
+
+<p>Wagers will have payoff_amounts now.</p>
+
+<h2 id="7-get-updated-account-balance">7. Get Updated Account Balance</h2>
+
+<p>The balance would be updated a few seconds after the decide enpoint was called, but you should avoid changing the users balance until the video is over to avoid spoilers.</p>
+<pre class="highlight plaintext"><code>curl -H "Application-Name: racechamp_mobile_app" \
+-H "Authorization: Bearer ABC123" \
+https://api.derbygames.com/api/accounts
+</code></pre>
 
 <h1 id="chat-amp-realtime-data-stream">Chat &amp; Realtime Data Stream</h1>
 

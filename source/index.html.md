@@ -87,7 +87,7 @@ Production API
   "accounts":[
     { "type":"virtual","balance":0.5 }
   ],
-  "player_statues": [
+  "player_statuses": [
     {
       "id":22,
       "current_level_points":0,
@@ -109,7 +109,7 @@ Field | Description
 id | user id
 email | email address, can be blank
 screen_name | name to be shown to other users
-authentication_token | token for authentication to chat
+authentication_token | token for authentication to chat ONLY
 first_name |
 last_name |
 birth_date | format: YYYY-MM-DD
@@ -127,7 +127,7 @@ image_url | full URL of the users avatar
 phone_number | phone number
 mobile_phone_number | mobile phone
 accounts | array of Account objects (real money gaming, virtual, etc.)
-player_statues | array of PlayerStatus objects, each one corresponding to a group of applications
+player_statuses | array of PlayerStatus objects, each one corresponding to a group of applications
 
 ## PlayerStatus Object
 

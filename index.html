@@ -628,8 +628,8 @@ https://api.derbygames.com/api/accounts
 </tbody></table>
 
 <h3 id="guest-access-using-device-id">Guest Access (using device ID)</h3>
-<pre class="highlight plaintext"><code>curl -D "Application-Name: super-fun-game" \
-  -d "grant_type=guest&amp;device_id" \
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+  -d "grant_type=guest&amp;device_id=random123" \
   https://api.derbygames.com/api/oauth/token
 </code></pre>
 

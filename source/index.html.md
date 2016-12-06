@@ -314,8 +314,8 @@ assertion | yes | OAuth token from provider
 ### Guest Access (using device ID)
 
 ```curl
-curl -D "Application-Name: super-fun-game" \
-  -d "grant_type=guest&device_id" \
+curl -H "Application-Name: super-fun-game" \
+  -d "grant_type=guest&device_id=random123" \
   https://api.derbygames.com/api/oauth/token
 ```
 

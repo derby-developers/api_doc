@@ -156,6 +156,14 @@ earned_bonuses | array of bonus names that are available due to leveling up
 locks | an array of strings indicating locked games, ex. ["exotic-pro", "super-slots", "double-down", "jackpot", "red-zone", "place", "show"]
 max_bet_amount | a suggested max bet amount
 
+<aside class="notice">
+Users will periodically gain enough points to level-up. When this happens, check the earned_bonuses array for any unlocked level-up bonuses. To award any bonuses, post to the /api/awarded_bonuses endpoint, setting bonus_name to a string in the earned_bonuses array.
+</aside>
+
+<aside class="notice">
+Leveling-up can also change the locks array. Game names will be removed from this array as they become unlocked to the user.
+</aside>
+
 ## Create User
 
 > Examples

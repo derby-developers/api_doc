@@ -129,10 +129,23 @@ player_statuses | array of PlayerStatus objects, each one corresponding to a gro
 
 ## PlayerStatus Object
 
+```json
+{
+  "id": 1,
+  "application_group": "casino",
+  "level": 1,
+  "current_level_points": 0,
+  "progress": 0,
+  "earned_bonuses": [],
+  "locks": ["exotic-pro", "super-slots"],
+  "max_bet_amount": 200
+}
+```
+
 Field | Description
 ------| -----------
 id |
-name | application group name
+application_group | application group name
 level | numeric level, starting at 1
 progress | progress towards the next level, represented as a number between 0 and 1
 current_level_points | points earned at this level
@@ -277,6 +290,8 @@ scope | 'user'
 
 ### Via Email/Password
 
+> email/password Example
+
 ```curl
 curl -H "Application-Name: super-fun-game" \
   -d "grant_type=password&email=user@domain.com&password=123456" \
@@ -293,7 +308,7 @@ password | yes | password of the user
 
 Exchange another OAuth providers token for a DerbyGames token. Currently, only facebook is supported.
 
-> Example
+> Token Exchange Example
 
 ```curl
 curl -H "Application-Name: super-fun-game" \
@@ -308,6 +323,8 @@ provider | yes | 'facebook'
 assertion | yes | OAuth token from provider
 
 ### Guest Access (using device ID)
+
+> Guest Access Example
 
 ```curl
 curl -H "Application-Name: super-fun-game" \
@@ -326,7 +343,7 @@ This will create a user account for the device if the ID is not found.
 
 Once the access token has expired, get a new one using the refresh token.
 
-> Example
+> Token Refresh Example
 
 ```curl
 curl -H "Application-Name: super-fun-game" \

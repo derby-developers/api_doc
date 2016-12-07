@@ -299,7 +299,8 @@ scope | 'user'
 
 ```curl
 curl -H "Application-Name: super-fun-game" \
-  -d "grant_type=password&email=user@domain.com&password=123456" \
+  -H "Content-Type: application/json" \
+  -d '{ "grant_type": "password", "email": "user@domain.com", "password": "123456" }' \
   https://api.derbygames.com/api/oauth/token
 ```
 
@@ -317,7 +318,8 @@ Exchange another OAuth providers token for a DerbyGames token. Currently, only f
 
 ```curl
 curl -H "Application-Name: super-fun-game" \
-  -d "grant_type=assertion&assertion=FBTOKEN123456" \
+  -H "Content-Type: application/json" \
+  -d '{ "grant_type": "assertion", "assertion": "FBTOKEN123456" }' \
   https://api.derbygames.com/api/oauth/token
 ```
 
@@ -333,7 +335,8 @@ assertion | yes | OAuth token from provider
 
 ```curl
 curl -H "Application-Name: super-fun-game" \
-  -d "grant_type=guest&device_id=random123" \
+  -H "Content-Type: application/json" \
+  -d '{ "grant_type": "guest", "device_id": "random123" }' \
   https://api.derbygames.com/api/oauth/token
 ```
 
@@ -352,7 +355,8 @@ Once the access token has expired, get a new one using the refresh token.
 
 ```curl
 curl -H "Application-Name: super-fun-game" \
-  -d "grant_type=refresh_token&refresh_token=f95f9cf38e829104949ae6e160957f549abab252336c3b1007a5961fda940a09" \
+  -H "Content-Type: application/json" \
+  -d '{ "grant_type": "refresh_token", "refresh_token": "f95f9cf38e829104949ae6e160957f549abab252336c3b1007a5961fda940a09" }' \
   https://api.derbygames.com/api/oauth/token
 ```
 
@@ -1395,7 +1399,8 @@ First, you'll need a user token that has credits. If you need to, you can genera
 
 ```curl
 curl -X POST -H "Application-Name: racechamp_mobile_app" \
-  --d "grant_type=guest&device_id=some-unique-device-id" \
+  -H "Content-Type: application/json" \
+  -d '{ "grant_type": "guest", "device_id": "some-unique-device-id" }' \
   https://api.derbygames.com/api/oauth/token
 ```
 

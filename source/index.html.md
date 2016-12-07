@@ -12,7 +12,11 @@ search: false
 
 # Introduction
 
-For API access, please contact eric@derbygames.com. You will be issued a application name, client ID, and client secret.
+For API access, please contact eric@derbygames.com. You will be issued:
+
+* application name
+* application group name
+* cliend ID / secret
 
 # Interacting with the API
 
@@ -22,8 +26,7 @@ All requests:
 
 * must be over HTTPS
 * must have an application name, either as a header 'Application-Name' or as a query string 'application_name'
-
-Arguments can be passed as params, form data or JSON with correct `Content-Type` header.
+* for POST/PUT requests: must have the content type of `application/json`
 
 ## Localization
 
@@ -163,7 +166,8 @@ max_bet_amount | a suggested max bet amount
 
 ```curl
 curl -H "Application-Name: super-fun-game" \
-  -d "email=hi@example.com&password=123456" \
+  -H "Content-Type: application/json" \
+  -d '{ "email": "hi@example.com&password=123456" }' \
   https://api.derbygames.com/api/users
 ```
 
@@ -187,7 +191,8 @@ A `User` object.
 ```curl
 curl -X PUT \
   -H "Application-Name: super-fun-game" \
-  -d "birth_date=2000-01-01" \
+  -H "Content-Type: application/json" \
+  -d '{"first_name": "Larry" }' \
   https://api.derbygames.com/api/users
 ```
 
@@ -555,7 +560,8 @@ A `Profile` object.
 curl -X PUT \
   -H "Application-Name: super-fun-game" \
   -H "Authorization: Bearer ABC123" \
-  -d "bio=blahblahblah" \
+  -H "Content-Type: application/json" \
+  -d '{ "bio": "blahblahblah" }' \
   https://api.derbygames.com/api/profile
 ```
 
@@ -639,7 +645,8 @@ An array of `Leader` objects.
 curl -X POST
   -H "Application-Name: super-fun-game" \
   -H "Authorization: Bearer ABC123" \
-  -d "promo_code=super-fun-code" \
+  -H "Content-Type: application/json" \
+  -d '{ "promo_code": "super-fun-code" }' \
   https://api.derbygames.com/api/redeemed_promos
 ```
 
@@ -712,7 +719,8 @@ user | slim version of a User Object, with only an Account array
 ```curl
 curl -H "Application-Name: super-fun-game" \
   -H "Authorization: Bearer ABC123" \
-  -d "bonus_name=instant_racing_refill" \
+  -H "Content-Type: application/json" \
+  -d '{ "bonus_name": "instant_racing_refill" }' \
   https://api.derbygames.com/api/awarded_bonuses
 ```
 
@@ -1396,7 +1404,8 @@ curl -X POST -H "Application-Name: racechamp_mobile_app" \
 ```curl
 curl -H "Application-Name: super-fun-game" \
   -H "Authorization: Bearer ABC123" \
-  -d "bonus_name=instant_racing_refill" \
+  -H "Content-Type: application/json" \
+  -d '{ "bonus_name": "instant_racing_refill" }' \
   https://api.derbygames.com/api/awarded_bonuses
 ```
 

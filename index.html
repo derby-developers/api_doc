@@ -356,6 +356,14 @@
 </tr>
 </tbody></table>
 
+<aside class="notice">
+Users will periodically gain enough points to level-up. When this happens, check the earned_bonuses array for any unlocked level-up bonuses. To award any bonuses, post to the /api/awarded_bonuses endpoint, setting bonus_name to a string in the earned_bonuses array.
+</aside>
+
+<aside class="notice">
+Leveling-up can also change the locks array. Game names will be removed from this array as they become unlocked to the user.
+</aside>
+
 <h2 id="create-user">Create User</h2>
 
 <blockquote>

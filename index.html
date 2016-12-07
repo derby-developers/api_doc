@@ -111,7 +111,13 @@
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>For API access, please contact eric@derbygames.com. You will be issued a application name, client ID, and client secret.</p>
+<p>For API access, please contact eric@derbygames.com. You will be issued:</p>
+
+<ul>
+<li>application name</li>
+<li>application group name</li>
+<li>cliend ID / secret</li>
+</ul>
 
 <h1 id="interacting-with-the-api">Interacting with the API</h1>
 
@@ -122,9 +128,8 @@
 <ul>
 <li>must be over HTTPS</li>
 <li>must have an application name, either as a header &lsquo;Application-Name&rsquo; or as a query string &#39;application_name&rsquo;</li>
+<li>for POST/PUT requests: must have the content type of <code class="prettyprint">application/json</code></li>
 </ul>
-
-<p>Arguments can be passed as params, form data or JSON with correct <code class="prettyprint">Content-Type</code> header.</p>
 
 <h2 id="localization">Localization</h2>
 
@@ -361,7 +366,8 @@
 
 <h3 id="using-an-email-and-password">Using an Email and Password</h3>
 <pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
-  -d "email=hi@example.com&amp;password=123456" \
+  -H "Content-Type: application/json" \
+  -d '{ "email": "hi@example.com&amp;password=123456" }' \
   https://api.derbygames.com/api/users
 </code></pre>
 
@@ -400,7 +406,8 @@
 <h2 id="update-user">Update User</h2>
 <pre class="highlight plaintext"><code>curl -X PUT \
   -H "Application-Name: super-fun-game" \
-  -d "birth_date=2000-01-01" \
+  -H "Content-Type: application/json" \
+  -d '{"first_name": "Larry" }' \
   https://api.derbygames.com/api/users
 </code></pre>
 
@@ -1018,7 +1025,8 @@ https://api.derbygames.com/api/accounts
 <pre class="highlight plaintext"><code>curl -X PUT \
   -H "Application-Name: super-fun-game" \
   -H "Authorization: Bearer ABC123" \
-  -d "bio=blahblahblah" \
+  -H "Content-Type: application/json" \
+  -d '{ "bio": "blahblahblah" }' \
   https://api.derbygames.com/api/profile
 </code></pre>
 
@@ -1138,7 +1146,8 @@ https://api.derbygames.com/api/accounts
 <pre class="highlight plaintext"><code>curl -X POST
   -H "Application-Name: super-fun-game" \
   -H "Authorization: Bearer ABC123" \
-  -d "promo_code=super-fun-code" \
+  -H "Content-Type: application/json" \
+  -d '{ "promo_code": "super-fun-code" }' \
   https://api.derbygames.com/api/redeemed_promos
 </code></pre>
 
@@ -1239,7 +1248,8 @@ https://api.derbygames.com/api/accounts
 </blockquote>
 <pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
   -H "Authorization: Bearer ABC123" \
-  -d "bonus_name=instant_racing_refill" \
+  -H "Content-Type: application/json" \
+  -d '{ "bonus_name": "instant_racing_refill" }' \
   https://api.derbygames.com/api/awarded_bonuses
 </code></pre>
 
@@ -2193,7 +2203,8 @@ A race must be decided to get a video URL, otherwise null will be returned. Vide
 </blockquote>
 <pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
   -H "Authorization: Bearer ABC123" \
-  -d "bonus_name=instant_racing_refill" \
+  -H "Content-Type: application/json" \
+  -d '{ "bonus_name": "instant_racing_refill" }' \
   https://api.derbygames.com/api/awarded_bonuses
 </code></pre>
 

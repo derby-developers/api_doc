@@ -575,7 +575,8 @@ https://api.derbygames.com/api/accounts
 <p>email/password Example</p>
 </blockquote>
 <pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
-  -d "grant_type=password&amp;email=user@domain.com&amp;password=123456" \
+  -H "Content-Type: application/json" \
+  -d '{ "grant_type": "password", "email": "user@domain.com", "password": "123456" }' \
   https://api.derbygames.com/api/oauth/token
 </code></pre>
 
@@ -611,7 +612,8 @@ https://api.derbygames.com/api/accounts
 <p>Token Exchange Example</p>
 </blockquote>
 <pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
-  -d "grant_type=assertion&amp;assertion=FBTOKEN123456" \
+  -H "Content-Type: application/json" \
+  -d '{ "grant_type": "assertion", "assertion": "FBTOKEN123456" }' \
   https://api.derbygames.com/api/oauth/token
 </code></pre>
 
@@ -645,7 +647,8 @@ https://api.derbygames.com/api/accounts
 <p>Guest Access Example</p>
 </blockquote>
 <pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
-  -d "grant_type=guest&amp;device_id=random123" \
+  -H "Content-Type: application/json" \
+  -d '{ "grant_type": "guest", "device_id": "random123" }' \
   https://api.derbygames.com/api/oauth/token
 </code></pre>
 
@@ -678,7 +681,8 @@ https://api.derbygames.com/api/accounts
 <p>Token Refresh Example</p>
 </blockquote>
 <pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
-  -d "grant_type=refresh_token&amp;refresh_token=f95f9cf38e829104949ae6e160957f549abab252336c3b1007a5961fda940a09" \
+  -H "Content-Type: application/json" \
+  -d '{ "grant_type": "refresh_token", "refresh_token": "f95f9cf38e829104949ae6e160957f549abab252336c3b1007a5961fda940a09" }' \
   https://api.derbygames.com/api/oauth/token
 </code></pre>
 
@@ -2194,7 +2198,8 @@ A race must be decided to get a video URL, otherwise null will be returned. Vide
 <p>Token Example</p>
 </blockquote>
 <pre class="highlight plaintext"><code>curl -X POST -H "Application-Name: racechamp_mobile_app" \
-  --d "grant_type=guest&amp;device_id=some-unique-device-id" \
+  -H "Content-Type: application/json" \
+  -d '{ "grant_type": "guest", "device_id": "some-unique-device-id" }' \
   https://api.derbygames.com/api/oauth/token
 </code></pre>
 

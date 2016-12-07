@@ -89,16 +89,14 @@ Production API
   ],
   "player_statuses": [
     {
-      "id":22,
-      "current_level_points":0,
-      "earned_level_up_bonus":false,
-      "level":1,
-      "level_up_bonus_amount":0,
-      "lifetime_points":0,
-      "locks":[],
-      "max_bet_amount":200,
-      "name":"casino",
-      "progress":0
+      "id": 1,
+      "application_group": "casino",
+      "level": 1,
+      "current_level_points": 0,
+      "progress": 0,
+      "earned_bonuses": [],
+      "locks": [],
+      "max_bet_amount": 200
     }
   ]
 }
@@ -135,14 +133,12 @@ Field | Description
 ------| -----------
 id |
 name | application group name
-level |
-current_level_points |
-earned_level_up_bonus |
-level_up_bonus_amount |
-lifetime_points |
-locks |
-max_bet_amount |
-progress |
+level | numeric level, starting at 1
+progress | progress towards the next level, represented as a number between 0 and 1
+current_level_points | points earned at this level
+earned_bonuses | array of bonus names that are available due to leveling up
+locks | an array of strings indicating locked games, ex. ["exotic-pro", "super-slots", "double-down", "jackpot", "red-zone", "place", "show"]
+max_bet_amount | a suggested max bet amount
 
 ## Create User
 
@@ -457,7 +453,7 @@ Marks a message as read.
   "bio": "games are fun" ,
   "joined_at": "2013-04-04T11:21:03-07:00",
   "player_statuses": [
-    {"name":"instant_racing","level":5}
+    {"application_group":"instant_racing","level":5}
   ],
   "stats":{
     "jackpot": [],
@@ -481,7 +477,7 @@ state | 2 letter code of the state/province
 country_code | 2 letter code of the country
 bio | text blob about the user
 joined_at | date the user registered
-player_statuses | array of slim PlayerStatus objects with name/level
+player_statuses | array of slim PlayerStatus objects with application_group/level
 stats | metrics, see below
 
 `stats` and `player_statues` are split into groups:
@@ -996,14 +992,12 @@ Close the race for wagering. You can then request video and results.
     "player_statuses": [
       {
         "id": 1,
-        "name": "casino",
+        "application_group": "casino",
         "level": 1,
-        "lifetime_points": 0,
         "current_level_points": 0,
         "progress": 0,
         "max_bet_amount": 200,
-        "earned_level_up_bonus": false,
-        "level_up_bonus_amount": 0,
+        "earned_bonuses": [],
         "locks": []
       }
     ]
@@ -1113,15 +1107,13 @@ user | a User object
         "player_statuses": [
           {
             "id": 1,
-            "name": "casino",
+            "application_group": "casino",
             "level": 1,
-            "lifetime_points": 0,
             "current_level_points": 0,
             "progress": 0,
-            "max_bet_amount": 200,
-            "earned_level_up_bonus": false,
-            "level_up_bonus_amount": 0,
-            "locks": []
+            "earned_bonuses": [],
+            "locks": [],
+            "max_bet_amount": 200
           }
         ]
       }
@@ -1207,15 +1199,13 @@ user | a User object
         "player_statuses": [
           {
             "id": 1,
-            "name": "casino",
+            "application_group": "casino",
             "level": 1,
-            "lifetime_points": 0,
             "current_level_points": 0,
             "progress": 0,
-            "max_bet_amount": 200,
-            "earned_level_up_bonus": false,
-            "level_up_bonus_amount": 0,
-            "locks": []
+            "earned_bonuses": [],
+            "locks": [],
+            "max_bet_amount": 200
           }
         ]
       }
@@ -1227,15 +1217,13 @@ user | a User object
     "player_statuses": [
       {
         "id": 1,
-        "name": "casino",
+        "application_group": "casino",
         "level": 1,
-        "lifetime_points": 0,
         "current_level_points": 0,
         "progress": 0,
-        "max_bet_amount": 200,
-        "earned_level_up_bonus": false,
-        "level_up_bonus_amount": 0,
-        "locks": []
+        "earned_bonuses": [],
+        "locks": [],
+        "max_bet_amount": 200
       }
     ]
   }

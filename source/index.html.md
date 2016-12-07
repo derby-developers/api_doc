@@ -787,6 +787,62 @@ receipt | yes | receipt blob
       "trophies":6,
       "win_multiplier":11.6
     }
+  ],
+  "payouts": [
+    {
+      "wager_amount": 2,
+      "payoff_amount": 6.8,
+      "finish": "6",
+      "pool": "win"
+    },
+    {
+      "wager_amount": 2,
+      "payoff_amount": 3.8,
+      "finish": "6",
+      "pool": "place"
+    },
+    {
+      "wager_amount": 2,
+      "payoff_amount": 6.2,
+      "finish": "7",
+      "pool": "place"
+    },
+    {
+      "wager_amount": 2,
+      "payoff_amount": 2.6,
+      "finish": "6",
+      "pool": "show"
+    },
+    {
+      "wager_amount": 2,
+      "payoff_amount": 3.2,
+      "finish": "7",
+      "pool": "show"
+    },
+    {
+      "wager_amount": 2,
+      "payoff_amount": 4.6,
+      "finish": "2",
+      "pool": "show"
+    },
+    {
+      "wager_amount": 2,
+      "payoff_amount": 30.2,
+      "finish": "6/7",
+      "pool": "exacta"
+    },
+    {
+      "wager_amount": 0.1,
+      "payoff_amount": 16.61,
+      "finish": "6/7/2/5",
+      "pool": "superfecta"
+    },
+    {
+      "wager_amount": 0.5,
+      "payoff_amount": 28.6,
+      "finish": "6/7/2",
+      "pool": "trifecta"
+    }
   ]
 }
 ```
@@ -798,6 +854,8 @@ race_type | Thoroughbred, Harness
 decided | whether the race is decided (true or false)
 runners | array of Runner objects
 payouts | array of Payout objects (only shown after the race is decided)
+
+There will always be 1 payout for the win pool, 2 for the place pool, 3 for show, and 1 for each exotic pool.
 
 ## Runner Object
 
@@ -849,12 +907,22 @@ long_shot | horse has long odds (less likely to win)
 favorite | horse has short odds (more likely to win)
 
 ## Payout Object
+
+```json
+{
+  "wager_amount": 0.5,
+  "payoff_amount": 28.6,
+  "finish": "6/7/2",
+  "pool": "trifecta"
+}
+```
+
 Field | Description
 ----- | -----------
 wager_amount |
 payoff_amount | the amount paid out for a wager of `wager_amount`
 finish | the finish associated with a winning payout
-pool | the type of wager being paid out
+pool | the type of wager being paid out (win, place, show, exacta, trifecta, superfecta)
 
 ## Get a Race
 

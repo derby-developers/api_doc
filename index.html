@@ -612,43 +612,6 @@ https://api.derbygames.com/api/accounts
 </tr>
 </tbody></table>
 
-<h3 id="token-exchange-from-another-oauth-provider">Token Exchange from Another OAuth Provider</h3>
-
-<p>Exchange another OAuth providers token for a DerbyGames token. Currently, only facebook is supported.</p>
-
-<blockquote>
-<p>Token Exchange Example</p>
-</blockquote>
-<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
-  -H "Content-Type: application/json" \
-  -d '{ "grant_type": "assertion", "assertion": "FBTOKEN123456" }' \
-  https://api.derbygames.com/api/oauth/token
-</code></pre>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required?</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>grant_type</td>
-<td>yes</td>
-<td>&#39;assertion&rsquo;</td>
-</tr>
-<tr>
-<td>provider</td>
-<td>yes</td>
-<td>&#39;facebook&rsquo;</td>
-</tr>
-<tr>
-<td>assertion</td>
-<td>yes</td>
-<td>OAuth token from provider</td>
-</tr>
-</tbody></table>
-
 <h3 id="guest-access-using-device-id">Guest Access (using device ID)</h3>
 
 <blockquote>

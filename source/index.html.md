@@ -318,24 +318,6 @@ grant_type | yes | 'password'
 email | yes | email address of the user
 password | yes | password of the user
 
-### Token Exchange from Another OAuth Provider
-
-Exchange another OAuth providers token for a DerbyGames token. Currently, only facebook is supported.
-
-> Token Exchange Example
-
-```curl
-curl -H "Application-Name: super-fun-game" \
-  -H "Content-Type: application/json" \
-  -d '{ "grant_type": "assertion", "assertion": "FBTOKEN123456" }' \
-  https://api.derbygames.com/api/oauth/token
-```
-
-Parameter | Required? | Description
---------- | --------- | -----------
-grant_type | yes | 'assertion'
-provider | yes | 'facebook'
-assertion | yes | OAuth token from provider
 
 ### Guest Access (using device ID)
 

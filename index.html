@@ -698,6 +698,51 @@ https://api.derbygames.com/api/accounts
 
 <p>A <code class="prettyprint">Token</code> object.</p>
 
+          <h1 id="linked-accounts">Linked Accounts</h1>
+
+<p>You can link a user to an outside OAuth provider, such as Facebook. The user can then use this as their login.</p>
+
+<aside class="notice">Currently, only Facebook is supported.</aside>
+
+<h2 id="create-a-linked-account">Create a Linked Account</h2>
+
+<p>If the user is missing any profile data, it will be filled in as much as possible.</p>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -H "Content-Type: application/json" \
+  -d '{ "provider": "facebook", "token": "facebookoauthtoken" }' \
+  https://api.derbygames.com/api/linked_accounts
+</code></pre>
+
+<p><code class="prettyprint">POST /linked_accounts</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>provider</td>
+<td>yes</td>
+<td>&lsquo;facebook&rsquo;</td>
+</tr>
+<tr>
+<td>token</td>
+<td>yes</td>
+<td>OAuth token for the provider. It will be validated.</td>
+</tr>
+</tbody></table>
+
+<h3 id="returns">Returns</h3>
+
+<p>A User object.</p>
+
           <h1 id="saved-credit-cards">Saved Credit Cards</h1>
 
 <p>All credit cards this user has saved.</p>
@@ -1307,7 +1352,7 @@ https://api.derbygames.com/api/accounts
 
 <p>An array of <code class="prettyprint">VirtualCurrencyPackage</code> obejcts.</p>
 
-          <h2 id="iap-receipt-validation">IAP Receipt Validation</h2>
+<h2 id="iap-receipt-validation">IAP Receipt Validation</h2>
 
 <p>After a sucessful in-app purchase, to add the credits into the user&rsquo;s account, the IAP receipt must be validated.</p>
 
@@ -1334,6 +1379,7 @@ https://api.derbygames.com/api/accounts
 
 <p>[This endpoint is not yet live and subject to change]</p>
 
+          
           <h1 id="instant-racing-races">Instant Racing: Races</h1>
 
 <h2 id="race-object">Race Object</h2>

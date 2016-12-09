@@ -109,7 +109,8 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="introduction">Introduction</h1>
+        
+          <h1 id="introduction">Introduction</h1>
 
 <p>For API access, please contact eric@derbygames.com. You will be issued:</p>
 
@@ -165,7 +166,7 @@
 
 <p><code class="prettyprint">https://api.derbygames.com/api/</code></p>
 
-<h1 id="users">Users</h1>
+          <h1 id="users">Users</h1>
 
 <h2 id="user-object">User Object</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -405,7 +406,7 @@ Leveling-up can also change the locks array. Game names will be removed from thi
 
 <h3 id="using-an-installation-device-id">Using an Installation/Device ID</h3>
 
-<p>See &#39;Guest Access&rsquo; under &#39;Generating a New Token&rsquo;.</p>
+<p>See &lsquo;Guest Access&rsquo; under &#39;Generating a New Token&rsquo;.</p>
 
 <h3 id="returns">Returns</h3>
 
@@ -485,7 +486,7 @@ Leveling-up can also change the locks array. Game names will be removed from thi
 
 <p>A <code class="prettyprint">User</code> object of the user specified in the Authentication header. Otherwise, a 401 will be returned.</p>
 
-<h1 id="account-balances">Account Balances</h1>
+          <h1 id="accounts">Accounts</h1>
 
 <h2 id="account-object">Account Object</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -526,7 +527,7 @@ https://api.derbygames.com/api/accounts
 
 <p>An array of <code class="prettyprint">Account</code> objects.</p>
 
-<h1 id="user-authentication">User Authentication</h1>
+          <h1 id="user-authentication">User Authentication</h1>
 
 <p>User auth is performed using OAuth 2.</p>
 
@@ -557,7 +558,7 @@ https://api.derbygames.com/api/accounts
 </tr>
 <tr>
 <td>token_type</td>
-<td>&#39;bearer&rsquo;</td>
+<td>&lsquo;bearer&rsquo;</td>
 </tr>
 <tr>
 <td>expires_in</td>
@@ -697,7 +698,7 @@ https://api.derbygames.com/api/accounts
 
 <p>A <code class="prettyprint">Token</code> object.</p>
 
-<h1 id="user-saved-credit-cards">User Saved Credit Cards</h1>
+          <h1 id="saved-credit-cards">Saved Credit Cards</h1>
 
 <p>All credit cards this user has saved.</p>
 
@@ -709,7 +710,7 @@ https://api.derbygames.com/api/accounts
 
 <p>A <code class="prettyprint">CreditCard</code> object.</p>
 
-<h1 id="user-notifications">User Notifications</h1>
+          <h1 id="user-notifications">User Notifications</h1>
 
 <h2 id="notification-object">Notification Object</h2>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
@@ -808,7 +809,7 @@ https://api.derbygames.com/api/accounts
 
 <p>Marks a message as read.</p>
 
-<h1 id="player-profiles">Player Profiles</h1>
+          <h1 id="player-profiles">Player Profiles</h1>
 
 <h2 id="profile-object">Profile Object</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -1036,7 +1037,7 @@ https://api.derbygames.com/api/accounts
 
 <p><code class="prettyprint">DELETE /profile/avatar</code></p>
 
-<h1 id="leaderboards">Leaderboards</h1>
+          <h1 id="leaderboards">Leaderboards</h1>
 
 <h2 id="leader-object">Leader Object</h2>
 <pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
@@ -1111,7 +1112,7 @@ https://api.derbygames.com/api/accounts
 
 <p>An array of <code class="prettyprint">Leader</code> objects.</p>
 
-<h1 id="promo-codes">Promo Codes</h1>
+          <h1 id="promo-codes">Promo Codes</h1>
 
 <h2 id="redeem-a-promo">Redeem a Promo</h2>
 
@@ -1169,7 +1170,7 @@ https://api.derbygames.com/api/accounts
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h1 id="bonuses">Bonuses</h1>
+          <h1 id="bonuses">Bonuses</h1>
 
 <h2 id="awardedbonus-object">AwardedBonus Object</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -1248,7 +1249,7 @@ https://api.derbygames.com/api/accounts
 
 <p>An <code class="prettyprint">AwardedBonus</code> object.</p>
 
-<h1 id="virtual-currency-packages">Virtual Currency Packages</h1>
+          <h1 id="virtual-currency-packages">Virtual Currency Packages</h1>
 
 <h2 id="virtualcurrencypackage-object">VirtualCurrencyPackage Object</h2>
 <pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">"price"</span><span class="p">:</span><span class="mf">4.99</span><span class="p">,</span><span class="nt">"virtual_currency_value"</span><span class="p">:</span><span class="mf">240000.0</span><span class="p">}</span><span class="w">
@@ -1306,7 +1307,7 @@ https://api.derbygames.com/api/accounts
 
 <p>An array of <code class="prettyprint">VirtualCurrencyPackage</code> obejcts.</p>
 
-<h2 id="iap-receipt-validation">IAP Receipt Validation</h2>
+          <h2 id="iap-receipt-validation">IAP Receipt Validation</h2>
 
 <p>After a sucessful in-app purchase, to add the credits into the user&rsquo;s account, the IAP receipt must be validated.</p>
 
@@ -1322,7 +1323,7 @@ https://api.derbygames.com/api/accounts
 <tr>
 <td>service</td>
 <td>yes</td>
-<td>&#39;google&rsquo; or &#39;apple&rsquo;</td>
+<td>&lsquo;google&rsquo; or &#39;apple&rsquo;</td>
 </tr>
 <tr>
 <td>receipt</td>
@@ -1333,7 +1334,7 @@ https://api.derbygames.com/api/accounts
 
 <p>[This endpoint is not yet live and subject to change]</p>
 
-<h1 id="instant-racing-races">Instant Racing: Races</h1>
+          <h1 id="instant-racing-races">Instant Racing: Races</h1>
 
 <h2 id="race-object">Race Object</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -1479,7 +1480,7 @@ https://api.derbygames.com/api/accounts
 </tr>
 <tr>
 <td>odds</td>
-<td>null, &#39;long_shot&rsquo; or &#39;favorite&rsquo; until race is decided, then the runner&rsquo;s odds (e.g. 9/2)</td>
+<td>null, &lsquo;long_shot&rsquo; or &#39;favorite&rsquo; until race is decided, then the runner&rsquo;s odds (e.g. 9/2)</td>
 </tr>
 <tr>
 <td>pedigree_rating</td>
@@ -1632,7 +1633,7 @@ https://api.derbygames.com/api/accounts
 
 <p><code class="prettyprint">PUT /instant_racing/races/&lt;RACE_ID&gt;/decide</code></p>
 
-<h1 id="instant-racing-wagers">Instant Racing: Wagers</h1>
+          <h1 id="instant-racing-wagers">Instant Racing: Wagers</h1>
 
 <h2 id="wager-object">Wager Object</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -2114,7 +2115,7 @@ Because the wager payoffs are calculated asynchronously after a call to `decide`
 
 <p>A <code class="prettyprint">Spin</code> object.</p>
 
-<h1 id="instant-racing-video">Instant Racing: Video</h1>
+          <h1 id="instant-racing-video">Instant Racing: Video</h1>
 
 <h2 id="video-object">Video Object</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -2151,13 +2152,13 @@ Because the wager payoffs are calculated asynchronously after a call to `decide`
 
 <p><code class="prettyprint">GET /instant_racing/races/&lt;RACE_ID&gt;/video?quality=[low|high|hls]</code></p>
 
-<p>&#39;low&rsquo; and &#39;high&rsquo; will be an MP4. HLS will return a m3u8 playlist.</p>
+<p>&lsquo;low&rsquo; and &#39;high&rsquo; will be an MP4. HLS will return a m3u8 playlist.</p>
 
 <aside class="notice">
 A race must be decided to get a video URL, otherwise null will be returned. Video must also be requested within 5 minutes of being decided.
 </aside>
 
-<h1 id="instant-racing-example-flow">Instant Racing: Example Flow</h1>
+          <h1 id="instant-racing-example-flow">Instant Racing: Example Flow</h1>
 
 <p>Below is an example of the endpoints you need to get a race, wager on the race, view the video, then see the results.</p>
 
@@ -2260,7 +2261,7 @@ A race must be decided to get a video URL, otherwise null will be returned. Vide
   https://api.derbygames.com/api/accounts
 </code></pre>
 
-<h1 id="chat-amp-realtime-data-stream">Chat &amp; Realtime Data Stream</h1>
+          <h1 id="chat-amp-realtime-data-stream">Chat &amp; Realtime Data Stream</h1>
 
 <p>You can connect to our streaming servers for chat and realtime data. This method is recommended over polling other endpoints. Talk to the nerds for more information.</p>
 
@@ -2313,7 +2314,6 @@ A race must be decided to get a video URL, otherwise null will be returned. Vide
 <span class="nt">&lt;/html&gt;</span>
 </code></pre>
 
-          
       </div>
       <div class="dark-box">
           <div class="lang-selector">

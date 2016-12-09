@@ -19,7 +19,6 @@ includes:
   - promo_codes
   - bonuses
   - virtual_currency_packages
-  - iap
   - instant_racing/races
   - instant_racing/wagers
   - instant_racing/video

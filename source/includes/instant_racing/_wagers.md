@@ -307,13 +307,63 @@ An array of `Wager` objects.
 
 `POST /instant_racing/wagers`
 
-> Example
+> Win Example
+
+```curl
+curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -H "Content-Type: application/json" \
+  -d '{"amount": 10, "game_name": "exotic-pro", "pool": "win", "race_id": "46860996-e83d-4ef8-bcd2-8486ed440dea", "runners": [{"number": 3}] }' \
+  https://api.derbygames.com/api/instant_racing/wagers
+```
+
+> Win/Place Example
+
+```curl
+curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -H "Content-Type: application/json" \
+  -d '{"amount": 10, "game_name": "exotic-pro", "pool": "win_place", "race_id": "46860996-e83d-4ef8-bcd2-8486ed440dea", "runners": [{"number": 3}] }' \
+  https://api.derbygames.com/api/instant_racing/wagers
+```
+
+> Win/Place/Show Example
+
+```curl
+curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -H "Content-Type: application/json" \
+  -d '{"amount": 10, "game_name": "win-place-show", "pool": "win_place_show", "race_id": "46860996-e83d-4ef8-bcd2-8486ed440dea", "runners": [{"number": 3}] }' \
+  https://api.derbygames.com/api/instant_racing/wagers
+```
+
+> Exacta Example
 
 ```curl
 curl -H "Application-Name: super-fun-game" \
   -H "Authorization: Bearer ABC123" \
   -H "Content-Type: application/json" \
   -d '{"amount": 10, "game_name": "exotic-pro", "pool": "exacta", "race_id": "46860996-e83d-4ef8-bcd2-8486ed440dea", "runners": [{"number": 3},{"number":5}] }' \
+  https://api.derbygames.com/api/instant_racing/wagers
+```
+
+> Trifeca Example
+
+```curl
+curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -H "Content-Type: application/json" \
+  -d '{"amount": 10, "game_name": "exotic-pro", "pool": "trifecta", "race_id": "46860996-e83d-4ef8-bcd2-8486ed440dea", "runners": [{"number": 3},{"number":5},{"number":2}] }' \
+  https://api.derbygames.com/api/instant_racing/wagers
+```
+
+> Superfecta Example
+
+```curl
+curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -H "Content-Type: application/json" \
+  -d '{"amount": 10, "game_name": "exotic-pro", "pool": "trifecta", "race_id": "46860996-e83d-4ef8-bcd2-8486ed440dea", "runners": [{"number": 3},{"number":5},{"number":2},{"number":1}] }' \
   https://api.derbygames.com/api/instant_racing/wagers
 ```
 

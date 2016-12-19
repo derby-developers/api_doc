@@ -103,7 +103,7 @@ Leveling-up can also change the locks array. Game names will be removed from thi
 
 ## Create User
 
-> Examples
+> Create Example
 
 `POST /users`
 
@@ -132,6 +132,8 @@ See 'Guest Access' under 'Generating a New Token'.
 A `User` object.
 
 ## Update User
+
+> Update Example
 
 ```curl
 curl -X PUT \
@@ -164,8 +166,6 @@ country_code |
 A `User` object.
 
 ## Get User
-
-> Examples
 
 `GET /user`
 

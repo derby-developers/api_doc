@@ -76,10 +76,10 @@ N/A |
 
 ## Get Profile
 
-> Example
+> Get Example
 
 ```curl
-curl -H "ApplicationName: super-fun-game" \
+curl -H "Application-Name: super-fun-game" \
   https://api.derbygames.com/api/profiles/32118
 ```
 
@@ -91,7 +91,7 @@ A `Profile` object.
 
 ## Update Profile
 
-> Example
+> Update Example
 
 ```curl
 curl -X PUT \
@@ -116,7 +116,7 @@ A `Profile` object.
 
 ## Remove Avatar
 
-> Example
+> Avatar Removal Example
 
 ```curl
 curl -X DELETE

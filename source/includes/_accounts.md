@@ -16,7 +16,7 @@ balance | current balance
 
 ## Get Balances
 
-> Example
+> Get Accounts Example
 
 ```curl
 curl -H "Application-Name: racechamp_mobile_app" \

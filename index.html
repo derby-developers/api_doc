@@ -368,7 +368,7 @@ Leveling-up can also change the locks array. Game names will be removed from thi
 <h2 id="create-user">Create User</h2>
 
 <blockquote>
-<p>Examples</p>
+<p>Create Example</p>
 </blockquote>
 
 <p><code class="prettyprint">POST /users</code></p>
@@ -413,6 +413,10 @@ Leveling-up can also change the locks array. Game names will be removed from thi
 <p>A <code class="prettyprint">User</code> object.</p>
 
 <h2 id="update-user">Update User</h2>
+
+<blockquote>
+<p>Update Example</p>
+</blockquote>
 <pre class="highlight plaintext"><code>curl -X PUT \
   -H "Application-Name: super-fun-game" \
   -H "Content-Type: application/json" \
@@ -476,10 +480,6 @@ Leveling-up can also change the locks array. Game names will be removed from thi
 
 <h2 id="get-user">Get User</h2>
 
-<blockquote>
-<p>Examples</p>
-</blockquote>
-
 <p><code class="prettyprint">GET /user</code></p>
 
 <h3 id="returns">Returns</h3>
@@ -514,7 +514,7 @@ Leveling-up can also change the locks array. Game names will be removed from thi
 <h2 id="get-balances">Get Balances</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Get Accounts Example</p>
 </blockquote>
 <pre class="highlight plaintext"><code>curl -H "Application-Name: racechamp_mobile_app" \
 -H "Authorization: Bearer ABC123" \
@@ -1026,9 +1026,9 @@ https://api.derbygames.com/api/accounts
 <h2 id="get-profile">Get Profile</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Get Example</p>
 </blockquote>
-<pre class="highlight plaintext"><code>curl -H "ApplicationName: super-fun-game" \
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
   https://api.derbygames.com/api/profiles/32118
 </code></pre>
 
@@ -1041,7 +1041,7 @@ https://api.derbygames.com/api/accounts
 <h2 id="update-profile">Update Profile</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Update Example</p>
 </blockquote>
 <pre class="highlight plaintext"><code>curl -X PUT \
   -H "Application-Name: super-fun-game" \
@@ -1072,7 +1072,7 @@ https://api.derbygames.com/api/accounts
 <h2 id="remove-avatar">Remove Avatar</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Avatar Removal Example</p>
 </blockquote>
 <pre class="highlight plaintext"><code>curl -X DELETE
   -H "Application-Name: super-fun-game" \
@@ -1379,7 +1379,6 @@ https://api.derbygames.com/api/accounts
 
 <p>[This endpoint is not yet live and subject to change]</p>
 
-          
           <h1 id="instant-racing-races">Instant Racing: Races</h1>
 
 <h2 id="race-object">Race Object</h2>
@@ -2035,12 +2034,62 @@ Because the wager payoffs are calculated asynchronously after a call to `decide`
 <p><code class="prettyprint">POST /instant_racing/wagers</code></p>
 
 <blockquote>
-<p>Example</p>
+<p>Win Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -H "Content-Type: application/json" \
+  -d '{"amount": 10, "game_name": "exotic-pro", "pool": "win", "race_id": "46860996-e83d-4ef8-bcd2-8486ed440dea", "runners": [{"number": 3}] }' \
+  https://api.derbygames.com/api/instant_racing/wagers
+</code></pre>
+
+<blockquote>
+<p>Win/Place Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -H "Content-Type: application/json" \
+  -d '{"amount": 10, "game_name": "exotic-pro", "pool": "win_place", "race_id": "46860996-e83d-4ef8-bcd2-8486ed440dea", "runners": [{"number": 3}] }' \
+  https://api.derbygames.com/api/instant_racing/wagers
+</code></pre>
+
+<blockquote>
+<p>Win/Place/Show Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -H "Content-Type: application/json" \
+  -d '{"amount": 10, "game_name": "win-place-show", "pool": "win_place_show", "race_id": "46860996-e83d-4ef8-bcd2-8486ed440dea", "runners": [{"number": 3}] }' \
+  https://api.derbygames.com/api/instant_racing/wagers
+</code></pre>
+
+<blockquote>
+<p>Exacta Example</p>
 </blockquote>
 <pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
   -H "Authorization: Bearer ABC123" \
   -H "Content-Type: application/json" \
   -d '{"amount": 10, "game_name": "exotic-pro", "pool": "exacta", "race_id": "46860996-e83d-4ef8-bcd2-8486ed440dea", "runners": [{"number": 3},{"number":5}] }' \
+  https://api.derbygames.com/api/instant_racing/wagers
+</code></pre>
+
+<blockquote>
+<p>Trifeca Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -H "Content-Type: application/json" \
+  -d '{"amount": 10, "game_name": "exotic-pro", "pool": "trifecta", "race_id": "46860996-e83d-4ef8-bcd2-8486ed440dea", "runners": [{"number": 3},{"number":5},{"number":2}] }' \
+  https://api.derbygames.com/api/instant_racing/wagers
+</code></pre>
+
+<blockquote>
+<p>Superfecta Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -H "Content-Type: application/json" \
+  -d '{"amount": 10, "game_name": "exotic-pro", "pool": "trifecta", "race_id": "46860996-e83d-4ef8-bcd2-8486ed440dea", "runners": [{"number": 3},{"number":5},{"number":2},{"number":1}] }' \
   https://api.derbygames.com/api/instant_racing/wagers
 </code></pre>
 

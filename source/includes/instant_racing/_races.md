@@ -161,7 +161,7 @@ pool | the type of wager being paid out (win, place, show, exacta, trifecta, sup
 
 Gets the current race for the user. The same race will be returned until the `decide` endpoint has been called.
 
-> Example
+> Example (not group specific)
 
 ```curl
 curl -H "Application-Name: super-fun-game" \
@@ -169,7 +169,19 @@ curl -H "Application-Name: super-fun-game" \
   https://api.derbygames.com/api/instant_racing/races/current
 ```
 
+> Example (specific race group)
+
+```curl
+curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  https://api.derbygames.com/api/instant_racing/races/current?group_id=1
+```
+
 `GET /instant_racing/races/current`
+
+Parameter | Required? | Description
+--------- | --------- | -----------
+group_id | no | only return a race from this group
 
 ### Returns
 

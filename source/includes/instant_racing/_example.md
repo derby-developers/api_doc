@@ -42,17 +42,7 @@ curl -H "Authorization: Bearer ABC123" \
 
 ## 3. Place a Wager
 
-> Example
-
-```curl
-curl -H "Application-Name: racechamp_mobile_app" \
-  -H "Authorization: Bearer ABC123" \
-  -H "Content-Type: application/json" \
-  -d '{ "amount": 10, "race_id": "<RACE_ID>"}' \
-  https://api.derbygames.com/api/instant_racing/super_slot_spins
-```
-
-Place a Super Slot wager.
+At least one wager must be placed before the next step. See wagering placing above.
 
 ## 4. Decide the Race
 

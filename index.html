@@ -2058,17 +2058,7 @@ A race must be decided to get a video URL, otherwise null will be returned. Vide
 
 <h2 id="3-place-a-wager">3. Place a Wager</h2>
 
-<blockquote>
-<p>Example</p>
-</blockquote>
-<pre class="highlight plaintext"><code>curl -H "Application-Name: racechamp_mobile_app" \
-  -H "Authorization: Bearer ABC123" \
-  -H "Content-Type: application/json" \
-  -d '{ "amount": 10, "race_id": "&lt;RACE_ID&gt;"}' \
-  https://api.derbygames.com/api/instant_racing/super_slot_spins
-</code></pre>
-
-<p>Place a Super Slot wager.</p>
+<p>At least one wager must be placed before the next step. See wagering placing above.</p>
 
 <h2 id="4-decide-the-race">4. Decide the Race</h2>
 

@@ -217,7 +217,7 @@ replacements | (optional) a collection of index/symbol tuples indicating positio
 
 `POST /instant_racing/slot_plays`
 
-> Win Example
+> Slot Play Example
 
 ```curl
 curl -H "Application-Name: super-fun-game" \

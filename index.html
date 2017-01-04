@@ -166,6 +166,64 @@
 
 <p><code class="prettyprint">https://api.derbygames.com/api/</code></p>
 
+          <h1 id="errors">Errors</h1>
+
+<aside class="notice">
+When a POST request returns an error, a common error format is returned.
+</aside>
+
+<h2 id="errors-object">Errors Object</h2>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blank"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"param"</span><span class="p">:</span><span class="w"> </span><span class="s2">"amount"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"can't be blank"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errors</td>
+<td>an array of Error objects</td>
+</tr>
+</tbody></table>
+
+<h2 id="error-object">Error Object</h2>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blank"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"param"</span><span class="p">:</span><span class="w"> </span><span class="s2">"amount"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"can't be blank"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>a code indicating the type of error</td>
+</tr>
+<tr>
+<td>param (optional)</td>
+<td>a parameter that the error applies to, if any</td>
+</tr>
+<tr>
+<td>message</td>
+<td>a human-readable message describing the error</td>
+</tr>
+</tbody></table>
+
           <h1 id="users">Users</h1>
 
 <h2 id="user-object">User Object</h2>

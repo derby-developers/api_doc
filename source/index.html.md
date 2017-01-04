@@ -8,6 +8,7 @@ search: false
 
 includes:
   - introduction
+  - errors
   - users
   - accounts
   - authentication

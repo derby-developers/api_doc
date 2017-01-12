@@ -5,7 +5,9 @@
 ```json
 {
   "id":1,
-  "name": "San Francisco"
+  "name": "San Francisco",
+  "description": "City by the bay",
+  "locked": false
 }
 ```
 
@@ -13,6 +15,8 @@ Field | Description
 ----- | -----------
 id |
 name |
+description |
+locked | boolean indicating if this group is locked or unlocked for the user
 
 ## Get all Race Groups
 

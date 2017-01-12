@@ -2,7 +2,7 @@
 
 User auth is performed using OAuth 2.
 
-Any request consuming user specific data requires a bearer token. Both access and refresh tokens are used. You must get a new access token once it has expired (you will receive a 401). If you The token needs to be added to the header of each request:
+Any request consuming user specific data requires a bearer token. Both access and refresh tokens are used. You must get a new access token once it has expired (you will receive a 401). The token needs to be added to the header of each request:
 
 `Authorization: Bearer f95f9cf38e829104949ae6e160957f549abab252336c3b1007a5961fda940a09`
 
@@ -84,6 +84,17 @@ Parameter | Required? | Description
 --------- | --------- | -----------
 grant_type | yes | 'refresh_token'
 refresh_token | yes | the refresh token
+
+### With Client Credentials
+
+> API ID/secret example (this is the method needed for uploading race video positions)
+
+```curl
+curl -H "Application-Name: super-fun-game" \
+  -H "Content-Type: application/json" \
+  -d '{ "grant_type": "client_credentials", "client_id": "bab252336c3b1007a5961fda940a09", "client_secret": "90a049adf1695a7001b3c633252bab", "scope": "import_instant_racing_race_video_positions" }' \
+  https://api.derbygames.com/api/oauth/token
+```
 
 ### Returns
 

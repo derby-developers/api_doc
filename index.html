@@ -1826,6 +1826,34 @@ This endpoint subject to change soon.
 
 <p><code class="prettyprint">PUT /instant_racing/races/&lt;RACE_ID&gt;/decide</code></p>
 
+          <h1 id="instant-racing-race-videos">Instant Racing: Race Videos</h1>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>filename</td>
+<td>the video filename</td>
+</tr>
+<tr>
+<td>position_timings</td>
+<td>an array of objects describing the position timings</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -X PUT
+  -d '{ "filename": "foo.mp4", position_timings: [{"offset": 0, "positions": [1, 2, 3, 4] }, {"offset": 10, positions: [2, 1, 3, 4]}]  }' \
+  https://api.derbygames.com/api/instant_racing/race_videos
+</code></pre>
+
           <h1 id="instant-racing-wagers">Instant Racing: Wagers</h1>
 
 <h2 id="wager-object">Wager Object</h2>

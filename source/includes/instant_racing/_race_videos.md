@@ -1,5 +1,7 @@
 # Instant Racing: Race Videos
 
+`PUT /api/instant_racing/race_videos`
+
 Field | Description
 ----- | -----------
 filename | the video filename

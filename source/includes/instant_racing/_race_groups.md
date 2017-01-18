@@ -9,6 +9,7 @@
   "description": "City by the bay",
   "locked": false,
   "wager_count": 6,
+  "race_count": 1,
   "winning_win_count": 1,
   "winning_place_count": 1,
   "winning_show_count": 1,
@@ -26,6 +27,7 @@ name |
 description |
 locked | boolean indicating if this group is locked or unlocked for the user
 wager_count | total number of wagers a user has placed on this race group
+race_count | total number of races a user has played on this race group
 winning_win_count | number of winning win bets a user has placed on this race group
 winning_place_count | number of winning place bets a user has placed on this race group
 winning_show_count | number of winning show bets a user has placed on this race group

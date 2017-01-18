@@ -1457,6 +1457,7 @@ https://api.derbygames.com/api/accounts
   </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"City by the bay"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"locked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"wager_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"race_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"winning_win_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"winning_place_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"winning_show_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -1492,6 +1493,10 @@ https://api.derbygames.com/api/accounts
 <tr>
 <td>wager_count</td>
 <td>total number of wagers a user has placed on this race group</td>
+</tr>
+<tr>
+<td>race_count</td>
+<td>total number of races a user has played on this race group</td>
 </tr>
 <tr>
 <td>winning_win_count</td>
@@ -1925,7 +1930,9 @@ This endpoint subject to change soon.
       </span><span class="nt">"win_multiplier"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nt">"place_multiplier"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
       </span><span class="nt">"show_multiplier"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.3</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"final_position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"correct"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"game_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"win-place-show"</span><span class="p">,</span><span class="w">
@@ -2006,6 +2013,28 @@ This endpoint subject to change soon.
 <tr>
 <td>user</td>
 <td>a User object</td>
+</tr>
+</tbody></table>
+
+<h2 id="runner-object">Runner Object</h2>
+
+<aside class="notice">
+  These are the fields on the runner object that are only available after a race has been decided
+</aside>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>final_position</td>
+<td>the position that the runner finished in the race, e.g. 1, 2 or 3 for 1st, 2nd, 3rd</td>
+</tr>
+<tr>
+<td>correct</td>
+<td>a boolean that indicates whether the position of the runner in the wager matches the horses finishing position</td>
 </tr>
 </tbody></table>
 

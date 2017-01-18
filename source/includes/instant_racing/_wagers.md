@@ -27,7 +27,9 @@
       "win_multiplier": 1,
       "place_multiplier": 2,
       "show_multiplier": 1.3,
-      "position": 0
+      "position": 0,
+      "final_position": 1,
+      "correct": true
     }
   ],
   "game_name": "win-place-show",
@@ -72,6 +74,16 @@ box | boolean; true if runners can came in any order, false if they must come in
 bonus_multiplier | the payout multiplier being applied to the wager
 runners | an array of Runner objects
 user | a User object
+
+## Runner Object
+<aside class="notice">
+  These are the fields on the runner object that are only available after a race has been decided
+</aside>
+
+Field | Description
+----- | -----------
+final_position | the position that the runner finished in the race, e.g. 1, 2 or 3 for 1st, 2nd, 3rd
+correct | a boolean that indicates whether the position of the runner in the wager matches the horses finishing position
 
 
 ## Get Wagers on a Race

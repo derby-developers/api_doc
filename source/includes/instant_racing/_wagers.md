@@ -80,6 +80,11 @@ user | a User object
   These are the fields on the runner object that are only available after a race has been decided
 </aside>
 
+<aside class='warning'>
+  The `position` field is the zero-based position of the runner in the wager, e.g. first place is `position` 0, second is `position` 1.
+  `final_position` is one-based, i.e. `final_position` 1 is first place, 2 is second, etc.
+</aside>
+
 Field | Description
 ----- | -----------
 final_position | the position that the runner finished in the race, e.g. 1, 2 or 3 for 1st, 2nd, 3rd

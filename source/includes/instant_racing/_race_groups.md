@@ -29,9 +29,9 @@ id |
 name |
 description |
 locked | boolean indicating if this group is locked or unlocked for the user
-current_points | current points awarded to unlock this level
+current_points | current points awarded to unlock this group
 unlock_points | total points to unlock this group
-unlock_cost | coin cost to unlock
+unlock_cost | coin cost to unlock group
 wager_count | total number of wagers a user has placed on this race group
 race_count | total number of races a user has played on this race group
 winning_win_count | number of winning win bets a user has placed on this race group

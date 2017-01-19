@@ -8,6 +8,9 @@
   "name": "San Francisco",
   "description": "City by the bay",
   "locked": false,
+  "current_points": 100,
+  "unlock_points":100,
+  "unlock_cost":0,
   "wager_count": 6,
   "race_count": 1,
   "winning_win_count": 1,
@@ -26,6 +29,9 @@ id |
 name |
 description |
 locked | boolean indicating if this group is locked or unlocked for the user
+current_points | current points awarded to unlock this level
+unlock_points | total points to unlock this group
+unlock_cost | coin cost to unlock
 wager_count | total number of wagers a user has placed on this race group
 race_count | total number of races a user has played on this race group
 winning_win_count | number of winning win bets a user has placed on this race group

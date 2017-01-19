@@ -12,6 +12,7 @@
   "pool": "win",
   "box": null,
   "bonus_multiplier": 1,
+  "correct_runner_count": 1,
   "runners": [
     {
       "number": 3,
@@ -67,13 +68,14 @@ id | wager id
 user_id | user id
 race_id | race id
 amount | wager amount
+correct_runner_count | number of correct runners
 payoff_amount | amount the wager paid out (shown when the race has been decided)
 pool | the pool ("win", "exacta", "trifecta", "superfecta", "win_place", "win_place_show")
 game_name | the game that created this wager ("super-slots", "win-place-show", "triple-threat", "exotic-pro")
 box | boolean; true if runners can came in any order, false if they must come in exact order
 bonus_multiplier | the payout multiplier being applied to the wager
 runners | an array of Runner objects
-user | a User object
+user | a User object, only on creation
 
 ## Runner Object
 <aside class="notice">

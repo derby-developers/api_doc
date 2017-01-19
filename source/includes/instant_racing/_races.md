@@ -145,6 +145,7 @@ favorite | horse has short odds (more likely to win)
 {
   "wager_amount": 0.5,
   "payoff_amount": 28.6,
+  "multiplier": 57,
   "finish": "6/7/2",
   "pool": "trifecta"
 }

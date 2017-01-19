@@ -1811,6 +1811,7 @@ This endpoint subject to change soon.
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"wager_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
   </span><span class="nt">"payoff_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">28.6</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"multiplier"</span><span class="p">:</span><span class="w"> </span><span class="mi">57</span><span class="p">,</span><span class="w">
   </span><span class="nt">"finish"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6/7/2"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"pool"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trifecta"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1930,6 +1931,7 @@ This endpoint subject to change soon.
   </span><span class="nt">"pool"</span><span class="p">:</span><span class="w"> </span><span class="s2">"win"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"box"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"bonus_multiplier"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"correct_runner_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"runners"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -2002,6 +2004,10 @@ This endpoint subject to change soon.
 <td>wager amount</td>
 </tr>
 <tr>
+<td>correct_runner_count</td>
+<td>number of correct runners</td>
+</tr>
+<tr>
 <td>payoff_amount</td>
 <td>amount the wager paid out (shown when the race has been decided)</td>
 </tr>
@@ -2027,7 +2033,7 @@ This endpoint subject to change soon.
 </tr>
 <tr>
 <td>user</td>
-<td>a User object</td>
+<td>a User object, only on creation</td>
 </tr>
 </tbody></table>
 

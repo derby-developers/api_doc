@@ -107,15 +107,28 @@
       "reels": [
         {
           "number": 0,
+          "reel_id": 1,
           "stop_index": 0
         },
         {
           "number": 1,
+          "reel_id": 1,
           "stop_index": 5
         },
         {
           "number": 2,
+          "reel_id": 1,
           "stop_index": 2
+        }
+      ],
+      "paylines": [
+        {
+          "number": 2,
+          "payoff_amount": 10
+        },
+        {
+          "number": 5,
+          "payoff_amount": 5
         }
       ]
     },
@@ -123,25 +136,24 @@
       "reels": [
         {
           "number": 0,
-          "replacements": [
-            {
-              "index": 0,
-              "symbol": "K"
-            },
-            {
-              "index": 1,
-              "symbol": "Q"
-            }
-          ]
+          "reel_id": 2,
+          "stop_index": 4
+        },
+        {
+          "number": 1,
+          "reel_id": 2,
+          "stop_index": 3
         },
         {
           "number": 2,
-          "replacements": [
-            {
-              "index": 2,
-              "symbol": "J"
-            }
-          ]
+          "reel_id": 2,
+          "stop_index": 5
+        }
+      ],
+      "paylines": [
+        {
+          "number": 3,
+          "payoff_amount": 10
         }
       ]
     }
@@ -168,20 +180,24 @@ spins | an array of spin objects indicating what happened to the reels
   "reels": [
     {
       "number": 0,
+      "reel_id": 1,
       "stop_index": 0
     },
     {
       "number": 1,
+      "reel_id": 1,
       "stop_index": 5
     },
     {
-      "number": 2,
-      "replacements": [
-        {
-          "index": 2,
-          "symbol": "J"
-        }
-      ]
+      "number": 1,
+      "reel_id": 1,
+      "stop_index": 3
+    },
+  ],
+  "paylines": [
+    {
+      "number": 3,
+      "payoff_amount": 10
     }
   ]
 }
@@ -190,6 +206,7 @@ spins | an array of spin objects indicating what happened to the reels
 Field | Description
 ----- | -----------
 reels | a collection of reel objects
+paylines | a collection of payline objects
 
 
 ## Reel Object
@@ -197,21 +214,32 @@ reels | a collection of reel objects
 ```json
 {
   "number": 0,
-  "stop_index": 0,
-  "replacements": [
-    {
-      "index": 2,
-      "symbol": "J"
-    }
-  ]
+  "reel_id": 1,
+  "stop_index": 0
 }
 ```
 
 Field | Description
 ----- | -----------
 number | the reel number (0-2)
+reel_id | the id of the set of reel symbols that was used
 stop_index | (optional) the index at which the reel stopped after spinning
-replacements | (optional) a collection of index/symbol tuples indicating positions that changed due to a bonus/wild
+
+
+## Payline Object
+
+```json
+{
+  "number": 3,
+  "payoff_amount": 10
+}
+```
+
+Field | Description
+----- | -----------
+number | the payline number
+payoff_amount | the amount won from this payline
+
 
 ## New Slot Play
 

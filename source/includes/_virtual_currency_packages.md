@@ -32,7 +32,7 @@ promo_code | no | a promo code to show promotional pricing
 
 ### Returns
 
-An array of `VirtualCurrencyPackage` obejcts.
+An array of `VirtualCurrencyPackage` objects.
 
 ## IAP Receipt Validation
 

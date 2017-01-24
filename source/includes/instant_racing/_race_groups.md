@@ -19,7 +19,9 @@
   "winning_exacta_count": 1,
   "winning_trifecta_count": 1,
   "winning_superfecta_count": 1,
-  "biggest_win": 1000.0
+  "biggest_win": 1000.0,
+  "available_games": ["win-place-show", "trifecta_gold"],
+  "rank": 3
 }
 ```
 
@@ -41,6 +43,9 @@ winning_exacta_count | number of winning exacta bets a user has placed on this r
 winning_trifecta_count | number of winning trifecta bets a user has placed on this race group
 winning_superfecta_count | number of winning superfecta bets a user has placed on this race group
 biggest_win | biggest payout for a wager on this race group
+available_games | an array of games that should be enabled for this race group
+rank | the player's ranking within this race group
+
 ## Get all Race Groups
 
 Returns all the race groups, ordered as they should be shown to the user.

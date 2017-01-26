@@ -30,7 +30,17 @@
       }
     ]
   },
-  "race_id": "55e41a9b-f592-4543-9d6c-6cb1ef98e5b9",
+  "race": {
+    "id": "55e41a9b-f592-4543-9d6c-6cb1ef98e5b9",
+    "tasks": [
+      {
+        "id": 1,
+        "completed": false,
+        "required_slot_play_count": 3,
+        "slot_play_count": 1,
+      }
+    ]
+  },
   "game_name": "trifecta-gold",
   "amount": 10,
   "slot_amount": 5,
@@ -167,7 +177,7 @@
 Field | Description
 ----- | -----------
 id | slot play id
-race_id | race id
+race | a race object
 amount | total slot play amount
 slot_amount | amount placed towards the slot portion of the game
 wager_amount | amount placed towards the trifecta wager portion of the game

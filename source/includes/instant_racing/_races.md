@@ -77,6 +77,14 @@
       "finish": "6/7/2",
       "pool": "trifecta"
     }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "completed": false,
+      "required_wager_count": 5,
+      "wager_count": 2
+    }
   ]
 }
 ```
@@ -89,6 +97,7 @@ race_type | Thoroughbred, Harness
 decided | whether the race is decided (true or false)
 runners | array of Runner objects
 payouts | array of Payout objects (only shown after the race is decided)
+tasks | array of Task objects
 
 There will always be 1 payout for the win pool, 2 for the place pool, 3 for show, and 1 for each exotic pool.
 
@@ -159,6 +168,102 @@ wager_amount |
 payoff_amount | the amount paid out for a wager of `wager_amount`
 finish | the finish associated with a winning payout
 pool | the type of wager being paid out (win, place, show, exacta, trifecta, superfecta)
+
+## Task Object
+
+An object describing a given task. With the exception of `id` and `completed`, each of the groups of json attributes in the example to the rigfht are mutually exclusive from each other.
+
+In other words, a task with the `required_wager_count` and `wager_count` attributes will not have any of the other progress attributes
+
+`wager` attributes refer to horse racing wagers
+
+`slot_play`, `amount_won` and `amount_played` attributes refer to slot plays
+
+> List of all possible attributes in a task object
+
+```json
+{
+  "id": 1,
+  "completed": true,
+
+  "required_wager_count": 3,
+  "wager_count": 3,
+
+  "required_win_wager_count": 3,
+  "win_wager_count": 3,
+
+  "required_place_wager_count": 3,
+  "place_wager_count": 3,
+
+  "required_show_wager_count": 3,
+  "show_wager_count": 3,
+
+  "required_exacta_wager_count": 3,
+  "exacta_wager_count": 3,
+
+  "required_trifecta_wager_count": 3,
+  "trifecta_wager_count": 3,
+
+  "required_superfecta_wager_count": 3,
+  "superfecta_wager_count": 3,
+
+  "required_slot_play_count": 3,
+  "slot_play_count": 3,
+
+  "required_trifecta_slot_play_count": 3,
+  "trifecta_slot_play_count": 3,
+
+  "required_superfecta_slot_play_count": 3,
+  "superfecta_slot_play_count": 3,
+
+  "required_slot_play_win_count": 3,
+  "slot_play_win_count": 3,
+
+  "required_trifecta_slot_play_win_count": 3,
+  "trifecta_slot_play_win_count": 3,
+
+  "required_superfecta_slot_play_win_count": 3,
+  "superfecta_slot_play_win_count": 3,
+
+  "required_amount_played": 3,
+  "amount_played": 3,
+
+  "required_amount_won": 3,
+  "amount_won": 3,
+
+  "required_symbol": "ace",
+  "required_symbol_count": 3,
+  "symbol_count": 3
+}
+```
+
+> Example of what a specific task object actually looks like
+
+```json
+{
+  "id": 1,
+  "completed": false,
+  "required_wager_count": 5,
+  "wager_count": 2
+}
+```
+
+Field | Description
+----- | -----------
+id | the id of the task for this user
+completed | a boolean indicating whether the task is completed
+required_wager_count | the required count of horse wagers to complete the task
+wager_count | the number of horse wagers currently placed towards the task
+required_slot_play_count | the required count of slot plays to complete the task
+slot_play_count | the number of slot plays currently played towards the task
+required_slot_play_win_count | the required number of winning slot plays to complete the task
+slot_play_win_count | the current number of slot play wins towards completing the task
+required_amount_played | the required amount played on the slot machines to complete the task
+amount_played | the current amount played towards completing the task
+required_amount_won | the required amount won on the slot machines to complete the task
+amount_won | the current amount won towards completing the task
+
+The remaining attributes shown in the example all work the same way but are associated with specific wager and slot play types
 
 ## Get a Race
 

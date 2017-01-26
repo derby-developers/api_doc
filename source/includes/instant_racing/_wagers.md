@@ -6,7 +6,17 @@
 {
   "id": 1,
   "user_id": 1,
-  "race_id": "755d855c-31af-412e-989e-8a63492683bf",
+  "race": {
+    "id": "55e41a9b-f592-4543-9d6c-6cb1ef98e5b9",
+    "tasks": [
+      {
+        "id": 1,
+        "completed": false,
+        "required_wager_count": 5,
+        "wager_count": 2
+      }
+    ]
+  },
   "amount": 10,
   "payoff_amount": null,
   "pool": "win",
@@ -66,7 +76,7 @@ Field | Description
 ----- | -----------
 id | wager id
 user_id | user id
-race_id | race id
+race | a race object
 amount | wager amount
 correct_runner_count | number of correct runners
 payoff_amount | amount the wager paid out (shown when the race has been decided)

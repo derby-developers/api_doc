@@ -7,10 +7,12 @@
   "id":1,
   "name": "San Francisco",
   "description": "City by the bay",
+  "position": 3,
   "locked": false,
-  "current_points": 100,
+  "current_points": 50,
   "unlock_points":100,
-  "unlock_cost":0,
+  "unlock_cost": 100000.0,
+  "progress": 0.5,
   "wager_count": 6,
   "race_count": 1,
   "winning_win_count": 1,
@@ -30,10 +32,12 @@ Field | Description
 id |
 name |
 description |
+position | the position that this race group should be displayed in a list
 locked | boolean indicating if this group is locked or unlocked for the user
 current_points | current points awarded to unlock this group
 unlock_points | total points to unlock this group
 unlock_cost | coin cost to unlock group
+progress | a number between 0 and 1 indicating the user's progress towards unlocking the race group
 wager_count | total number of wagers a user has placed on this race group
 race_count | total number of races a user has played on this race group
 winning_win_count | number of winning win bets a user has placed on this race group
@@ -49,10 +53,6 @@ rank | the player's ranking within this race group
 ## Get all Race Groups
 
 Returns all the race groups, ordered as they should be shown to the user.
-
-<aside class="warning">
-This endpoint subject to change soon.
-</aside>
 
 > Example
 

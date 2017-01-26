@@ -35,7 +35,7 @@
   "amount": 10,
   "slot_amount": 5,
   "wager_amount": 5,
-  "slot_payoff_amount": 20,
+  "slot_payoff_amount": 100,
   "wagers": [
     {
       "id": 1,
@@ -104,7 +104,7 @@
   ],
   "spins": [
     {
-      "reels": [
+      "reel_results": [
         {
           "number": 0,
           "reel_id": 1,
@@ -112,23 +112,25 @@
         },
         {
           "number": 1,
-          "reel_id": 1,
+          "reel_id": 2,
           "stop_index": 5
         },
         {
           "number": 2,
-          "reel_id": 1,
+          "reel_id": 3,
           "stop_index": 2
         }
       ],
-      "paylines": [
+      "payline_results": [
         {
           "number": 2,
-          "payoff_amount": 10
+          "multiplier": 5,
+          "payoff_amount": 25
         },
         {
           "number": 5,
-          "payoff_amount": 5
+          "multiplier": 5,
+          "payoff_amount": 25
         }
       ]
     },
@@ -136,24 +138,25 @@
       "reels": [
         {
           "number": 0,
-          "reel_id": 2,
+          "reel_id": 4,
           "stop_index": 4
         },
         {
           "number": 1,
-          "reel_id": 2,
+          "reel_id": 5,
           "stop_index": 3
         },
         {
           "number": 2,
-          "reel_id": 2,
+          "reel_id": 6,
           "stop_index": 5
         }
       ],
       "paylines": [
         {
           "number": 3,
-          "payoff_amount": 10
+          "multiplier": 10,
+          "payoff_amount": 50
         }
       ]
     }
@@ -177,7 +180,7 @@ spins | an array of spin objects indicating what happened to the reels
 
 ```json
 {
-  "reels": [
+  "reel_results": [
     {
       "number": 0,
       "reel_id": 1,
@@ -185,18 +188,19 @@ spins | an array of spin objects indicating what happened to the reels
     },
     {
       "number": 1,
-      "reel_id": 1,
+      "reel_id": 2,
       "stop_index": 5
     },
     {
       "number": 1,
-      "reel_id": 1,
+      "reel_id": 3,
       "stop_index": 3
     },
   ],
-  "paylines": [
+  "payline_results": [
     {
       "number": 3,
+      "multiplier": 5,
       "payoff_amount": 10
     }
   ]
@@ -205,11 +209,11 @@ spins | an array of spin objects indicating what happened to the reels
 
 Field | Description
 ----- | -----------
-reels | a collection of reel objects
-paylines | a collection of payline objects
+reel_results | a collection of reel_result objects
+payline_results | a collection of payline_result objects
 
 
-## Reel Object
+## ReelResult Object
 
 ```json
 {
@@ -223,14 +227,15 @@ Field | Description
 ----- | -----------
 number | the reel number (0-2)
 reel_id | the id of the set of reel symbols that was used
-stop_index | (optional) the index at which the reel stopped after spinning
+stop_index | the index at which the reel stopped after spinning
 
 
-## Payline Object
+## PaylineResult Object
 
 ```json
 {
   "number": 3,
+  "multiplier": 5,
   "payoff_amount": 10
 }
 ```
@@ -238,7 +243,8 @@ stop_index | (optional) the index at which the reel stopped after spinning
 Field | Description
 ----- | -----------
 number | the payline number
-payoff_amount | the amount won from this payline
+multiplier | the multiplier awarded from this payline
+payoff_amount | the total amount won from this payline
 
 
 ## New Slot Play

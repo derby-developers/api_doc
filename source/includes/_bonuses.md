@@ -6,7 +6,8 @@
 {
   "id": 1585353,
   "amount": 20000,
-  "claimed_at":"2016-11-28T12:19:17.395-08:00",
+  "created_at":"2016-11-28T12:19:17.395-08:00",
+  "next_available_at":"2016-11-28T15:19:17.395-08:00",
   "bonus": {
     "name": "instant_racing_refill",
     "award_interval_minutes": 180
@@ -23,7 +24,8 @@ Field | Description
 ----- | -----------
 id | unique ID of this awarded bonus
 amount | amount awarded
-claimed_at | time when claimed
+created_at | time when claimed
+next_available_at | time when the next bonus is available (null if not)
 bonus | Bonus Object (name and how often if can be claimed)
 user | slim version of a User Object, with only an Account array
 

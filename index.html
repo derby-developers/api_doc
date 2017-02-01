@@ -1290,7 +1290,8 @@ https://api.derbygames.com/api/accounts
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1585353</span><span class="p">,</span><span class="w">
   </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">20000</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"claimed_at"</span><span class="p">:</span><span class="s2">"2016-11-28T12:19:17.395-08:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"created_at"</span><span class="p">:</span><span class="s2">"2016-11-28T12:19:17.395-08:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"next_available_at"</span><span class="p">:</span><span class="s2">"2016-11-28T15:19:17.395-08:00"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"bonus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instant_racing_refill"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"award_interval_minutes"</span><span class="p">:</span><span class="w"> </span><span class="mi">180</span><span class="w">
@@ -1318,8 +1319,12 @@ https://api.derbygames.com/api/accounts
 <td>amount awarded</td>
 </tr>
 <tr>
-<td>claimed_at</td>
+<td>created_at</td>
 <td>time when claimed</td>
+</tr>
+<tr>
+<td>next_available_at</td>
+<td>time when the next bonus is available (null if not)</td>
 </tr>
 <tr>
 <td>bonus</td>

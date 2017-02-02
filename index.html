@@ -1286,6 +1286,23 @@ https://api.derbygames.com/api/accounts
 
           <h1 id="bonuses">Bonuses</h1>
 
+<h2 id="check-if-a-bonus-is-available">Check if a Bonus is Available</h2>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -H "Content-Type: application/json" \
+  https://api.derbygames.com/api/awarded_bonuses?bonus_name=racechamp_mobile_app_refill
+</code></pre>
+
+<p><code class="prettyprint">GET /api/awarded_bonuses?bonus_name=racechamp_mobile_app_refill</code></p>
+
+<h3 id="returns">Returns</h3>
+
+<p>An array of <code class="prettyprint">AwardedBonus</code> Objects OR an empty array. If no awarded bonuses are returned, then the requested bonus <em>is</em> available</p>
+
 <h2 id="awardedbonus-object">AwardedBonus Object</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1585353</span><span class="p">,</span><span class="w">
@@ -1293,7 +1310,7 @@ https://api.derbygames.com/api/accounts
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="s2">"2016-11-28T12:19:17.395-08:00"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"next_available_at"</span><span class="p">:</span><span class="s2">"2016-11-28T15:19:17.395-08:00"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"bonus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instant_racing_refill"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"racechamp_mobile_app_refill"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"award_interval_minutes"</span><span class="p">:</span><span class="w"> </span><span class="mi">180</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1344,7 +1361,7 @@ https://api.derbygames.com/api/accounts
 <pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
   -H "Authorization: Bearer ABC123" \
   -H "Content-Type: application/json" \
-  -d '{ "bonus_name": "instant_racing_refill" }' \
+  -d '{ "bonus_name": "racechamp_mobile_app_refill" }' \
   https://api.derbygames.com/api/awarded_bonuses
 </code></pre>
 

@@ -38,6 +38,14 @@
       "locks": [],
       "max_bet_amount": 200
     }
+  ],
+  "application_statuses": [
+    {
+      "id": 1,
+      "application_group": "racechamp_mobile_app",
+      "max_bet": 1000.0,
+      "locks": ["place", "show", "exotic-pro"]
+    }
   ]
 }
 ```
@@ -66,19 +74,20 @@ phone_number | phone number
 mobile_phone_number | mobile phone
 accounts | array of Account objects (real money gaming, virtual, etc.)
 player_statuses | array of PlayerStatus objects, each one corresponding to a group of applications
+application_statuses | array of application status objects
 
 ## PlayerStatus Object
 
 ```json
 {
   "id": 1,
-  "application_group": "casino",
+  "application_group": "racechamp_mobile_app",
   "level": 1,
-  "current_level_points": 0,
-  "progress": 0,
+  "current_level_points": 500,
+  "progress": 0.5,
   "earned_bonuses": [],
-  "locks": ["exotic-pro", "super-slots"],
-  "max_bet_amount": 200
+  "earned_level_up_bonus": false,
+  "level_up_bonus_amount": 1000000.0
 }
 ```
 
@@ -96,6 +105,24 @@ max_bet_amount | a suggested max bet amount
 <aside class="notice">
 Users will periodically gain enough points to level-up. When this happens, check the earned_bonuses array for any unlocked level-up bonuses. To award any bonuses, post to the /api/awarded_bonuses endpoint, setting bonus_name to a string in the earned_bonuses array.
 </aside>
+
+## ApplicationStatus Object
+
+```json
+{
+  "id": 1
+  "application_group": "racechamp_mobile_app",
+  "max_bet_amount": 200.0,
+  "locks": ["place", "show", "exotic-pro", "super-slots"]
+}
+```
+
+Field | Description
+------| -----------
+id |
+application_group | application group name
+locks | an array of strings indicating locked games, ex. ["exotic-pro", "super-slots", "double-down", "jackpot", "red-zone", "place", "show"]
+max_bet_amount | a suggested max bet amount
 
 <aside class="notice">
 Leveling-up can also change the locks array. Game names will be removed from this array as they become unlocked to the user.

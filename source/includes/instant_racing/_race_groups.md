@@ -12,6 +12,7 @@
   "current_points": 50,
   "unlock_points":100,
   "unlock_cost": 100000.0,
+  "unlock_units": 10,
   "progress": 0.5,
   "wager_count": 6,
   "race_count": 1,

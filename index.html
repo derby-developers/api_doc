@@ -1454,6 +1454,10 @@ https://api.derbygames.com/api/accounts
 <td>virtual_currency_value</td>
 <td>number of credits</td>
 </tr>
+<tr>
+<td>app_store_id</td>
+<td>ID for in-app-purchasing, applies to both Apple and Google</td>
+</tr>
 </tbody></table>
 
 <h2 id="get-packages">Get Packages</h2>
@@ -1490,21 +1494,63 @@ https://api.derbygames.com/api/accounts
 
 <h2 id="iap-receipt-validation">IAP Receipt Validation</h2>
 
-<p>After a sucessful in-app purchase, to add the credits into the user&rsquo;s account, the IAP receipt must be validated.</p>
+<p>After a sucessful in-app purchase, the IAP receipt must be validated in order to place the tokens into the users account.</p>
 
-<p><code class="prettyprint">POST /in_app_purchase_receipts</code></p>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>curl -X POST
+  -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -H "Content-Type: application/json" \
+  -d '{ "virtual_currency_package_id": 1, "payment": { "transaction_type": "in_app", "service": "apple", receipt: "" } }' \
+  https://api.derbygames.com/api/virtual_currency_purchases
+</code></pre>
+
+<p><code class="prettyprint">POST /virtual_currency_purchases</code></p>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Paramater</th>
 <th>Required?</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
+<td>virtual_currency_package_id</td>
+<td>yes</td>
+<td>id of the package</td>
+</tr>
+<tr>
+<td>virtual_currency_offer_id</td>
+<td>no</td>
+<td>optional ID of an offer the user is claiming</td>
+</tr>
+<tr>
+<td>payment</td>
+<td>yes</td>
+<td>a Payment object</td>
+</tr>
+</tbody></table>
+
+<h3 id="payment-object">Payment Object</h3>
+
+<table><thead>
+<tr>
+<th>Paramater</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>transaction_type</td>
+<td>yes</td>
+<td>&lsquo;in_app&rsquo;</td>
+</tr>
+<tr>
 <td>service</td>
 <td>yes</td>
-<td>&lsquo;google&rsquo; or &#39;apple&rsquo;</td>
+<td>&#39;google&rsquo; or &#39;apple&rsquo;</td>
 </tr>
 <tr>
 <td>receipt</td>
@@ -1512,6 +1558,20 @@ https://api.derbygames.com/api/accounts
 <td>receipt blob</td>
 </tr>
 </tbody></table>
+
+<h3 id="returns">Returns</h3>
+
+<p>An object with the purchase information and a slim User object with new balances.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"payment_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"virtual_currency_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">200.0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"virtual"</span><span class="p">,</span><span class="w"> </span><span class="nt">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">2083136.67</span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
           <h1 id="instant-racing-racegroups">Instant Racing: RaceGroups</h1>
 

@@ -3,7 +3,12 @@
 ## VirtualCurrencyPackage Object
 
 ```json
-  { "id":1,"price":4.99,"virtual_currency_value":240000.0}
+  { 
+  	"id":1,
+  	"price":4.99,
+  	"virtual_currency_value":240000.0,
+  	"app_store_id": "virtual_currency_package_4.99"
+  }
 ```
 
 Field | Description

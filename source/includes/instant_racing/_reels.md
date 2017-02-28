@@ -39,8 +39,6 @@ curl -H "Application-Name: super-fun-game" \
 
 `GET /instant_racing/reels`
 
-Authentication is not required, but recommended.
-
 ### Returns
 
 An array of `Reel` objects.

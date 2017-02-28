@@ -2937,11 +2937,63 @@ A race must be decided to get a video URL, otherwise null will be returned. Vide
 
 <p><code class="prettyprint">GET /instant_racing/reels</code></p>
 
-<p>Authentication is not required, but recommended.</p>
-
 <h3 id="returns">Returns</h3>
 
 <p>An array of <code class="prettyprint">Reel</code> objects.</p>
+
+          <h1 id="instant-racing-paytables">Instant Racing: Paytables</h1>
+
+<h2 id="paytable-object">Paytable Object</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"game_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trifeca-gold"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"paylines"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"symbols"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"S"</span><span class="p">,</span><span class="s2">"S"</span><span class="p">,</span><span class="s2">"S"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"multiplier"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"symbols"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"F"</span><span class="p">,</span><span class="s2">"F"</span><span class="p">,</span><span class="s2">"F"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"multiplier"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"symbols"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"E"</span><span class="p">,</span><span class="s2">"E"</span><span class="p">,</span><span class="s2">"E"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"multiplier"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>game_name</td>
+<td>the name of the game</td>
+</tr>
+<tr>
+<td>paylines</td>
+<td>array of symbols and their multipliers</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-paytables">Get Paytables</h2>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  https://api.derbygames.com/api/instant_racing/paytables
+</code></pre>
+
+<p><code class="prettyprint">GET /instant_racing/paytables</code></p>
+
+<h3 id="returns">Returns</h3>
+
+<p>An array of <code class="prettyprint">Paytable</code> objects.</p>
 
           <h1 id="instant-racing-example-flow">Instant Racing: Example Flow</h1>
 

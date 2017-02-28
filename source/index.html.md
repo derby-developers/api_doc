@@ -27,6 +27,7 @@ includes:
   - instant_racing/video
   - instant_racing/slot_plays
   - instant_racing/reels
+  - instant_racing/paytables
   - instant_racing/example
   - chat
 ---

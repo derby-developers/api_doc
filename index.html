@@ -1907,13 +1907,21 @@ https://api.derbygames.com/api/accounts
 </tr>
 <tr>
 <td>name</td>
-<td>the horse&rsquo;s name (only shown after the race is decided)</td>
+<td>the horse&rsquo;s name [*]</td>
 </tr>
 <tr>
 <td>final_position</td>
-<td>the horse&rsquo;s final position (only shown after the race is decided)</td>
+<td>the horse&rsquo;s final position [*]</td>
+</tr>
+<tr>
+<td>position_timings</td>
+<td>array of PositionTiming objects with the order of the runners at that moment [*]</td>
 </tr>
 </tbody></table>
+
+<ul>
+<li>= only shown after the race is decided</li>
+</ul>
 
 <table><thead>
 <tr>
@@ -2005,20 +2013,31 @@ https://api.derbygames.com/api/accounts
 </tr>
 </tbody></table>
 
-<h2 id="task-object">Task Object</h2>
-
-<p>An object describing a given task. With the exception of <code class="prettyprint">id</code> and <code class="prettyprint">completed</code>, each of the groups of json attributes in the example to the rigfht are mutually exclusive from each other.</p>
-
-<p>In other words, a task with the <code class="prettyprint">required_wager_count</code> and <code class="prettyprint">wager_count</code> attributes will not have any of the other progress attributes</p>
-
-<p><code class="prettyprint">wager</code> attributes refer to horse racing wagers</p>
-
-<p><code class="prettyprint">slot_play</code>, <code class="prettyprint">amount_won</code> and <code class="prettyprint">amount_played</code> attributes refer to slot plays</p>
-
-<blockquote>
-<p>List of all possible attributes in a task object</p>
-</blockquote>
+<h2 id="positiontiming-object">PositionTiming Object</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">offset:</span><span class="w"> </span><span class="err">10,</span><span class="w">
+  </span><span class="err">positions:</span><span class="w"> </span><span class="err">[1,2,3,4]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="err">Field</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">Description</span><span class="w">
+</span><span class="err">-----</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">-----------</span><span class="w">
+</span><span class="err">offset</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">seconds</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">video</span><span class="w">
+</span><span class="err">positions</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">array</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">runner</span><span class="w"> </span><span class="err">positions</span><span class="w">
+
+</span><span class="err">##</span><span class="w"> </span><span class="err">Task</span><span class="w"> </span><span class="err">Object</span><span class="w">
+
+</span><span class="err">An</span><span class="w"> </span><span class="err">object</span><span class="w"> </span><span class="err">describing</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">given</span><span class="w"> </span><span class="err">task.</span><span class="w"> </span><span class="err">With</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">exception</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">`id`</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">`completed`,</span><span class="w"> </span><span class="err">each</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">groups</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">json</span><span class="w"> </span><span class="err">attributes</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">rigfht</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">mutually</span><span class="w"> </span><span class="err">exclusive</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">each</span><span class="w"> </span><span class="err">other.</span><span class="w">
+
+</span><span class="err">In</span><span class="w"> </span><span class="err">other</span><span class="w"> </span><span class="err">words,</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">task</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">`required_wager_count`</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">`wager_count`</span><span class="w"> </span><span class="err">attributes</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">have</span><span class="w"> </span><span class="err">any</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">other</span><span class="w"> </span><span class="err">progress</span><span class="w"> </span><span class="err">attributes</span><span class="w">
+
+</span><span class="err">`wager`</span><span class="w"> </span><span class="err">attributes</span><span class="w"> </span><span class="err">refer</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">horse</span><span class="w"> </span><span class="err">racing</span><span class="w"> </span><span class="err">wagers</span><span class="w">
+
+</span><span class="err">`slot_play`,</span><span class="w"> </span><span class="err">`amount_won`</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">`amount_played`</span><span class="w"> </span><span class="err">attributes</span><span class="w"> </span><span class="err">refer</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">slot</span><span class="w"> </span><span class="err">plays</span><span class="w">
+
+</span><span class="err">&gt;</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">possible</span><span class="w"> </span><span class="err">attributes</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">task</span><span class="w"> </span><span class="err">object</span><span class="w">
+
+</span><span class="err">```json</span><span class="w">
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
 

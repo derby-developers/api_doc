@@ -132,8 +132,11 @@ win_multiplier | approximate multiple of wager paid out if horse finishes first
 place_multiplier | approximate multiple of wager paid out if horse finishes second
 show_multiplier | approximate multiple of wager paid out if horse finishes third
 trophies | total trophies received
-name | the horse's name (only shown after the race is decided)
-final_position | the horse's final position (only shown after the race is decided)
+name | the horse's name [*]
+final_position | the horse's final position [*]
+position_timings | array of PositionTiming objects with the order of the runners at that moment [*]
+
+* = only shown after the race is decided
 
 Badges     | Description
 ---------- | -----------
@@ -168,6 +171,19 @@ wager_amount |
 payoff_amount | the amount paid out for a wager of `wager_amount`
 finish | the finish associated with a winning payout
 pool | the type of wager being paid out (win, place, show, exacta, trifecta, superfecta)
+
+## PositionTiming Object
+
+```json
+{
+  offset: 10,
+  positions: [1,2,3,4]
+}
+
+Field | Description
+----- | -----------
+offset | seconds in the video
+positions | array of runner positions
 
 ## Task Object
 

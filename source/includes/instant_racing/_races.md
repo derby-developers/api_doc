@@ -85,6 +85,12 @@
       "required_wager_count": 5,
       "wager_count": 2
     }
+  ],
+  "position_timings": [
+    {
+      offset: 10,
+      positions: [1,2,3,4]
+    }
   ]
 }
 ```
@@ -96,8 +102,11 @@ group_id | the race group id of the current race
 race_type | Thoroughbred, Harness
 decided | whether the race is decided (true or false)
 runners | array of Runner objects
-payouts | array of Payout objects (only shown after the race is decided)
+payouts | array of Payout objects [*]
+position_timings | array of PositionTiming objects with the order of the runners at that moment [*]
 tasks | array of Task objects
+
+* = only shown after the race is decided
 
 There will always be 1 payout for the win pool, 2 for the place pool, 3 for show, and 1 for each exotic pool.
 
@@ -134,7 +143,6 @@ show_multiplier | approximate multiple of wager paid out if horse finishes third
 trophies | total trophies received
 name | the horse's name [*]
 final_position | the horse's final position [*]
-position_timings | array of PositionTiming objects with the order of the runners at that moment [*]
 
 * = only shown after the race is decided
 

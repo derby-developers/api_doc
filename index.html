@@ -1797,6 +1797,12 @@ https://api.derbygames.com/api/accounts
       </span><span class="nt">"required_wager_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
       </span><span class="nt">"wager_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
     </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"position_timings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="err">offset:</span><span class="w"> </span><span class="err">10,</span><span class="w">
+      </span><span class="err">positions:</span><span class="w"> </span><span class="err">[1,2,3,4]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1829,13 +1835,21 @@ https://api.derbygames.com/api/accounts
 </tr>
 <tr>
 <td>payouts</td>
-<td>array of Payout objects (only shown after the race is decided)</td>
+<td>array of Payout objects [*]</td>
+</tr>
+<tr>
+<td>position_timings</td>
+<td>array of PositionTiming objects with the order of the runners at that moment [*]</td>
 </tr>
 <tr>
 <td>tasks</td>
 <td>array of Task objects</td>
 </tr>
 </tbody></table>
+
+<ul>
+<li>= only shown after the race is decided</li>
+</ul>
 
 <p>There will always be 1 payout for the win pool, 2 for the place pool, 3 for show, and 1 for each exotic pool.</p>
 
@@ -1912,10 +1926,6 @@ https://api.derbygames.com/api/accounts
 <tr>
 <td>final_position</td>
 <td>the horse&rsquo;s final position [*]</td>
-</tr>
-<tr>
-<td>position_timings</td>
-<td>array of PositionTiming objects with the order of the runners at that moment [*]</td>
 </tr>
 </tbody></table>
 

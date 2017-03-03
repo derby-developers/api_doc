@@ -20,7 +20,7 @@ All endpoints for Race Videos need a token with the import_instant_racing_race_v
 
 Field | Description
 ----- | -----------
-id | duh
+id |
 post_time_seconds | time, in seconds, when the race starts
 finish_line_seconds | time, in seconds, when the finish line is crossed
 original_url | s3 bucket URL of the original video
@@ -41,13 +41,20 @@ curl -H "Application-Name: super-fun-game" \
   https://api.derbygames.com/api/instant_racing/race_videos?ocr_success=false
 ```
 
-Paramater | Description
------ | -----------
-ocr_success | boolean if races passed or failed OCR
+Paramater | Required | Description
+----- | ----------- | ----------
+ocr_success | no | boolean if races passed or failed OCR
+track_id | no | track ID (21 = Penn, Zia = 81, Mahoning = 451)
+clipped | no | boolean if race has been clipped
+
+Examples: 
+
+If you would like to get a list of videos to OCR, pass in the track_id and clipped = true. 
+If you would like videos that have failed OCR, pass in ocr_success = false.
 
 ### Returns
 
-An array of RaceVideo objects.
+An array of RaceVideo objects. Max 1,000 and ordered by race date (newest first).
 
 ## Updating RaceVideo position timings
 

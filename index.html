@@ -2248,7 +2248,7 @@ All endpoints for Race Videos need a token with the import_instant_racing_race_v
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>duh</td>
+<td></td>
 </tr>
 <tr>
 <td>post_time_seconds</td>
@@ -2291,18 +2291,35 @@ All endpoints for Race Videos need a token with the import_instant_racing_race_v
 <table><thead>
 <tr>
 <th>Paramater</th>
+<th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>ocr_success</td>
+<td>no</td>
 <td>boolean if races passed or failed OCR</td>
+</tr>
+<tr>
+<td>track_id</td>
+<td>no</td>
+<td>track ID (21 = Penn, Zia = 81, Mahoning = 451)</td>
+</tr>
+<tr>
+<td>clipped</td>
+<td>no</td>
+<td>boolean if race has been clipped</td>
 </tr>
 </tbody></table>
 
+<p>Examples: </p>
+
+<p>If you would like to get a list of videos to OCR, pass in the track_id and clipped = true. 
+If you would like videos that have failed OCR, pass in ocr_success = false.</p>
+
 <h3 id="returns">Returns</h3>
 
-<p>An array of RaceVideo objects.</p>
+<p>An array of RaceVideo objects. Max 1,000 and ordered by race date (newest first).</p>
 
 <h2 id="updating-racevideo-position-timings">Updating RaceVideo position timings</h2>
 

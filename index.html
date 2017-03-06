@@ -2310,6 +2310,11 @@ All endpoints for Race Videos need a token with the import_instant_racing_race_v
 <td>no</td>
 <td>boolean if race has been clipped</td>
 </tr>
+<tr>
+<td>limit</td>
+<td>no</td>
+<td>number of videos to return, max 1000</td>
+</tr>
 </tbody></table>
 
 <p>Examples: </p>
@@ -2319,7 +2324,7 @@ If you would like videos that have failed OCR, pass in ocr_success = false.</p>
 
 <h3 id="returns">Returns</h3>
 
-<p>An array of RaceVideo objects. Max 1,000 and ordered by race date (newest first).</p>
+<p>An array of RaceVideo objects ordered by race date (newest first).</p>
 
 <h2 id="updating-racevideo-position-timings">Updating RaceVideo position timings</h2>
 

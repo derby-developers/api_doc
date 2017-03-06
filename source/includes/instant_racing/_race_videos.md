@@ -46,6 +46,7 @@ Paramater | Required | Description
 ocr_success | no | boolean if races passed or failed OCR
 track_id | no | track ID (21 = Penn, Zia = 81, Mahoning = 451)
 clipped | no | boolean if race has been clipped
+limit | no | number of videos to return, max 1000
 
 Examples: 
 
@@ -54,7 +55,7 @@ If you would like videos that have failed OCR, pass in ocr_success = false.
 
 ### Returns
 
-An array of RaceVideo objects. Max 1,000 and ordered by race date (newest first).
+An array of RaceVideo objects ordered by race date (newest first).
 
 ## Updating RaceVideo position timings
 

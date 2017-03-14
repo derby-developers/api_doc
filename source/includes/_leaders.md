@@ -21,6 +21,7 @@ rank | position in this board
 screen_name | user chosen name
 board | daily, weekly, or all_time
 image_url | avatar of the user
+user_id | only present in streak leaders
 
 ## Get Leaders
 
@@ -29,6 +30,7 @@ image_url | avatar of the user
 Parameter | Required? | Description
 --------- | --------- | -----------
 show | no | number of leaders to show (default: all)
+type | no | "winnings" or "streaks" (default: winnings)
 
 ### Returns
 

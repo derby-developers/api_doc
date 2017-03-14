@@ -30,7 +30,11 @@ user_id | only present in streak leaders
 Parameter | Required? | Description
 --------- | --------- | -----------
 show | no | number of leaders to show (default: all)
-type | no | "winnings" or "streaks" (default: winnings)
+type | no | "winnings", "streaks", "wagers" (default: winnings)
+
+<aside class="notice">
+  the "wagers" type leaderboard is what is used for trophies on the front end
+</aside>
 
 ### Returns
 

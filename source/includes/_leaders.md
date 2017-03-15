@@ -31,6 +31,7 @@ Parameter | Required? | Description
 --------- | --------- | -----------
 show | no | number of leaders to show (default: all)
 type | no | "winnings", "streaks", "wagers" (default: winnings)
+race_group_id | no | the id of a race group a leaderboard belongs to (defaults to none, giving you the global leaderboard)
 
 <aside class="notice">
   the "wagers" type leaderboard is what is used for trophies on the front end

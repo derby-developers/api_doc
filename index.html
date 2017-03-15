@@ -1264,9 +1264,18 @@ https://api.derbygames.com/api/accounts
 <tr>
 <td>type</td>
 <td>no</td>
-<td>&ldquo;winnings&rdquo; or &ldquo;streaks&rdquo; (default: winnings)</td>
+<td>&ldquo;winnings&rdquo;, &ldquo;streaks&rdquo;, &ldquo;wagers&rdquo; (default: winnings)</td>
+</tr>
+<tr>
+<td>race_group_id</td>
+<td>no</td>
+<td>the id of a race group a leaderboard belongs to (defaults to none, giving you the global leaderboard)</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">
+  the &ldquo;wagers&rdquo; type leaderboard is what is used for trophies on the front end
+</aside>
 
 <h3 id="returns">Returns</h3>
 
@@ -1611,8 +1620,7 @@ https://api.derbygames.com/api/accounts
   </span><span class="nt">"winning_superfecta_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"winning_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
   </span><span class="nt">"biggest_win"</span><span class="p">:</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"available_games"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"win-place-show"</span><span class="p">,</span><span class="w"> </span><span class="s2">"trifecta_gold"</span><span class="p">],</span><span class="w">
-  </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+  </span><span class="nt">"available_games"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"win-place-show"</span><span class="p">,</span><span class="w"> </span><span class="s2">"trifecta_gold"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1701,10 +1709,6 @@ https://api.derbygames.com/api/accounts
 <tr>
 <td>available_games</td>
 <td>an array of games that should be enabled for this race group (&ldquo;win-place-show&rdquo;, &ldquo;trifecta_gold&rdquo;, &ldquo;wild_mustang&rdquo;)</td>
-</tr>
-<tr>
-<td>rank</td>
-<td>the player&rsquo;s ranking within this race group</td>
 </tr>
 </tbody></table>
 

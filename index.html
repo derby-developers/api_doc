@@ -1620,7 +1620,12 @@ https://api.derbygames.com/api/accounts
   </span><span class="nt">"winning_superfecta_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"winning_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
   </span><span class="nt">"biggest_win"</span><span class="p">:</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"available_games"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"win-place-show"</span><span class="p">,</span><span class="w"> </span><span class="s2">"trifecta_gold"</span><span class="p">]</span><span class="w">
+  </span><span class="nt">"available_games"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"win-place-show"</span><span class="p">,</span><span class="w"> </span><span class="s2">"trifecta_gold"</span><span class="p">],</span><span class="w">
+
+  </span><span class="nt">"wager_streak"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">alive:</span><span class="w"> </span><span class="err">true,</span><span class="w">
+    </span><span class="err">wager_count:</span><span class="w"> </span><span class="err">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1709,6 +1714,10 @@ https://api.derbygames.com/api/accounts
 <tr>
 <td>available_games</td>
 <td>an array of games that should be enabled for this race group (&ldquo;win-place-show&rdquo;, &ldquo;trifecta_gold&rdquo;, &ldquo;wild_mustang&rdquo;)</td>
+</tr>
+<tr>
+<td>wager_streak</td>
+<td>an object describing the user&rsquo;s current wager streak for the race group</td>
 </tr>
 </tbody></table>
 
@@ -2417,6 +2426,7 @@ If you would like videos that have failed OCR, pass in ocr_success = false.</p>
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"game_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"win-place-show"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"bonus_multiplier"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span><span class="w">
   </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"screen_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joe S."</span><span class="p">,</span><span class="w">
@@ -2489,7 +2499,7 @@ If you would like videos that have failed OCR, pass in ocr_success = false.</p>
 </tr>
 <tr>
 <td>bonus_multiplier</td>
-<td>the payout multiplier being applied to the wager</td>
+<td>the payout multiplier being applied to the wager (will be 1 unless the user is on a streak)</td>
 </tr>
 <tr>
 <td>runners</td>

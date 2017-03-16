@@ -44,6 +44,7 @@
     }
   ],
   "game_name": "win-place-show",
+  "bonus_multiplier": 1.5,
   "user": {
     "id": 1,
     "screen_name": "Joe S.",
@@ -83,7 +84,7 @@ payoff_amount | amount the wager paid out (shown when the race has been decided)
 pool | the pool ("win", "exacta", "trifecta", "superfecta", "win_place", "win_place_show")
 game_name | the game that created this wager ("super-slots", "win-place-show", "triple-threat", "exotic-pro")
 box | boolean; true if runners can came in any order, false if they must come in exact order
-bonus_multiplier | the payout multiplier being applied to the wager
+bonus_multiplier | the payout multiplier being applied to the wager (will be 1 unless the user is on a streak)
 runners | an array of Runner objects
 user | a User object, only on creation
 

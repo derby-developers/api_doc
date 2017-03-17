@@ -88,8 +88,8 @@
   ],
   "position_timings": [
     {
-      offset: 10,
-      positions: [1,2,3,4]
+      "offset": 10,
+      "positions": [1,2,3,4]
     }
   ]
 }

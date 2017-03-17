@@ -1621,10 +1621,15 @@ https://api.derbygames.com/api/accounts
   </span><span class="nt">"winning_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
   </span><span class="nt">"biggest_win"</span><span class="p">:</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"available_games"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"win-place-show"</span><span class="p">,</span><span class="w"> </span><span class="s2">"trifecta_gold"</span><span class="p">],</span><span class="w">
-
   </span><span class="nt">"wager_streak"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="err">alive:</span><span class="w"> </span><span class="err">true,</span><span class="w">
     </span><span class="err">wager_count:</span><span class="w"> </span><span class="err">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"next_live_race"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"track"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ohio"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"post_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-17T00:05:04-07:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"race_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"destination_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://some-place-to-gamble.com"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1718,6 +1723,10 @@ https://api.derbygames.com/api/accounts
 <tr>
 <td>wager_streak</td>
 <td>an object describing the user&rsquo;s current wager streak for the race group</td>
+</tr>
+<tr>
+<td>next_live_race</td>
+<td>small race object if there is a real live race taking place, null if not</td>
 </tr>
 </tbody></table>
 

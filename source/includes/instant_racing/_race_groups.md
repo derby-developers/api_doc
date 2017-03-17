@@ -26,8 +26,8 @@
   "biggest_win": 1000.0,
   "available_games": ["win-place-show", "trifecta_gold"],
   "wager_streak": {
-    alive: true,
-    wager_count: 1
+    "alive": true,
+    "wager_count": 1
   },
   "next_live_race": {
     "track": { "name": "Ohio" },

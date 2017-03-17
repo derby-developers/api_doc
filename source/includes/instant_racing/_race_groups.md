@@ -25,10 +25,15 @@
   "winning_count": 6,
   "biggest_win": 1000.0,
   "available_games": ["win-place-show", "trifecta_gold"],
-
   "wager_streak": {
     alive: true,
     wager_count: 1
+  },
+  "next_live_race": {
+    "track": { "name": "Ohio" },
+    "post_datetime": "2017-03-17T00:05:04-07:00",
+    "race_number": 1,
+    "destination_url": "https://some-place-to-gamble.com"
   }
 }
 ```
@@ -56,6 +61,7 @@ winning_count | total number of winning wagers on this race group
 biggest_win | biggest payout for a wager on this race group
 available_games | an array of games that should be enabled for this race group ("win-place-show", "trifecta_gold", "wild_mustang")
 wager_streak | an object describing the user's current wager streak for the race group
+next_live_race | small race object if there is a real live race taking place, null if not
 
 ## Get all Race Groups
 

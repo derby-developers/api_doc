@@ -1,8 +1,6 @@
 # Linked Accounts
 
-You can link a user to an outside OAuth provider, such as Facebook. The user can then use this as their login.
-
-<aside class="notice">Currently, only Facebook is supported.</aside>
+Link a user account to Facebook.
 
 ## Create a Linked Account
 
@@ -27,4 +25,22 @@ token | yes | OAuth token for the provider. It will be validated.
 
 ### Returns
 
-A User object.
+HTTP Code | reason | description | notes
+--------- | ------ | ----------- | -----
+200 | success | User object
+422 | validation error | Error object | generally due to in invalid token
+302 | account already linked | This Facebook account has been linked to a different user (see below)
+
+### Handling an account that is already linked
+
+If the Facebook account is already linked to another user, you should authenticate as that Facebook user using an OAuth assertion grant. The location header will contain the URL you need to use. The response will be a Token obect.
+
+> Example
+
+```curl
+curl -H "Application-Name: super-fun-game" \
+  [URL returned in the location header from above]
+```
+
+
+

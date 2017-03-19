@@ -96,6 +96,24 @@ curl -H "Application-Name: super-fun-game" \
   https://api.derbygames.com/api/oauth/token
 ```
 
+### Using a Facebook Token
+
+> Assertion Grant Example
+
+```curl
+curl -H "Application-Name: super-fun-game" \
+  -H "Content-Type: application/json" \
+  -d '{ "grant_type": "assertion", "assertion": "ABC123" }' \
+  https://api.derbygames.com/api/oauth/token
+```
+
+If the user has linked their Facebook account, you can login using their Facebook token with an assertion grant.
+
+Parameter | Required? | Description
+--------- | --------- | -----------
+grant_type | yes | 'assertion'
+assertion | yes | Facebook token
+
 ### Returns
 
 A `Token` object if successful, or an error message (with HTTP status 401) if not.

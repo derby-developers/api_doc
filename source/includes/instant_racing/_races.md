@@ -184,8 +184,8 @@ pool | the type of wager being paid out (win, place, show, exacta, trifecta, sup
 
 ```json
 {
-  offset: 10,
-  positions: [1,2,3,4]
+  "offset": 10,
+  "positions": [1,2,3,4]
 }
 ```
 

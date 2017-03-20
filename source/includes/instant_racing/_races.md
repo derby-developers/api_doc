@@ -187,11 +187,12 @@ pool | the type of wager being paid out (win, place, show, exacta, trifecta, sup
   offset: 10,
   positions: [1,2,3,4]
 }
+```
 
 Field | Description
 ----- | -----------
 offset | seconds in the video
-positions | array of runner positions
+positions | array of runner positions (an empty array for the final stretch)
 
 ## Task Object
 

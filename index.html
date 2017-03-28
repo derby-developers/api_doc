@@ -1740,6 +1740,10 @@ https://api.derbygames.com/api/accounts
 <td>coin cost to unlock group</td>
 </tr>
 <tr>
+<td>unlock_units</td>
+<td>the number of unlock units (e.g. horseshoes) required to unlock the track</td>
+</tr>
+<tr>
 <td>progress</td>
 <td>a number between 0 and 1 indicating the user&rsquo;s progress towards unlocking the race group</td>
 </tr>
@@ -2817,9 +2821,10 @@ A race must be decided to get a video URL, otherwise null will be returned. Vide
     </span><span class="nt">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="nt">"required_slot_play_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"slot_play_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="nt">"slot_play_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"unlock_points_awarded"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">},</span><span class="w">

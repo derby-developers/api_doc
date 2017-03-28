@@ -48,6 +48,7 @@ locked | boolean indicating if this group is locked or unlocked for the user
 current_points | current points awarded to unlock this group
 unlock_points | total points to unlock this group
 unlock_cost | coin cost to unlock group
+unlock_units | the number of unlock units (e.g. horseshoes) required to unlock the track
 progress | a number between 0 and 1 indicating the user's progress towards unlocking the race group
 wager_count | total number of wagers a user has placed on this race group
 race_count | total number of races a user has played on this race group

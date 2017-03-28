@@ -35,9 +35,10 @@
     "tasks": [
       {
         "id": 1,
-        "completed": false,
+        "completed": true,
         "required_slot_play_count": 3,
-        "slot_play_count": 1
+        "slot_play_count": 1,
+        "unlock_points_awarded": 10
       }
     ]
   },

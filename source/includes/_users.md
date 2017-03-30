@@ -22,6 +22,7 @@
   "instant_racing_wager_count":0,
   "triple_threat_spin_count":0,
   "image_url": "https://avatars.derbycdn.net/1b/ef5a60ad7811e59098a34b698f19df.jpg",
+  "facebook_status": "connected",
   "phone_number":"12125551212",
   "mobile_phone_number":"12125551212",
   "accounts":[
@@ -70,6 +71,7 @@ multi_race_wager_count | total number of multi race wagers placed
 instant_racing_wager_count | total instant (virtual) racing wagers placed
 triple_threat_spin_count | total number of TT spins
 image_url | full URL of the users avatar
+facebook_status | null if the user isn't connected, otherwise could be "connected" or "expired"
 phone_number | phone number
 mobile_phone_number | mobile phone
 accounts | array of Account objects (real money gaming, virtual, etc.)

@@ -844,6 +844,25 @@ https://api.derbygames.com/api/accounts
 
 <p>A <code class="prettyprint">Token</code> object.</p>
 
+<h2 id="revoking-a-token-logging-out">Revoking a Token (Logging Out)</h2>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>curl -X POST \
+  -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  https://api.derbygames.com/api/oauth/revoke
+</code></pre>
+
+<p>The token specified in the authorization header will be revoked.</p>
+
+<h3 id="returns">Returns</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>With a 200 status code</p>
+
           <h1 id="linked-accounts">Linked Accounts</h1>
 
 <p>Link a user account to Facebook.</p>

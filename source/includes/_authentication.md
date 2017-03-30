@@ -134,3 +134,23 @@ A `Token` object if successful, or an error message (with HTTP status 401) if no
 ### Returns
 
 A `Token` object.
+
+## Revoking a Token (Logging Out)
+
+> Example
+
+```curl
+curl -X POST \
+  -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  https://api.derbygames.com/api/oauth/revoke
+```
+The token specified in the authorization header will be revoked.
+
+### Returns
+
+```json
+{ }
+```
+
+With a 200 status code

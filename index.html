@@ -246,6 +246,7 @@ When a POST request returns an error, a common error format is returned.
   </span><span class="nt">"instant_racing_wager_count"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"triple_threat_spin_count"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://avatars.derbycdn.net/1b/ef5a60ad7811e59098a34b698f19df.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"facebook_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"connected"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="s2">"12125551212"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"mobile_phone_number"</span><span class="p">:</span><span class="s2">"12125551212"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"accounts"</span><span class="p">:[</span><span class="w">
@@ -351,6 +352,10 @@ When a POST request returns an error, a common error format is returned.
 <tr>
 <td>image_url</td>
 <td>full URL of the users avatar</td>
+</tr>
+<tr>
+<td>facebook_status</td>
+<td>null if the user isn&rsquo;t connected, otherwise could be &ldquo;connected&rdquo; or &ldquo;expired&rdquo;</td>
 </tr>
 <tr>
 <td>phone_number</td>

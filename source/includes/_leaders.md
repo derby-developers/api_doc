@@ -9,7 +9,8 @@
     "rank": 1,
     "screen_name": "Joe S.",
     "board": "daily",
-    "image_url": "https://avatars.derbycdn.net/15/121b70929811e491181d7fc65910e6.jpg"
+    "image_url": "https://avatars.derbycdn.net/15/121b70929811e491181d7fc65910e6.jpg",
+    "winning_wager_count": 25
   }
 ```
 
@@ -22,6 +23,7 @@ screen_name | user chosen name
 board | daily, weekly, or all_time
 image_url | avatar of the user
 user_id | only present in streak leaders
+winning_wager_count | the total number of winning wagers a user has made (a.k.a. trophies)
 
 ## Get Leaders
 

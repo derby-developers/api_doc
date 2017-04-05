@@ -38,7 +38,7 @@
         "completed": true,
         "required_slot_play_count": 3,
         "slot_play_count": 1,
-        "unlock_points_awarded": 10
+        "current_points": 10
       }
     ]
   },

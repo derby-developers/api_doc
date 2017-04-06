@@ -27,7 +27,8 @@
   "available_games": ["win-place-show", "trifecta_gold"],
   "wager_streak": {
     "alive": true,
-    "wager_count": 1
+    "wager_count": 1,
+    "bonus_multiplier": 1.5
   },
   "next_live_race": {
     "track": { "name": "Ohio" },

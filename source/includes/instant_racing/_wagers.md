@@ -15,7 +15,10 @@
         "required_wager_count": 5,
         "wager_count": 2
       }
-    ]
+    ],
+    // below attributes only present if the decide bit is sent with the wager
+    "decided": true,
+    "video_url": "https://example.com/api/instant_racing/races/487196ea-04a4-48b1-abd5-13bcff683791/video/playlist.m3u8?..."
   },
   "amount": 10,
   "payoff_amount": null,
@@ -87,6 +90,10 @@ box | boolean; true if runners can came in any order, false if they must come in
 bonus_multiplier | the payout multiplier being applied to the wager (will be 1 unless the user is on a streak)
 runners | an array of Runner objects
 user | a User object, only on creation
+
+<aside class="notice">
+  The `race` node will contain a `decided` bit and a `video_url` if the `decide` bit is sent with the wager.
+</aside>
 
 ## Runner Object
 <aside class="notice">
@@ -187,6 +194,7 @@ pool | yes | the pool ("win", "exacta", "trifecta", "superfecta", "win_place", "
 game_name | yes | the game ("super-slots", "win-place-show", "triple-threat", "exotic-pro")
 amount | yes | the wager amount
 runners | yes | an array of objects indicating runner numbers ex: [{number: 2}, {number: 7}]
+decide | no | if true, will decide the associated race and include a video url in the race node in the response
 
 ### Returns
 

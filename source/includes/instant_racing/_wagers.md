@@ -16,7 +16,6 @@
         "wager_count": 2
       }
     ],
-    // below attributes only present if the decide bit is sent with the wager
     "decided": true,
     "video_url": "https://example.com/api/instant_racing/races/487196ea-04a4-48b1-abd5-13bcff683791/video/playlist.m3u8?..."
   },

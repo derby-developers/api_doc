@@ -2519,7 +2519,10 @@ If you would like videos that have failed OCR, pass in ocr_success = false.</p>
         </span><span class="nt">"required_wager_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
         </span><span class="nt">"wager_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">below</span><span class="w"> </span><span class="err">attributes</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">present</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">decide</span><span class="w"> </span><span class="err">bit</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">sent</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">wager</span><span class="w">
+    </span><span class="nt">"decided"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/api/instant_racing/races/487196ea-04a4-48b1-abd5-13bcff683791/video/playlist.m3u8?..."</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="nt">"payoff_amount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2632,6 +2635,10 @@ If you would like videos that have failed OCR, pass in ocr_success = false.</p>
 <td>a User object, only on creation</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">
+  The `race` node will contain a `decided` bit and a `video_url` if the `decide` bit is sent with the wager.
+</aside>
 
 <h2 id="runner-object">Runner Object</h2>
 
@@ -2767,6 +2774,11 @@ Because the wager payoffs are calculated asynchronously after a call to `decide`
 <td>runners</td>
 <td>yes</td>
 <td>an array of objects indicating runner numbers ex: [{number: 2}, {number: 7}]</td>
+</tr>
+<tr>
+<td>decide</td>
+<td>no</td>
+<td>if true, will decide the associated race and include a video url in the race node in the response</td>
 </tr>
 </tbody></table>
 

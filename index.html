@@ -3202,7 +3202,9 @@ A race must be decided to get a video URL, otherwise null will be returned. Vide
     </span><span class="s2">"saddle"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"jack"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"horseshoe"</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"reel_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="w">
+  </span><span class="s2">"game_name"</span><span class="err">:</span><span class="w"> </span><span class="s2">"trifecta-gold"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -3232,7 +3234,21 @@ A race must be decided to get a video URL, otherwise null will be returned. Vide
   https://api.derbygames.com/api/instant_racing/reels
 </code></pre>
 
-<p><code class="prettyprint">GET /instant_racing/reels</code></p>
+<p><code class="prettyprint">GET /instant_racing/reels?game_name=trifecta-gold</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>game_name</td>
+<td>yes</td>
+<td>the name of the game for which reels are required (currently either <code class="prettyprint">trifecta-gold</code> or <code class="prettyprint">wild-mustang</code>)</td>
+</tr>
+</tbody></table>
 
 <h3 id="returns">Returns</h3>
 

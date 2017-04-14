@@ -20,6 +20,7 @@
   "country_code":"US",
   "postal_code":"10011",
   "instant_racing_wager_count":0,
+  "winning_instant_racing_wager_count": 0,
   "triple_threat_spin_count":0,
   "image_url": "https://avatars.derbycdn.net/1b/ef5a60ad7811e59098a34b698f19df.jpg",
   "facebook_status": "connected",
@@ -47,7 +48,10 @@
       "max_bet": 1000.0,
       "locks": ["place", "show", "exotic-pro"]
     }
-  ]
+  ],
+  "longest_wager_streak": {
+    "wager_count": 12
+  }
 }
 ```
 
@@ -70,6 +74,7 @@ wager_count | total number of real money wagers
 multi_race_wager_count | total number of multi race wagers placed
 instant_racing_wager_count | total instant (virtual) racing wagers placed
 triple_threat_spin_count | total number of TT spins
+winning_instant_racing_wager_count | the total count of winning instant racing wagers (trophies)
 image_url | full URL of the users avatar
 facebook_status | null if the user isn't connected, otherwise could be "connected" or "expired"
 phone_number | phone number
@@ -77,7 +82,7 @@ mobile_phone_number | mobile phone
 accounts | array of Account objects (real money gaming, virtual, etc.)
 player_statuses | array of PlayerStatus objects, each one corresponding to a group of applications
 application_statuses | array of application status objects
-
+longest_wager_streak | an object containing the wager count of the user's longest streak
 ## PlayerStatus Object
 
 ```json

@@ -244,6 +244,7 @@ When a POST request returns an error, a common error format is returned.
   </span><span class="nt">"country_code"</span><span class="p">:</span><span class="s2">"US"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"postal_code"</span><span class="p">:</span><span class="s2">"10011"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"instant_racing_wager_count"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"winning_instant_racing_wager_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"triple_threat_spin_count"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://avatars.derbycdn.net/1b/ef5a60ad7811e59098a34b698f19df.jpg"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"facebook_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"connected"</span><span class="p">,</span><span class="w">
@@ -271,7 +272,10 @@ When a POST request returns an error, a common error format is returned.
       </span><span class="nt">"max_bet"</span><span class="p">:</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"locks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"place"</span><span class="p">,</span><span class="w"> </span><span class="s2">"show"</span><span class="p">,</span><span class="w"> </span><span class="s2">"exotic-pro"</span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"longest_wager_streak"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"wager_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -350,6 +354,10 @@ When a POST request returns an error, a common error format is returned.
 <td>total number of TT spins</td>
 </tr>
 <tr>
+<td>winning_instant_racing_wager_count</td>
+<td>the total count of winning instant racing wagers (trophies)</td>
+</tr>
+<tr>
 <td>image_url</td>
 <td>full URL of the users avatar</td>
 </tr>
@@ -376,6 +384,10 @@ When a POST request returns an error, a common error format is returned.
 <tr>
 <td>application_statuses</td>
 <td>array of application status objects</td>
+</tr>
+<tr>
+<td>longest_wager_streak</td>
+<td>an object containing the wager count of the user&rsquo;s longest streak</td>
 </tr>
 </tbody></table>
 

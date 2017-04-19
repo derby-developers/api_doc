@@ -91,6 +91,14 @@
       "offset": 10,
       "positions": [1,2,3,4]
     }
+  ],
+  "players": [
+    {
+      "id" : 1,
+      "screen_name": "Wally T. Dog",
+      "image_url":"https://avatars.derbycdn.net/1b/ef5a60ad7811e59098a34b698f19df.jpg",
+      "runner": 1
+    }
   ]
 }
 ```
@@ -104,6 +112,7 @@ decided | whether the race is decided (true or false)
 runners | array of Runner objects
 payouts | array of Payout objects [*]
 position_timings | array of PositionTiming objects with the order of the runners at that moment [*]
+players | array of other players who bet on this race
 tasks | array of Task objects
 
 * = only shown after the race is decided

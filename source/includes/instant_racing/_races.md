@@ -83,7 +83,8 @@
       "id": 1,
       "completed": false,
       "required_wager_count": 5,
-      "wager_count": 2
+      "wager_count": 2,
+      "eligible_games": ["trifecta-gold"]
     }
   ],
   "position_timings": [

@@ -1,5 +1,49 @@
 # Bonuses
 
+## Available Bonuses
+
+> Example
+
+```curl
+curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -H "Content-Type: application/json" \
+  https://api.derbygames.com/api/available_bonuses
+```
+
+`GET /api/available_bonuses`
+
+```json
+[
+  {
+    "name":"default",
+    "display_name":"Welcome Bonus",
+    "tiers":[ 
+      {"minimum":75.0,"match_rate":0.67}, {"minimum":50.0,"match_rate":0.2}, {"minimum":100.0,"match_rate":0.25},{"minimum":250.0,"match_rate":0.4}, {"minimum":500.0,"match_rate":0.5}
+    ]
+  },
+  {
+    "name":"racechamp_mobile_app_visits",
+    "display_name":null,
+    "amount":2500.0,
+    "base_amount":500,
+    "day":6,
+    "multiplier":5,
+    "days":[ 
+      {"day":6,"multiplier":5}, {"day":7,"multiplier":5}, {"day":8,"multiplier":5}, {"day":9,"multiplier":5}, {"day":10,"multiplier":5}
+    ]
+  }
+]
+```
+
+List of available bonuses for this user. This is the prefered way to check for available bonuses. Some bonuses, such as the racechamp_mobile_app_refill will not show up here. See 'Check if a Bonus is Available' below.
+
+Bonus properies returned will differ based on the bonus type.
+
+### Returns
+
+An array of `AwardedBonus` objects or an empty array.
+
 ## Check if a Bonus is Available
 
 > Example
@@ -15,7 +59,7 @@ curl -H "Application-Name: super-fun-game" \
 
 ### Returns
 
-An array of `AwardedBonus` Objects OR an empty array. If no awarded bonuses are returned, then the requested bonus *is* available
+An array of `AwardedBonus` objects or an empty array. If no awarded bonuses are returned, then the requested bonus *is* available
 
 ## AwardedBonus Object
 

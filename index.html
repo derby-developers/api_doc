@@ -1457,6 +1457,48 @@ https://api.derbygames.com/api/accounts
 
           <h1 id="bonuses">Bonuses</h1>
 
+<h2 id="available-bonuses">Available Bonuses</h2>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -H "Content-Type: application/json" \
+  https://api.derbygames.com/api/available_bonuses
+</code></pre>
+
+<p><code class="prettyprint">GET /api/available_bonuses</code></p>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"display_name"</span><span class="p">:</span><span class="s2">"Welcome Bonus"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"tiers"</span><span class="p">:[</span><span class="w"> 
+      </span><span class="p">{</span><span class="nt">"minimum"</span><span class="p">:</span><span class="mf">75.0</span><span class="p">,</span><span class="nt">"match_rate"</span><span class="p">:</span><span class="mf">0.67</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nt">"minimum"</span><span class="p">:</span><span class="mf">50.0</span><span class="p">,</span><span class="nt">"match_rate"</span><span class="p">:</span><span class="mf">0.2</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nt">"minimum"</span><span class="p">:</span><span class="mf">100.0</span><span class="p">,</span><span class="nt">"match_rate"</span><span class="p">:</span><span class="mf">0.25</span><span class="p">},{</span><span class="nt">"minimum"</span><span class="p">:</span><span class="mf">250.0</span><span class="p">,</span><span class="nt">"match_rate"</span><span class="p">:</span><span class="mf">0.4</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nt">"minimum"</span><span class="p">:</span><span class="mf">500.0</span><span class="p">,</span><span class="nt">"match_rate"</span><span class="p">:</span><span class="mf">0.5</span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"racechamp_mobile_app_visits"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"display_name"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"amount"</span><span class="p">:</span><span class="mf">2500.0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"base_amount"</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"day"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"multiplier"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"days"</span><span class="p">:[</span><span class="w"> 
+      </span><span class="p">{</span><span class="nt">"day"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="nt">"multiplier"</span><span class="p">:</span><span class="mi">5</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nt">"day"</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="nt">"multiplier"</span><span class="p">:</span><span class="mi">5</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nt">"day"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="nt">"multiplier"</span><span class="p">:</span><span class="mi">5</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nt">"day"</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="nt">"multiplier"</span><span class="p">:</span><span class="mi">5</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nt">"day"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="nt">"multiplier"</span><span class="p">:</span><span class="mi">5</span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>List of available bonuses for this user. This is the prefered way to check for available bonuses. Some bonuses, such as the racechamp_mobile_app_refill will not show up here. See &lsquo;Check if a Bonus is Available&rsquo; below.</p>
+
+<p>Bonus properies returned will differ based on the bonus type.</p>
+
+<h3 id="returns">Returns</h3>
+
+<p>An array of <code class="prettyprint">AwardedBonus</code> objects or an empty array.</p>
+
 <h2 id="check-if-a-bonus-is-available">Check if a Bonus is Available</h2>
 
 <blockquote>
@@ -1472,7 +1514,7 @@ https://api.derbygames.com/api/accounts
 
 <h3 id="returns">Returns</h3>
 
-<p>An array of <code class="prettyprint">AwardedBonus</code> Objects OR an empty array. If no awarded bonuses are returned, then the requested bonus <em>is</em> available</p>
+<p>An array of <code class="prettyprint">AwardedBonus</code> objects or an empty array. If no awarded bonuses are returned, then the requested bonus <em>is</em> available</p>
 
 <h2 id="awardedbonus-object">AwardedBonus Object</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">

@@ -122,6 +122,46 @@ Because the wager payoffs are calculated asynchronously after a call to `decide`
 
 An array of `Wager` objects.
 
+
+## Index Wager Object
+```json
+{
+  "id": 1,
+  "user_id": 1,
+  "race_id": "55e41a9b-f592-4543-9d6c-6cb1ef98e5b9",
+  "amount": 10,
+  "payoff_amount": null,
+  "pool": "win",
+  "box": null,
+  "bonus_multiplier": 1,
+  "correct_runner_count": 1,
+  "runners": [
+    {
+      "number": 3,
+      "color": "Bay",
+      "odds": "favorite",
+      "badges": [
+        "favorite"
+      ],
+      "trophies": 0,
+      "speed_rating": null,
+      "pedigree_rating": 0,
+      "jockey_rating": null,
+      "win_multiplier": 1,
+      "place_multiplier": 2,
+      "show_multiplier": 1.3,
+      "position": 0,
+      "final_position": 1,
+      "correct": true
+    }
+  ],
+  "game_name": "win-place-show",
+  "bonus_multiplier": 1.5,
+  "user_id": 1
+}
+```
+
+
 ## New Wager
 
 `POST /instant_racing/wagers`

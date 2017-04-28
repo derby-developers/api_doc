@@ -951,12 +951,15 @@ https://api.derbygames.com/api/accounts
 
 <h3 id="handling-an-account-that-is-already-linked">Handling an account that is already linked</h3>
 
-<p>If the Facebook account is already linked to another user, you should authenticate as that Facebook user using an OAuth assertion grant. The location header will contain the URL you need to use. The response will be a Token obect.</p>
+<p>If the Facebook account is already linked to another user, you should authenticate as that Facebook user using an OAuth assertion grant. The location header will contain the URL you need to POST to. The response will be a Token obect.</p>
+
+<p>Note that some cients will automatically perform a GET after a 302 on a POST. This behavior is not correct.</p>
 
 <blockquote>
 <p>Example</p>
 </blockquote>
-<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+<pre class="highlight plaintext"><code>curl -X POST \
+  -H "Application-Name: super-fun-game" \
   [URL returned in the location header from above]
 </code></pre>
 

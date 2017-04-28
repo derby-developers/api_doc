@@ -33,12 +33,15 @@ HTTP Code | reason | description | notes
 
 ### Handling an account that is already linked
 
-If the Facebook account is already linked to another user, you should authenticate as that Facebook user using an OAuth assertion grant. The location header will contain the URL you need to use. The response will be a Token obect.
+If the Facebook account is already linked to another user, you should authenticate as that Facebook user using an OAuth assertion grant. The location header will contain the URL you need to POST to. The response will be a Token obect.
+
+Note that some cients will automatically perform a GET after a 302 on a POST. This behavior is not correct.
 
 > Example
 
 ```curl
-curl -H "Application-Name: super-fun-game" \
+curl -X POST \
+  -H "Application-Name: super-fun-game" \
   [URL returned in the location header from above]
 ```
 

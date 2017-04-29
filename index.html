@@ -733,14 +733,14 @@ https://api.derbygames.com/api/accounts
 </tr>
 </tbody></table>
 
-<h3 id="guest-access-using-device-id">Guest Access (using device ID)</h3>
+<h3 id="device-based-access">Device-based Access</h3>
 
 <blockquote>
-<p>Guest Access Example</p>
+<p>Device Access Example</p>
 </blockquote>
 <pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
   -H "Content-Type: application/json" \
-  -d '{ "grant_type": "guest", "device_id": "random123" }' \
+  -d '{ "grant_type": "device", "device_id": "random123" }' \
   https://api.derbygames.com/api/oauth/token
 </code></pre>
 
@@ -754,7 +754,7 @@ https://api.derbygames.com/api/accounts
 <tr>
 <td>grant_type</td>
 <td>yes</td>
-<td>&#39;guest&rsquo;</td>
+<td>&#39;device&rsquo;</td>
 </tr>
 <tr>
 <td>device_id</td>

@@ -49,20 +49,20 @@ email | yes | email address of the user
 password | yes | password of the user
 
 
-### Guest Access (using device ID)
+### Device-based Access
 
-> Guest Access Example
+> Device Access Example
 
 ```curl
 curl -H "Application-Name: super-fun-game" \
   -H "Content-Type: application/json" \
-  -d '{ "grant_type": "guest", "device_id": "random123" }' \
+  -d '{ "grant_type": "device", "device_id": "random123" }' \
   https://api.derbygames.com/api/oauth/token
 ```
 
 Parameter | Required? | Description
 --------- | --------- | -----------
-grant_type | yes | 'guest'
+grant_type | yes | 'device'
 device_id | yes | GUID of the device/installation
 
 This will create a user account for the device if the ID is not found.

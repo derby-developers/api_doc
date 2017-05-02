@@ -221,44 +221,9 @@ In other words, a task with the `required_wager_count` and `wager_count` attribu
   "id": 1,
   "completed": true,
 
-  "required_wager_count": 3,
-  "wager_count": 3,
-
-  "required_win_wager_count": 3,
-  "win_wager_count": 3,
-
-  "required_place_wager_count": 3,
-  "place_wager_count": 3,
-
-  "required_show_wager_count": 3,
-  "show_wager_count": 3,
-
-  "required_exacta_wager_count": 3,
-  "exacta_wager_count": 3,
-
-  "required_trifecta_wager_count": 3,
-  "trifecta_wager_count": 3,
-
-  "required_superfecta_wager_count": 3,
-  "superfecta_wager_count": 3,
 
   "required_slot_play_count": 3,
   "slot_play_count": 3,
-
-  "required_trifecta_slot_play_count": 3,
-  "trifecta_slot_play_count": 3,
-
-  "required_superfecta_slot_play_count": 3,
-  "superfecta_slot_play_count": 3,
-
-  "required_slot_play_win_count": 3,
-  "slot_play_win_count": 3,
-
-  "required_trifecta_slot_play_win_count": 3,
-  "trifecta_slot_play_win_count": 3,
-
-  "required_superfecta_slot_play_win_count": 3,
-  "superfecta_slot_play_win_count": 3,
 
   "required_amount_played": 3,
   "amount_played": 3,
@@ -279,7 +244,9 @@ In other words, a task with the `required_wager_count` and `wager_count` attribu
   "id": 1,
   "completed": false,
   "required_wager_count": 5,
-  "wager_count": 2
+  "wager_count": 2,
+  "current_points": 10,
+  "current_units": 1.75
 }
 ```
 
@@ -287,12 +254,8 @@ Field | Description
 ----- | -----------
 id | the id of the task for this user
 completed | a boolean indicating whether the task is completed
-required_wager_count | the required count of horse wagers to complete the task
-wager_count | the number of horse wagers currently placed towards the task
 required_slot_play_count | the required count of slot plays to complete the task
 slot_play_count | the number of slot plays currently played towards the task
-required_slot_play_win_count | the required number of winning slot plays to complete the task
-slot_play_win_count | the current number of slot play wins towards completing the task
 required_amount_played | the required amount played on the slot machines to complete the task
 amount_played | the current amount played towards completing the task
 required_amount_won | the required amount won on the slot machines to complete the task

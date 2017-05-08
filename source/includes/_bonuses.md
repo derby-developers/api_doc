@@ -32,19 +32,33 @@ curl -H "Application-Name: super-fun-game" \
     "days":[ 
       {"day":6,"multiplier":5}, {"day":7,"multiplier":5}, {"day":8,"multiplier":5}, {"day":9,"multiplier":5}, {"day":10,"multiplier":5}
     ]
+  },
+  {
+    "name": "racechamp_mobile_app_refill",
+    "display_name": "",
+    "amount": null,
+    "next_available_at":"2017-06-18T15:19:17.395-08:00", /* only if it will be available in the future */
+    "payment_methods": []
   }
 ]
 ```
 
-List of available bonuses for this user. This is the prefered way to check for available bonuses. Some bonuses, such as the racechamp_mobile_app_refill will not show up here. See 'Check if a Bonus is Available' below.
+Field | Description
+----- | -----------
+name | internal name of the bonus, used when redeeming
+display_name | human fiendly name
+amount | amount of the bonus (null = amount is not yet known and will be shown when redeemed)
+next_available_at | time when the next bonus is available
 
-Bonus properies returned will differ based on the bonus type.
+List of available bonuses for this user. Bonus properies returned will differ based on the bonus type.
+
+The `next_available_at` field will show up if the bonus will be available in the future, but currently is not available.
 
 ### Returns
 
 An array of `AwardedBonus` objects or an empty array.
 
-## Check if a Bonus is Available
+## Bonus History
 
 > Example
 
@@ -59,7 +73,7 @@ curl -H "Application-Name: super-fun-game" \
 
 ### Returns
 
-An array of `AwardedBonus` objects or an empty array. If no awarded bonuses are returned, then the requested bonus *is* available
+An array of `AwardedBonus` objects that have been awarded to this user, or an empty array.
 
 ## AwardedBonus Object
 

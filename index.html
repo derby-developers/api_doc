@@ -1490,19 +1490,50 @@ https://api.derbygames.com/api/accounts
     </span><span class="nt">"days"</span><span class="p">:[</span><span class="w"> 
       </span><span class="p">{</span><span class="nt">"day"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="nt">"multiplier"</span><span class="p">:</span><span class="mi">5</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nt">"day"</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="nt">"multiplier"</span><span class="p">:</span><span class="mi">5</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nt">"day"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="nt">"multiplier"</span><span class="p">:</span><span class="mi">5</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nt">"day"</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="nt">"multiplier"</span><span class="p">:</span><span class="mi">5</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nt">"day"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="nt">"multiplier"</span><span class="p">:</span><span class="mi">5</span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"racechamp_mobile_app_refill"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"next_available_at"</span><span class="p">:</span><span class="s2">"2017-06-18T15:19:17.395-08:00"</span><span class="p">,</span><span class="w"> </span><span class="err">/*</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">it</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">future</span><span class="w"> </span><span class="err">*/</span><span class="w">
+    </span><span class="nt">"payment_methods"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>List of available bonuses for this user. This is the prefered way to check for available bonuses. Some bonuses, such as the racechamp_mobile_app_refill will not show up here. See &lsquo;Check if a Bonus is Available&rsquo; below.</p>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>internal name of the bonus, used when redeeming</td>
+</tr>
+<tr>
+<td>display_name</td>
+<td>human fiendly name</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>amount of the bonus (null = amount is not yet known and will be shown when redeemed)</td>
+</tr>
+<tr>
+<td>next_available_at</td>
+<td>time when the next bonus is available</td>
+</tr>
+</tbody></table>
 
-<p>Bonus properies returned will differ based on the bonus type.</p>
+<p>List of available bonuses for this user. Bonus properies returned will differ based on the bonus type.</p>
+
+<p>The <code class="prettyprint">next_available_at</code> field will show up if the bonus will be available in the future, but currently is not available.</p>
 
 <h3 id="returns">Returns</h3>
 
 <p>An array of <code class="prettyprint">AwardedBonus</code> objects or an empty array.</p>
 
-<h2 id="check-if-a-bonus-is-available">Check if a Bonus is Available</h2>
+<h2 id="bonus-history">Bonus History</h2>
 
 <blockquote>
 <p>Example</p>
@@ -1517,7 +1548,7 @@ https://api.derbygames.com/api/accounts
 
 <h3 id="returns">Returns</h3>
 
-<p>An array of <code class="prettyprint">AwardedBonus</code> objects or an empty array. If no awarded bonuses are returned, then the requested bonus <em>is</em> available</p>
+<p>An array of <code class="prettyprint">AwardedBonus</code> objects that have been awarded to this user, or an empty array.</p>
 
 <h2 id="awardedbonus-object">AwardedBonus Object</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">

@@ -37,7 +37,8 @@ curl -H "Application-Name: super-fun-game" \
     "name": "racechamp_mobile_app_refill",
     "display_name": "",
     "amount": null,
-    "next_available_at":"2017-06-18T15:19:17.395-08:00", /* only if it will be available in the future */
+    "next_available_at":"2017-06-18T15:19:17.395-08:00",
+    "current_time": "2017-06-18T16:19:17.395-08:00",
     "payment_methods": []
   }
 ]
@@ -48,11 +49,12 @@ Field | Description
 name | internal name of the bonus, used when redeeming
 display_name | human fiendly name
 amount | amount of the bonus (null = amount is not yet known and will be shown when redeemed)
-next_available_at | time when the next bonus is available
+next_available_at | time when the next bonus is available, if applicable
+current_time | current system time (used with next_avaiabe_at for a countdown)
 
 List of available bonuses for this user. Bonus properies returned will differ based on the bonus type.
 
-The `next_available_at` field will show up if the bonus will be available in the future, but currently is not available.
+The `next_available_at` and `current_time` fields will show up if the bonus will be available in the future, but currently is not available.
 
 ### Returns
 

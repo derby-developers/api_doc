@@ -1495,7 +1495,8 @@ https://api.derbygames.com/api/accounts
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"racechamp_mobile_app_refill"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"next_available_at"</span><span class="p">:</span><span class="s2">"2017-06-18T15:19:17.395-08:00"</span><span class="p">,</span><span class="w"> </span><span class="err">/*</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">it</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">future</span><span class="w"> </span><span class="err">*/</span><span class="w">
+    </span><span class="nt">"next_available_at"</span><span class="p">:</span><span class="s2">"2017-06-18T15:19:17.395-08:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"current_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-18T16:19:17.395-08:00"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"payment_methods"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -1521,13 +1522,17 @@ https://api.derbygames.com/api/accounts
 </tr>
 <tr>
 <td>next_available_at</td>
-<td>time when the next bonus is available</td>
+<td>time when the next bonus is available, if applicable</td>
+</tr>
+<tr>
+<td>current_time</td>
+<td>current system time (used with next_avaiabe_at for a countdown)</td>
 </tr>
 </tbody></table>
 
 <p>List of available bonuses for this user. Bonus properies returned will differ based on the bonus type.</p>
 
-<p>The <code class="prettyprint">next_available_at</code> field will show up if the bonus will be available in the future, but currently is not available.</p>
+<p>The <code class="prettyprint">next_available_at</code> and <code class="prettyprint">current_time</code> fields will show up if the bonus will be available in the future, but currently is not available.</p>
 
 <h3 id="returns">Returns</h3>
 

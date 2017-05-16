@@ -19,7 +19,16 @@
       "show_multiplier":1.3,
       "speed_rating":32,
       "trophies":6,
-      "win_multiplier":11.6
+      "win_multiplier":11.6,
+      "grade": "A+",
+      "past_races": [
+        {
+          "final_position": 1,
+          "time_ago": "3 months",
+          "field_size": 14
+          "odds": "1/2"
+        }
+      ]
     }
   ],
   "payouts": [

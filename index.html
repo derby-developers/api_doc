@@ -1640,7 +1640,7 @@ https://api.derbygames.com/api/accounts
           <h1 id="virtual-currency-packages">Virtual Currency Packages</h1>
 
 <h2 id="virtualcurrencypackage-object">VirtualCurrencyPackage Object</h2>
-<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w"> 
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"price"</span><span class="p">:</span><span class="mf">4.99</span><span class="p">,</span><span class="w">
     </span><span class="nt">"virtual_currency_value"</span><span class="p">:</span><span class="mf">240000.0</span><span class="p">,</span><span class="w">
@@ -1719,7 +1719,7 @@ https://api.derbygames.com/api/accounts
   https://api.derbygames.com/api/virtual_currency_purchases
 </code></pre>
 
-<p><code class="prettyprint">POST /virtual_currency_purchases</code></p>
+<p><code class="prettyprint">POST /in_app_purchases</code></p>
 
 <table><thead>
 <tr>
@@ -1755,14 +1755,9 @@ https://api.derbygames.com/api/accounts
 </tr>
 </thead><tbody>
 <tr>
-<td>transaction_type</td>
-<td>yes</td>
-<td>&lsquo;in_app&rsquo;</td>
-</tr>
-<tr>
 <td>service</td>
 <td>yes</td>
-<td>&#39;google&rsquo; or &#39;apple&rsquo;</td>
+<td>&lsquo;google&rsquo; or &#39;apple&rsquo;</td>
 </tr>
 <tr>
 <td>receipt</td>

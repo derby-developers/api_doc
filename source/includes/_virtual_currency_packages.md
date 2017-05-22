@@ -3,7 +3,7 @@
 ## VirtualCurrencyPackage Object
 
 ```json
-  { 
+  {
   	"id":1,
   	"price":4.99,
   	"virtual_currency_value":240000.0,
@@ -55,7 +55,7 @@ curl -X POST
   https://api.derbygames.com/api/virtual_currency_purchases
 ```
 
-`POST /virtual_currency_purchases`
+`POST /in_app_purchases`
 
 Paramater | Required? | Description
 --------- | --------- | -----------
@@ -67,7 +67,6 @@ payment | yes | a Payment object
 
 Paramater | Required? | Description
 ------| --------- | -----------
-transaction_type | yes | 'in_app'
 service | yes | 'google' or 'apple'
 receipt | yes | receipt blob
 

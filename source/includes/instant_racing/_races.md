@@ -307,3 +307,17 @@ A `Race` object.
 Close the race for wagering. You can then request video and results.
 
 `PUT /instant_racing/races/<RACE_ID>/decide`
+
+
+## Disable a race
+
+Disables this race (only available to moderators)
+
+`PUT /instant_racing/races/<RACE_ID>/disable`
+
+## Reset a race
+
+Flags this race for reencoding/editing (only available to moderators)
+
+`PUT /instant_racing/races/<RACE_ID>/reset`
+

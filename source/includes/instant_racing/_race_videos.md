@@ -44,13 +44,13 @@ curl -H "Application-Name: super-fun-game" \
 Paramater | Required | Description
 ----- | ----------- | ----------
 ocr_success | no | boolean if races passed or failed OCR
-track_id | no | track ID (21 = Penn, Zia = 81, Mahoning = 451)
+track_id | no | track ID (21 = Penn, Zia = 81, Mahoning = 451, Belmont = 2, Saratoga = 176)
 clipped | no | boolean if race has been clipped
 limit | no | number of videos to return, max 1000
 
-Examples: 
+Examples:
 
-If you would like to get a list of videos to OCR, pass in the track_id and clipped = true. 
+If you would like to get a list of videos to OCR, pass in the track_id and clipped = true.
 If you would like videos that have failed OCR, pass in ocr_success = false.
 
 ### Returns

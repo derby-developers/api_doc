@@ -6,6 +6,7 @@
 {
   "id":32118,
   "email":"gambler@derby.com",
+  "moderator": null,
   "created_at":"2013-04-04T11:21:03.439-07:00",
   "screen_name":"Wally The Dog",
   "authentication_token":"3434fUYT5zTBzJBUxygx",
@@ -59,8 +60,8 @@ Field | Description
 ------| -----------
 id | user id
 email | email address, can be blank
+moderator | boolean if this user has moderation permission
 screen_name | name to be shown to other users
-authentication_token | token for authentication to chat ONLY
 first_name |
 last_name |
 birth_date | format: YYYY-MM-DD
@@ -83,6 +84,7 @@ accounts | array of Account objects (real money gaming, virtual, etc.)
 player_statuses | array of PlayerStatus objects, each one corresponding to a group of applications
 application_statuses | array of application status objects
 longest_wager_streak | an object containing the wager count of the user's longest streak
+
 ## PlayerStatus Object
 
 ```json

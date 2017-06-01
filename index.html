@@ -230,6 +230,7 @@ When a POST request returns an error, a common error format is returned.
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">32118</span><span class="p">,</span><span class="w">
   </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"gambler@derby.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moderator"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="s2">"2013-04-04T11:21:03.439-07:00"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"screen_name"</span><span class="p">:</span><span class="s2">"Wally The Dog"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"authentication_token"</span><span class="p">:</span><span class="s2">"3434fUYT5zTBzJBUxygx"</span><span class="p">,</span><span class="w">
@@ -294,12 +295,12 @@ When a POST request returns an error, a common error format is returned.
 <td>email address, can be blank</td>
 </tr>
 <tr>
-<td>screen_name</td>
-<td>name to be shown to other users</td>
+<td>moderator</td>
+<td>boolean if this user has moderation permission</td>
 </tr>
 <tr>
-<td>authentication_token</td>
-<td>token for authentication to chat ONLY</td>
+<td>screen_name</td>
+<td>name to be shown to other users</td>
 </tr>
 <tr>
 <td>first_name</td>

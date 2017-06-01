@@ -9,7 +9,6 @@
   "moderator": null,
   "created_at":"2013-04-04T11:21:03.439-07:00",
   "screen_name":"Wally The Dog",
-  "authentication_token":"3434fUYT5zTBzJBUxygx",
   "first_name":"Wally",
   "last_name":"Dog",
   "birth_date":"1976-06-18",

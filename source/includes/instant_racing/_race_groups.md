@@ -13,6 +13,7 @@
   "unlock_points":100,
   "unlock_cost": 100000.0,
   "unlock_units": 10,
+  "end_of_game": false,
   "progress": 0.5,
   "wager_count": 6,
   "race_count": 1,
@@ -50,6 +51,7 @@ current_points | current points awarded to unlock this group
 unlock_points | total points to unlock this group
 unlock_cost | coin cost to unlock group
 unlock_units | the number of unlock units (e.g. horseshoes) required to unlock the track
+end_of_game | boolean that indicates whether the race group is the last race group able to be unlocked
 progress | a number between 0 and 1 indicating the user's progress towards unlocking the race group
 wager_count | total number of wagers a user has placed on this race group
 race_count | total number of races a user has played on this race group

@@ -8,7 +8,7 @@
   	"price": 4.99,
   	"virtual_currency_value": 240000.0,
     "original_price": 4.99,
-  	"original_virtual_currency_value": 240000.0,    
+  	"original_virtual_currency_value": 240000.0,
   	"app_store_id": "virtual_currency_package_4.99"
   }
 ```
@@ -102,7 +102,7 @@ curl -X POST
   -H "Application-Name: super-fun-game" \
   -H "Authorization: Bearer ABC123" \
   -H "Content-Type: application/json" \
-  -d '{ "virtual_currency_package_id": 1, "payment": { "transaction_type": "in_app", "service": "apple", receipt: "" } }' \
+  -d '{ "payment": { "transaction_type": "in_app", "service": "apple", receipt: "" } }' \
   https://api.derbygames.com/api/virtual_currency_purchases
 ```
 
@@ -110,8 +110,6 @@ curl -X POST
 
 Paramater | Required? | Description
 --------- | --------- | -----------
-virtual_currency_package_id | yes | id of the package
-virtual_currency_offer_id | no | optional ID of an offer the user is claiming
 payment | yes | a Payment object
 
 ### Payment Object

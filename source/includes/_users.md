@@ -24,8 +24,9 @@
   "triple_threat_spin_count":0,
   "image_url": "https://avatars.derbycdn.net/1b/ef5a60ad7811e59098a34b698f19df.jpg",
   "facebook_status": "connected",
-  "phone_number":"12125551212",
-  "mobile_phone_number":"12125551212",
+  "phone_number": "12125551212",
+  "mobile_phone_number": "12125551212",
+  "show_onboarding": false,
   "accounts":[
     { "type":"virtual","balance":0.5 }
   ],
@@ -79,6 +80,7 @@ image_url | full URL of the users avatar
 facebook_status | null if the user isn't connected, otherwise could be "connected" or "expired"
 phone_number | phone number
 mobile_phone_number | mobile phone
+show_onboarding | true/false if this user should be shown an onboarding flow
 accounts | array of Account objects (real money gaming, virtual, etc.)
 player_statuses | array of PlayerStatus objects, each one corresponding to a group of applications
 application_statuses | array of application status objects

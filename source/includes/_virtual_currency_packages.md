@@ -9,7 +9,8 @@
   	"virtual_currency_value": 240000.0,
     "original_price": 4.99,
   	"original_virtual_currency_value": 240000.0,
-  	"app_store_id": "com.goldgames.racechamp.currency_4.99"
+  	"app_store_id": "com.goldgames.racechamp.currency_4.99",
+    "visible": true
   }
 ```
 
@@ -21,6 +22,7 @@ virtual_currency_value | number of credits
 original_price | original price (can be null)
 original_virtual_currency_value | original currency value  (can be null)
 app_store_id | ID for in-app-purchasing, applies to all app stores
+visible | flag indicating if this product should be shown on the main store screen
 
 ## Get Packages
 
@@ -63,7 +65,8 @@ Special, per-user offers, that are based on user behavior.
         "original_price": null,
         "original_virtual_currency_value": null,
         "name": "purchase-offer-1",
-        "app_store_id": "com.goldgames.racechamp.currency_2.99"
+        "app_store_id": "com.goldgames.racechamp.currency_2.99",
+        "visible": true
       }
     }
 ]

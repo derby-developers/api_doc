@@ -9,7 +9,7 @@
   	"virtual_currency_value": 240000.0,
     "original_price": 4.99,
   	"original_virtual_currency_value": 240000.0,
-  	"app_store_id": "virtual_currency_package_4.99"
+  	"app_store_id": "com.goldgames.racechamp.currency_4.99"
   }
 ```
 
@@ -63,7 +63,7 @@ Special, per-user offers, that are based on user behavior.
         "original_price": null,
         "original_virtual_currency_value": null,
         "name": "purchase-offer-1",
-        "app_store_id": "virtual_currency_package_2.99"
+        "app_store_id": "com.goldgames.racechamp.currency_2.99"
       }
     }
 ]
@@ -102,7 +102,7 @@ curl -X POST
   -H "Application-Name: super-fun-game" \
   -H "Authorization: Bearer ABC123" \
   -H "Content-Type: application/json" \
-  -d '{ "payment": { "transaction_type": "in_app", "service": "apple", receipt: "" } }' \
+  -d '{ "payment": { "service": "apple", receipt: "" } }' \
   https://api.derbygames.com/api/virtual_currency_purchases
 ```
 

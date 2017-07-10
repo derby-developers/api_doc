@@ -3156,7 +3156,13 @@ A race must be decided to get a video URL, otherwise null will be returned. Vide
           </span><span class="nt">"multiplier"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
           </span><span class="nt">"payoff_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="w">
         </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"bonus_game"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"payoff_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"symbols"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="s2">"S"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="s2">"S"</span><span class="p">,</span><span class="w"> </span><span class="s2">"S"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"free_spins"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"multiplier"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"reels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -3253,7 +3259,13 @@ A race must be decided to get a video URL, otherwise null will be returned. Vide
       </span><span class="nt">"multiplier"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
       </span><span class="nt">"payoff_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"bonus_game"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"payoff_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"symbols"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="s2">"S"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="s2">"S"</span><span class="p">,</span><span class="w"> </span><span class="s2">"S"</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"free_spins"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"multiplier"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -3271,7 +3283,21 @@ A race must be decided to get a video URL, otherwise null will be returned. Vide
 <td>payline_results</td>
 <td>a collection of payline_result objects</td>
 </tr>
+<tr>
+<td>bonus_game</td>
+<td>the attributes of a bonus game if one is awarded</td>
+</tr>
 </tbody></table>
+
+<aside class="notice">
+For slot games that include a bonus game, all &ldquo;user selected&rdquo; options are predetermined and served up in the &ldquo;symbols&rdquo; node of the bonus game.
+
+The symbol &ldquo;M&rdquo; indicates a multiplier token is awarded and the &ldquo;S&rdquo; symbol indicates a free spin token is awarded.
+
+Coin awards are represented as simply the value of the coins awarded.
+
+It is not possible for a bonus game to have both a &ldquo;free_spins&rdquo; node and a &ldquo;multiplier&rdquo; node, both are included in the example above simply to show what they look like.
+</aside>
 
 <h2 id="reelresult-object">ReelResult Object</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -3359,7 +3385,7 @@ A race must be decided to get a video URL, otherwise null will be returned. Vide
 <tr>
 <td>game_name</td>
 <td>yes</td>
-<td>the game (&ldquo;trifecta-gold&rdquo;)</td>
+<td>the game (&ldquo;trifecta-gold&rdquo;, &ldquo;wild-mustang&rdquo;, &ldquo;unicorn-slots&rdquo;)</td>
 </tr>
 <tr>
 <td>amount</td>

@@ -300,7 +300,7 @@ curl -H "Application-Name: super-fun-game" \
 Parameter | Required? | Description
 --------- | --------- | -----------
 race_id | yes | the race id
-game_name | yes | the game ("trifecta-gold")
+game_name | yes | the game ("trifecta-gold", "wild-mustang", "unicorn-slots")
 amount | yes | the slot play amount
 
 ### Returns

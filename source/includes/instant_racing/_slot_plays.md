@@ -144,7 +144,13 @@
           "multiplier": 5,
           "payoff_amount": 25
         }
-      ]
+      ],
+      "bonus_game": {
+        "payoff_amount": 1000,
+        "symbols": ["M", 25, 50, "S", "M", 25, "S", "S"],
+        "free_spins": true,
+        "multiplier": 2
+      }
     },
     {
       "reels": [
@@ -215,7 +221,13 @@ spins | an array of spin objects indicating what happened to the reels
       "multiplier": 5,
       "payoff_amount": 10
     }
-  ]
+  ],
+  "bonus_game": {
+    "payoff_amount": 1000,
+    "symbols": ["M", 25, 50, "S", "M", 25, "S", "S"],
+    "free_spins": true,
+    "multiplier": 2
+  }
 }
 ```
 
@@ -223,7 +235,17 @@ Field | Description
 ----- | -----------
 reel_results | a collection of reel_result objects
 payline_results | a collection of payline_result objects
+bonus_game | the attributes of a bonus game if one is awarded
 
+<aside class="notice">
+For slot games that include a bonus game, all "user selected" options are predetermined and served up in the "symbols" node of the bonus game.
+
+The symbol "M" indicates a multiplier token is awarded and the "S" symbol indicates a free spin token is awarded.
+
+Coin awards are represented as simply the value of the coins awarded.
+
+It is not possible for a bonus game to have both a "free_spins" node and a "multiplier" node, both are included in the example above simply to show what they look like.
+</aside>
 
 ## ReelResult Object
 

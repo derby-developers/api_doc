@@ -122,7 +122,7 @@ curl -H "Application-Name: super-fun-game" \
 
 Parameter | Required? | Description
 --------- | --------- | -----------
-name | yes | name of the bonus to award
+bonus_name | yes | name of the bonus to award
 
 ### Returns
 

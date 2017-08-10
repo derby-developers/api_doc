@@ -1,6 +1,8 @@
+# InstantRacing: Jackpots
+
 ## Jackpot Object
 
-`GET /instant_racing/slot_plays?game_name=jackpot-slots`
+`GET /instant_racing/jackpots?game_name=jackpot-slots`
 
 
 ```json

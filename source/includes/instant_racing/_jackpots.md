@@ -7,7 +7,7 @@
 
 ```json
 [{
-  "id": 1
+  "id": 1,
   "multiplier_rate": 0.05,
   "multiplier": 100.123,
   "jackpot_wild_count": 8

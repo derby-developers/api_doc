@@ -234,6 +234,7 @@ game_name | yes | the game ("super-slots", "win-place-show", "triple-threat", "e
 amount | yes | the wager amount
 runners | yes | an array of objects indicating runner numbers ex: [{number: 2}, {number: 7}]
 decide | no | if true, will decide the associated race and include a video url in the race node in the response
+video_quality | no | low, high or hls
 
 ### Returns
 

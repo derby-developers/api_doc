@@ -1,6 +1,7 @@
+## Jackpot Object
+
 `GET /instant_racing/slot_plays?game_name=jackpot-slots`
 
-## Jackpot Object
 
 ```json
 [{

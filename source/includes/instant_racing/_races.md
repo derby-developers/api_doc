@@ -7,6 +7,7 @@
   "id":"e1a0f337-f439-4eb6-849f-e3dc5b47b10d",
   "race_type": "Thoroughbred",
   "group_id": 1,
+  "bonus_base_amount": 5000.0,
   "runners": [
     {
       "badges": ["top_trainer"],
@@ -117,6 +118,7 @@ Field | Description
 ----- | -----------
 id | unique race (per user)
 group_id | the race group id of the current race
+bonus_base_amount | the bonus amount awarded for playing the race
 race_type | Thoroughbred, Harness
 decided | whether the race is decided (true or false)
 runners | array of Runner objects

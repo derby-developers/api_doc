@@ -65,7 +65,7 @@ winning_superfecta_count | number of winning superfecta bets a user has placed o
 winning_count | total number of winning wagers on this race group
 biggest_win | biggest payout for a wager on this race group
 available_games | an array of games that should be enabled for this race group ("win-place-show", "trifecta_gold", "wild_mustang")
-bonus_base_amount_range | the lower and upper limits of the bonus race bet amount awarded for a race group (racechamp3 only)
+bonus_base_amount_range | the lower and upper limits of the bonus race bet amount awarded for a race group (racechamp3 only), empty arrays and arrays of `null`s possible for non RC3 frontends
 wager_streak | an object describing the user's current wager streak for the race group
 next_live_race | small race object if there is a real live race taking place, null if not
 

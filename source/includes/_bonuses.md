@@ -40,6 +40,11 @@ curl -H "Application-Name: super-fun-game" \
     "next_available_at":"2017-06-18T15:19:17.395-08:00",
     "current_time": "2017-06-18T16:19:17.395-08:00",
     "payment_methods": []
+  },
+  {
+    "name": "racechamp3_daily_race_bonus",
+    "display_name": "",
+    "amount": null
   }
 ]
 ```

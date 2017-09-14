@@ -304,6 +304,22 @@ group_id | no | only return a race from this group
 
 A `Race` object.
 
+## Get a Daily Bonus Race
+
+Gets the daily bonus race for the user. Available after the daily race bonus is claimed
+
+> Example (not group specific)
+
+```curl
+curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  https://api.derbygames.com/api/instant_racing/races/daily_bonus
+```
+
+### Returns
+
+A `Race` object.
+
 ## Decide a Race
 
 Close the race for wagering. You can then request video and results.

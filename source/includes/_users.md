@@ -52,6 +52,9 @@
   ],
   "longest_wager_streak": {
     "wager_count": 12
+  },
+  "split": {
+    "first_slot": "jackpot-slots"
   }
 }
 ```
@@ -137,6 +140,18 @@ max_bet_amount | a suggested max bet amount
 <aside class="notice">
 Leveling-up can also change the locks array. Game names will be removed from this array as they become unlocked to the user.
 </aside>
+
+## Split Object
+
+```json
+{
+  "first_slot": "jackpot-slots",
+}
+```
+Field | Description
+------| -----------
+first_slot | "unicorn-slots", "triple-diamond", "jackpot-slots"
+
 
 ## Create User
 

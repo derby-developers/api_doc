@@ -145,7 +145,7 @@ Leveling-up can also change the locks array. Game names will be removed from thi
 
 ```json
 {
-  "first_slot": "jackpot-slots",
+  "first_slot": "jackpot-slots"
 }
 ```
 Field | Description

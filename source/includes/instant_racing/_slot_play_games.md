@@ -49,7 +49,7 @@
      3: {"multiplier": 0, "free_spin_count": 0, "bonus_game": true}},
   "symbols": ["S", "T", "J", "Q", "K", "A", "C", "D", "E", "F", "W"],
   "wild_symbols": ["W"],
-  "free_spin_multiplier": #<BigDecimal:7fa65dcdc818,'0.2E1',9(18)>,
+  "free_spin_multiplier": 2.0,
   "reel_count": 5,
   "requires_consecutive_symbols": true,
   "sticky_wilds": true,

@@ -3618,6 +3618,180 @@ It is not possible for a bonus game to have both a &ldquo;free_spins&rdquo; node
 
 <p>An array of <code class="prettyprint">Paytable</code> objects.</p>
 
+          <h1 id="instantracing-slot-play-games">InstantRacing: Slot Play Games</h1>
+
+<h2 id="slot-play-game-object">Slot Play Game Object</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unicorn-slots"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"paylines"</span><span class="p">:</span><span class="w">
+    </span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w">
+    </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w">
+    </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w">
+    </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]]</span><span class="w">
+  </span><span class="s2">"multipliers"</span><span class="err">:</span><span class="w"> 
+    </span><span class="p">{</span><span class="err">[</span><span class="nt">"F"</span><span class="err">,</span><span class="w"> </span><span class="err">5]</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"E"</span><span class="err">,</span><span class="w"> </span><span class="err">5]</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"D"</span><span class="err">,</span><span class="w"> </span><span class="err">5]</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"C"</span><span class="err">,</span><span class="w"> </span><span class="err">5]</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"A"</span><span class="err">,</span><span class="w"> </span><span class="err">5]</span><span class="p">:</span><span class="w"> </span><span class="mf">0.75</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"K"</span><span class="err">,</span><span class="w"> </span><span class="err">5]</span><span class="p">:</span><span class="w"> </span><span class="mf">0.75</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"Q"</span><span class="err">,</span><span class="w"> </span><span class="err">5]</span><span class="p">:</span><span class="w"> </span><span class="mf">0.75</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"J"</span><span class="err">,</span><span class="w"> </span><span class="err">5]</span><span class="p">:</span><span class="w"> </span><span class="mf">0.75</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"T"</span><span class="err">,</span><span class="w"> </span><span class="err">5]</span><span class="p">:</span><span class="w"> </span><span class="mf">0.75</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"F"</span><span class="err">,</span><span class="w"> </span><span class="err">4]</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"E"</span><span class="err">,</span><span class="w"> </span><span class="err">4]</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"D"</span><span class="err">,</span><span class="w"> </span><span class="err">4]</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"C"</span><span class="err">,</span><span class="w"> </span><span class="err">4]</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"A"</span><span class="err">,</span><span class="w"> </span><span class="err">4]</span><span class="p">:</span><span class="w"> </span><span class="mf">0.15</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"K"</span><span class="err">,</span><span class="w"> </span><span class="err">4]</span><span class="p">:</span><span class="w"> </span><span class="mf">0.15</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"Q"</span><span class="err">,</span><span class="w"> </span><span class="err">4]</span><span class="p">:</span><span class="w"> </span><span class="mf">0.15</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"J"</span><span class="err">,</span><span class="w"> </span><span class="err">4]</span><span class="p">:</span><span class="w"> </span><span class="mf">0.15</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"T"</span><span class="err">,</span><span class="w"> </span><span class="err">4]</span><span class="p">:</span><span class="w"> </span><span class="mf">0.15</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"F"</span><span class="err">,</span><span class="w"> </span><span class="err">3]</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"E"</span><span class="err">,</span><span class="w"> </span><span class="err">3]</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"D"</span><span class="err">,</span><span class="w"> </span><span class="err">3]</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"C"</span><span class="err">,</span><span class="w"> </span><span class="err">3]</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"A"</span><span class="err">,</span><span class="w"> </span><span class="err">3]</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"K"</span><span class="err">,</span><span class="w"> </span><span class="err">3]</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"Q"</span><span class="err">,</span><span class="w"> </span><span class="err">3]</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"J"</span><span class="err">,</span><span class="w"> </span><span class="err">3]</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"T"</span><span class="err">,</span><span class="w"> </span><span class="err">3]</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05</span><span class="p">},</span><span class="w">
+  </span><span class="nt">"wild_multipliers"</span><span class="p">:</span><span class="w"> 
+    </span><span class="p">{</span><span class="err">[</span><span class="nt">"W"</span><span class="err">,</span><span class="w"> </span><span class="nt">"W"</span><span class="err">,</span><span class="w"> </span><span class="nt">"W"</span><span class="err">,</span><span class="w"> </span><span class="nt">"W"</span><span class="err">,</span><span class="w"> </span><span class="nt">"W"</span><span class="err">]</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"W"</span><span class="err">,</span><span class="w"> </span><span class="nt">"W"</span><span class="err">,</span><span class="w"> </span><span class="nt">"W"</span><span class="err">,</span><span class="w"> </span><span class="nt">"W"</span><span class="err">]</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="err">[</span><span class="nt">"W"</span><span class="err">,</span><span class="w"> </span><span class="nt">"W"</span><span class="err">,</span><span class="w"> </span><span class="nt">"W"</span><span class="err">]</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">},</span><span class="w">
+  </span><span class="nt">"bonus_multipliers"</span><span class="p">:</span><span class="w"> 
+    </span><span class="p">{</span><span class="err">5:</span><span class="w"> </span><span class="err">{</span><span class="nt">"multiplier"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">"free_spin_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">"bonus_game"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">},</span><span class="w">
+     </span><span class="err">4</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"multiplier"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">"free_spin_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">"bonus_game"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">},</span><span class="w">
+     </span><span class="err">3</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"multiplier"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">"free_spin_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">"bonus_game"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}}</span><span class="err">,</span><span class="w">
+  </span><span class="s2">"symbols"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"S"</span><span class="p">,</span><span class="w"> </span><span class="s2">"T"</span><span class="p">,</span><span class="w"> </span><span class="s2">"J"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Q"</span><span class="p">,</span><span class="w"> </span><span class="s2">"K"</span><span class="p">,</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w"> </span><span class="s2">"C"</span><span class="p">,</span><span class="w"> </span><span class="s2">"D"</span><span class="p">,</span><span class="w"> </span><span class="s2">"E"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"W"</span><span class="p">]</span><span class="err">,</span><span class="w">
+  </span><span class="s2">"wild_symbols"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"W"</span><span class="p">]</span><span class="err">,</span><span class="w">
+  </span><span class="s2">"free_spin_multiplier"</span><span class="err">:</span><span class="w"> </span><span class="err">#&lt;BigDecimal:</span><span class="mi">7</span><span class="err">fa</span><span class="mi">65</span><span class="err">dcdc</span><span class="mi">818</span><span class="err">,'</span><span class="mf">0.2</span><span class="err">E</span><span class="mi">1</span><span class="err">',</span><span class="mi">9</span><span class="err">(</span><span class="mi">18</span><span class="err">)&gt;,</span><span class="w">
+  </span><span class="s2">"reel_count"</span><span class="err">:</span><span class="w"> </span><span class="mi">5</span><span class="err">,</span><span class="w">
+  </span><span class="s2">"requires_consecutive_symbols"</span><span class="err">:</span><span class="w"> </span><span class="kc">true</span><span class="err">,</span><span class="w">
+  </span><span class="s2">"sticky_wilds"</span><span class="err">:</span><span class="w"> </span><span class="kc">true</span><span class="err">,</span><span class="w">
+  </span><span class="s2">"bonus_game_rules"</span><span class="err">:</span><span class="w"> 
+    </span><span class="p">{</span><span class="nt">"symbols"</span><span class="p">:</span><span class="w"> 
+      </span><span class="p">[</span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"S"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"S"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"S"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"C"</span><span class="p">],</span><span class="w">
+   </span><span class="nt">"multiplier_symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"free_spin_symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"coin_symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"free_spin_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"multipliers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w">
+   </span><span class="nt">"coin_values_and_weights"</span><span class="p">:</span><span class="w"> 
+    </span><span class="p">{</span><span class="err">25:</span><span class="w"> </span><span class="err">5,</span><span class="w">
+     </span><span class="err">50:</span><span class="w"> </span><span class="err">6,</span><span class="w">
+     </span><span class="err">75:</span><span class="w"> </span><span class="err">10,</span><span class="w">
+     </span><span class="err">100:</span><span class="w"> </span><span class="err">10,</span><span class="w">
+     </span><span class="err">125:</span><span class="w"> </span><span class="err">10,</span><span class="w">
+     </span><span class="err">150:</span><span class="w"> </span><span class="err">10,</span><span class="w">
+     </span><span class="err">175:</span><span class="w"> </span><span class="err">5,</span><span class="w">
+     </span><span class="err">200:</span><span class="w"> </span><span class="err">5,</span><span class="w">
+     </span><span class="err">225:</span><span class="w"> </span><span class="err">3,</span><span class="w">
+     </span><span class="err">250:</span><span class="w"> </span><span class="err">3,</span><span class="w">
+     </span><span class="err">300:</span><span class="w"> </span><span class="err">2,</span><span class="w">
+     </span><span class="err">500:</span><span class="w"> </span><span class="err">1,</span><span class="w">
+     </span><span class="err">1000:</span><span class="w"> </span><span class="err">1</span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="err">,</span><span class="w">
+  </span><span class="s2">"sticky_wild_free_spin_count"</span><span class="err">:</span><span class="w"> </span><span class="mi">3</span><span class="err">,</span><span class="w">
+  </span><span class="s2">"reel_row_count"</span><span class="err">:</span><span class="w"> </span><span class="mi">4</span><span class="err">,</span><span class="w">
+  </span><span class="s2">"jackpot_symbols"</span><span class="err">:</span><span class="w"> </span><span class="p">[]</span><span class="err">,</span><span class="w">
+  </span><span class="s2">"jackpot_multipliers"</span><span class="err">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>the id of the slot play game</td>
+</tr>
+<tr>
+<td>name</td>
+<td>the name of the game</td>
+</tr>
+<tr>
+<td>paylines</td>
+<td>a list of the paylines for the game</td>
+</tr>
+<tr>
+<td>multipliers</td>
+<td>the multpliers given for a symbol and count of matching symbols</td>
+</tr>
+<tr>
+<td>wild_multipliers</td>
+<td>the multipliers given for matches of only wild symbols</td>
+</tr>
+<tr>
+<td>bonus_multipliers</td>
+<td>the reward for getting a given number of scatter wild symbols</td>
+</tr>
+<tr>
+<td>symbols</td>
+<td>a list of the symbols used on the reels</td>
+</tr>
+<tr>
+<td>wild_symbols</td>
+<td>a list of the wild symbols</td>
+</tr>
+<tr>
+<td>free_spin_multiplier</td>
+<td>a static multiplier added to spins in the free spin mode</td>
+</tr>
+<tr>
+<td>reel_count</td>
+<td>the number of reels</td>
+</tr>
+<tr>
+<td>requires_consecutive_symbols</td>
+<td>true if the game requires that symbols much start in the leftmost reel in order to be counted as winning</td>
+</tr>
+<tr>
+<td>sticky_wilds</td>
+<td>true if the game supports sticky wilds</td>
+</tr>
+<tr>
+<td>bonus_game_rules</td>
+<td>the rules of the bonus game</td>
+</tr>
+<tr>
+<td>sticky_wild_free_spin_count</td>
+<td>the number of free spins awarded when the full stacked wild appears in the leftmost reel</td>
+</tr>
+<tr>
+<td>reel_row_count</td>
+<td>the number of rows in the slot machine,</td>
+</tr>
+<tr>
+<td>jackpot_symbols</td>
+<td>the symbols for jackpots</td>
+</tr>
+<tr>
+<td>jackpot_multipliers</td>
+<td>(deprecated, ignore)</td>
+</tr>
+</tbody></table>
+
           <h1 id="instant-racing-example-flow">Instant Racing: Example Flow</h1>
 
 <p>Below is an example of the endpoints you need to get a race, wager on the race, view the video, then see the results.</p>

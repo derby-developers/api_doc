@@ -224,3 +224,20 @@ A `User` object.
 ### Returns
 
 A `User` object of the user specified in the Authentication header. Otherwise, a 401 will be returned.
+
+
+## Sync User Balance
+
+`PUT /users/sync`
+
+```curl
+curl -X PUT \
+  -H "Application-Name: super-fun-game" \
+  -H "Content-Type: application/json" \
+  -d '{"account": { "type": "virtual", "balance": 10000.0 }' \
+  https://api.derbygames.com/api/users/sync
+```
+
+### Returns
+
+a `User` object with the balance updated to reflect that which was passed in

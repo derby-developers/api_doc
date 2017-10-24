@@ -632,6 +632,20 @@ Leveling-up can also change the locks array. Game names will be removed from thi
 
 <p>A <code class="prettyprint">User</code> object of the user specified in the Authentication header. Otherwise, a 401 will be returned.</p>
 
+<h2 id="sync-user-balance">Sync User Balance</h2>
+
+<p><code class="prettyprint">PUT /users/sync</code></p>
+<pre class="highlight plaintext"><code>curl -X PUT \
+  -H "Application-Name: super-fun-game" \
+  -H "Content-Type: application/json" \
+  -d '{"account": { "type": "virtual", "balance": 10000.0 }' \
+  https://api.derbygames.com/api/users/sync
+</code></pre>
+
+<h3 id="returns">Returns</h3>
+
+<p>a <code class="prettyprint">User</code> object with the balance updated to reflect that which was passed in</p>
+
           <h1 id="accounts">Accounts</h1>
 
 <h2 id="account-object">Account Object</h2>

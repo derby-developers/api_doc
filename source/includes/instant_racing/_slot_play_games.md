@@ -40,9 +40,9 @@
      "J-3": 0.05,
      "T-3": 0.05},
   "wild_multipliers": 
-    {["W-5"]: 5,
-     ["W-4"]: 1,
-     ["W-3"]: 0.2},
+    {"W-5": 5,
+     "W-4": 1,
+     "W-3": 0.2},
   "bonus_multipliers": 
     {"5": {"multiplier": 0, "free_spin_count": 0, "bonus_game": true},
      "4": {"multiplier": 0, "free_spin_count": 0, "bonus_game": true},

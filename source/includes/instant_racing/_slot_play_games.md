@@ -10,7 +10,7 @@
     [[0, 0, 0, 0, 0],
     [1, 1, 1, 1, 1],
     [2, 2, 2, 2, 2],
-    [3, 3, 3, 3, 3]]
+    [3, 3, 3, 3, 3]],
   "multipliers": 
     [{"symbol": "F", "count": 5, "multiplier": 1},
      {"symbol": "E", "count": 5, "multiplier": 1},

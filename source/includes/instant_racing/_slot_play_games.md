@@ -40,9 +40,9 @@
      {"symbol": "J", "count": 3, "multiplier": 0.05},
      {"symbol": "T", "count": 3, "multiplier": 0.05}],
   "wild_multipliers": 
-    [{symbol: "W", "count": 5, "multiplier": 5},
-     {symbol: "W", "count": 4, "multiplier": 1},
-     {symbol: "W", "count": 3, "multiplier": 0.2}],
+    [{"symbol": "W", "count": 5, "multiplier": 5},
+     {"symbol": "W", "count": 4, "multiplier": 1},
+     {"symbol": "W", "count": 3, "multiplier": 0.2}],
   "bonus_multipliers": 
     [{"symbol": "S", "count": 5, "multiplier": 0, "free_spin_count": 0, "bonus_game": true},
      {"symbol": "S", "count": 4, "multiplier": 0, "free_spin_count": 0, "bonus_game": true},

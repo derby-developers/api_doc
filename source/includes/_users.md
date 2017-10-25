@@ -241,3 +241,25 @@ curl -X PUT \
 ### Returns
 
 a `User` object with the balance updated to reflect that which was passed in
+
+
+## Sync User Player Status
+
+`PUT /users/sync`
+
+```curl
+curl -X PUT \
+  -H "Application-Name: super-fun-game" \
+  -H "Content-Type: application/json" \
+  -d '{ "player_status": {"level_type": "experience", "points": 500}}' \
+  https://api.derbygames.com/api/users/sync
+```
+
+### Returns
+
+a `User` object with the player statuses updated to reflect that which was passed in
+
+<aside class="notice">
+  both a player status node and an account node can be sent simultaneously to this endpoint
+</aside>
+

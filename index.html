@@ -646,6 +646,24 @@ Leveling-up can also change the locks array. Game names will be removed from thi
 
 <p>a <code class="prettyprint">User</code> object with the balance updated to reflect that which was passed in</p>
 
+<h2 id="sync-user-player-status">Sync User Player Status</h2>
+
+<p><code class="prettyprint">PUT /users/sync</code></p>
+<pre class="highlight plaintext"><code>curl -X PUT \
+  -H "Application-Name: super-fun-game" \
+  -H "Content-Type: application/json" \
+  -d '{ "player_status": {"level_type": "experience", "points": 500}}' \
+  https://api.derbygames.com/api/users/sync
+</code></pre>
+
+<h3 id="returns">Returns</h3>
+
+<p>a <code class="prettyprint">User</code> object with the player statuses updated to reflect that which was passed in</p>
+
+<aside class="notice">
+  both a player status node and an account node can be sent simultaneously to this endpoint
+</aside>
+
           <h1 id="accounts">Accounts</h1>
 
 <h2 id="account-object">Account Object</h2>

@@ -217,7 +217,7 @@ positions | array of runner positions (an empty array for the final stretch)
 
 ## Task Object
 
-An object describing a given task. With the exception of `id` and `completed`, each of the groups of json attributes in the example to the rigfht are mutually exclusive from each other.
+An object describing a given task. With the exception of `id` and `completed`, each of the groups of json attributes in the example to the right are mutually exclusive from each other.
 
 In other words, a task with the `required_wager_count` and `wager_count` attributes will not have any of the other progress attributes
 

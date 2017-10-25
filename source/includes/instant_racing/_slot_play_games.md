@@ -49,6 +49,7 @@
      {"symbol": "S", "count": 3, "multiplier": 0, "free_spin_count": 0, "bonus_game": true}],
   "symbols": ["S", "T", "J", "Q", "K", "A", "C", "D", "E", "F", "W"],
   "wild_symbols": ["W"],
+  "bonus_symbols": ["S"],
   "free_spin_multiplier": 2.0,
   "reel_count": 5,
   "requires_consecutive_symbols": true,
@@ -108,6 +109,7 @@ wild_multipliers | the multipliers given for matches of only wild symbols
 bonus_multipliers | the reward for getting a given number of scatter wild symbols
 symbols | a list of the symbols used on the reels
 wild_symbols | a list of the wild symbols
+bonus_symbols | a list of bonus symbols
 free_spin_multiplier | a static multiplier added to spins in the free spin mode
 reel_count | the number of reels
 requires_consecutive_symbols | true if the game requires that symbols much start in the leftmost reel in order to be counted as winning

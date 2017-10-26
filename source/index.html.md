@@ -13,7 +13,6 @@ includes:
   - accounts
   - authentication
   - linked_accounts
-  - credit_cards
   - notifications
   - profiles
   - leaders

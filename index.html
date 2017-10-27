@@ -660,8 +660,32 @@ Leveling-up can also change the locks array. Game names will be removed from thi
 
 <p>a <code class="prettyprint">User</code> object with the player statuses updated to reflect that which was passed in</p>
 
+<h2 id="sync-user-slot-play-count">Sync User Slot Play Count</h2>
+
+<p><code class="prettyprint">PUT /users/sync</code></p>
+<pre class="highlight plaintext"><code>curl -X PUT \
+  -H "Application-Name: super-fun-game" \
+  -H "Content-Type: application/json" \
+  -d '{ "slot_play_count": 100}' \
+  https://api.derbygames.com/api/users/sync
+</code></pre>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>slot_play_count</td>
+<td>no</td>
+<td>the number of slot plays since last sync</td>
+</tr>
+</tbody></table>
+
 <aside class="notice">
-  both a player status node and an account node can be sent simultaneously to this endpoint
+  one, some or all nodes for a user can be sent simultaneously
 </aside>
 
           <h1 id="accounts">Accounts</h1>

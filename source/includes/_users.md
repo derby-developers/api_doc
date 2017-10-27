@@ -259,7 +259,23 @@ curl -X PUT \
 
 a `User` object with the player statuses updated to reflect that which was passed in
 
+## Sync User Slot Play Count
+
+`PUT /users/sync`
+
+```curl
+curl -X PUT \
+  -H "Application-Name: super-fun-game" \
+  -H "Content-Type: application/json" \
+  -d '{ "slot_play_count": 100}' \
+  https://api.derbygames.com/api/users/sync
+```
+
+Parameter | Required? | Description
+--------- | --------- | -----------
+slot_play_count | no | the number of slot plays since last sync
+
 <aside class="notice">
-  both a player status node and an account node can be sent simultaneously to this endpoint
+  one, some or all nodes for a user can be sent simultaneously
 </aside>
 

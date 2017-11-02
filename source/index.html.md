@@ -16,6 +16,7 @@ includes:
   - notifications
   - profiles
   - leaders
+  - level_rules
   - promo_codes
   - bonuses
   - virtual_currency_packages

@@ -1,7 +1,7 @@
 # Level Rules
 
 ## Level Rule Object
-
+```json
 { 
   "id": 69,
   "level": 1,
@@ -13,7 +13,7 @@
   "level_up_bonus_amount": 750.0,
   "daily_bonus_amount": 10000.0
 }
-
+```
 ## Get Level Rules for an Application Group
 
 `GET /levels/level_rules?application_group=racechamp3_mobile_app`

@@ -16,6 +16,7 @@ includes:
   - notifications
   - profiles
   - leaders
+  - tournaments
   - level_rules
   - promo_codes
   - bonuses

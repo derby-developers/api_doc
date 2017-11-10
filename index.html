@@ -1475,7 +1475,8 @@ https://api.derbygames.com/api/accounts
 <h2 id="tournament-object">Tournament Object</h2>
 <pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"prize_pool"</span><span class="p">:</span><span class="w"> </span><span class="mf">10000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"starting_prize_pool"</span><span class="p">:</span><span class="w"> </span><span class="mf">10000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"final_prize_pool"</span><span class="p">:</span><span class="w"> </span><span class="mf">100001.0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-08T09:36:46-08:00"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ends_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-08T09:41:46-08:00"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"players"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
@@ -1484,7 +1485,7 @@ https://api.derbygames.com/api/accounts
       </span><span class="nt">"script"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
         </span><span class="nt">"interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"scores"</span><span class="p">:</span><span class="w"> 
+        </span><span class="nt">"scores"</span><span class="p">:</span><span class="w">
            </span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">,</span><span class="w"> </span><span class="mf">2000.0</span><span class="p">]</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}]</span><span class="w">
@@ -1502,8 +1503,12 @@ https://api.derbygames.com/api/accounts
 <td>the id of the tournament</td>
 </tr>
 <tr>
-<td>prize_pool</td>
-<td>the total prize pool for the tournament</td>
+<td>starting_prize_pool</td>
+<td>the starting prize pool for the tournament</td>
+</tr>
+<tr>
+<td>final_prize_pool</td>
+<td>the ending prize pool for the tournament</td>
 </tr>
 <tr>
 <td>starts_at</td>

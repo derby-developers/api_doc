@@ -5,7 +5,8 @@
 ```json
   {
     "id": 2,
-    "prize_pool": 10000.0,
+    "starting_prize_pool": 10000.0,
+    "final_prize_pool": 100001.0,
     "starts_at": "2017-11-08T09:36:46-08:00",
     "ends_at": "2017-11-08T09:41:46-08:00",
     "players": [{
@@ -14,7 +15,7 @@
       "script": {
         "duration": 300,
         "interval": 5,
-        "scores": 
+        "scores":
            [0.0, 0.0, 0.0, 0.0, 0.0, 1000.0, 1000.0, 1000.0, 2000.0]
       }
     }]
@@ -24,7 +25,8 @@
 Field | Description
 --------- | -----------
 id | the id of the tournament
-prize_pool | the total prize pool for the tournament
+starting_prize_pool | the starting prize pool for the tournament
+final_prize_pool | the ending prize pool for the tournament
 starts_at | the time the tournament starts
 ends_at | the time the tournament ends
 players | the other players in the tournament

@@ -11,6 +11,7 @@ includes:
   - errors
   - users
   - accounts
+  - asset_bundles
   - authentication
   - linked_accounts
   - notifications

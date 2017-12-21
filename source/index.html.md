@@ -21,6 +21,7 @@ includes:
   - level_rules
   - promo_codes
   - bonuses
+  - bonus_wheels
   - virtual_currency_packages
   - instant_racing/race_groups
   - instant_racing/races

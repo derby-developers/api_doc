@@ -404,6 +404,7 @@ When a POST request returns an error, a common error format is returned.
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"application_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"racechamp_mobile_app"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"level_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"experience"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"current_level_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
   </span><span class="nt">"progress"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
   </span><span class="nt">"earned_bonuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
@@ -429,6 +430,10 @@ When a POST request returns an error, a common error format is returned.
 <tr>
 <td>level</td>
 <td>numeric level, starting at 1</td>
+</tr>
+<tr>
+<td>level_type</td>
+<td>&ldquo;experience&rdquo;, &ldquo;trail&rdquo; or &ldquo;vip&rdquo;</td>
 </tr>
 <tr>
 <td>progress</td>

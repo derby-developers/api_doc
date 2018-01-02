@@ -96,6 +96,7 @@ longest_wager_streak | an object containing the wager count of the user's longes
   "id": 1,
   "application_group": "racechamp_mobile_app",
   "level": 1,
+  "level_type": "experience",
   "current_level_points": 500,
   "progress": 0.5,
   "earned_bonuses": [],
@@ -109,6 +110,7 @@ Field | Description
 id |
 application_group | application group name
 level | numeric level, starting at 1
+level_type | "experience", "trail" or "vip"
 progress | progress towards the next level, represented as a number between 0 and 1
 current_level_points | points earned at this level
 earned_bonuses | array of bonus names that are available due to leveling up

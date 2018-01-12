@@ -275,7 +275,25 @@ Parameter | Required? | Description
 --------- | --------- | -----------
 slot_play_count | no | the number of slot plays since last sync
 
+## Sync User Ticket Count
+
+`PUT /users/sync`
+
+```curl
+curl -X PUT \
+  -H "Application-Name: super-fun-game" \
+  -H "Content-Type: application/json" \
+  -d '{ "ticket_count": 100}' \
+  https://api.derbygames.com/api/users/sync
+```
+
+Parameter | Required? | Description
+--------- | --------- | -----------
+ticket_count | no | the current ticket count balance
+
+
 <aside class="notice">
   one, some or all nodes for a user can be sent simultaneously
 </aside>
+
 

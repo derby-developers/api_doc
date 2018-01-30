@@ -104,6 +104,8 @@
 Field | Description
 ----- | -----------
 id | the id of the slot play game
+position | the position of the slot game tile in the list
+unlocks_at_level | the level at which the slot game unlocks
 name | the name of the game
 paylines | a list of the paylines for the game
 multipliers | the multpliers given for a symbol and count of matching symbols

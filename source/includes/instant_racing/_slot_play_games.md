@@ -5,13 +5,15 @@
 ```json
 {
   "id": 123,
+  "position": 1,
+  "unlocks_at_level": 10,
   "name": "unicorn-slots",
   "paylines":
     [[0, 0, 0, 0, 0],
     [1, 1, 1, 1, 1],
     [2, 2, 2, 2, 2],
     [3, 3, 3, 3, 3]],
-  "multipliers": 
+  "multipliers":
     [{"symbol": "F", "count": 5, "multiplier": 1},
      {"symbol": "E", "count": 5, "multiplier": 1},
      {"symbol": "D", "count": 5, "multiplier": 1},
@@ -39,11 +41,11 @@
      {"symbol": "Q", "count": 3, "multiplier": 0.05},
      {"symbol": "J", "count": 3, "multiplier": 0.05},
      {"symbol": "T", "count": 3, "multiplier": 0.05}],
-  "wild_multipliers": 
+  "wild_multipliers":
     [{"symbol": "W", "count": 5, "multiplier": 5},
      {"symbol": "W", "count": 4, "multiplier": 1},
      {"symbol": "W", "count": 3, "multiplier": 0.2}],
-  "bonus_multipliers": 
+  "bonus_multipliers":
     [{"symbol": "S", "count": 5, "multiplier": 0, "free_spin_count": 0, "bonus_game": true},
      {"symbol": "S", "count": 4, "multiplier": 0, "free_spin_count": 0, "bonus_game": true},
      {"symbol": "S", "count": 3, "multiplier": 0, "free_spin_count": 0, "bonus_game": true}],
@@ -54,8 +56,8 @@
   "reel_count": 5,
   "requires_consecutive_symbols": true,
   "sticky_wilds": true,
-  "bonus_game_rules": 
-    {"symbols": 
+  "bonus_game_rules":
+    {"symbols":
       ["M",
        "M",
        "M",
@@ -77,7 +79,7 @@
    "coin_symbol": "C",
    "free_spin_count": 10,
    "multipliers": [1, 2, 3],
-   "coin_values_and_weights": 
+   "coin_values_and_weights":
       [{"value":25,"weight":5},
        {"value":50,"weight":6},
        {"value":75,"weight":10},
@@ -102,6 +104,8 @@
 Field | Description
 ----- | -----------
 id | the id of the slot play game
+position | the position of the slot game tile in the list
+unlocks_at_level | the level at which the slot game unlocks
 name | the name of the game
 paylines | a list of the paylines for the game
 multipliers | the multpliers given for a symbol and count of matching symbols

@@ -36,4 +36,5 @@ includes:
   - instant_racing/tasks
   - instant_racing/example
   - chat
+  - adw/races
 ---

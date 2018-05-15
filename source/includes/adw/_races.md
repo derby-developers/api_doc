@@ -1004,6 +1004,3 @@ name | the name of the pool
 multiplicity | the number of pools that this pool represents - most pools are `multiplicity=1`, however the win_place and win_place_show have multiplicity of 2 and 3 respectively. This means that, for example, when you place a win_place bet, you are making two bets,  one in the win and and one in the place pool, so a $2 win_place bet will actually cost $4 ($2 in the win pool and $2 in the place pool)
 wager_minimums | the minimum required wager for the pool, by provider.
 races | the races involved in a pool
-
-# ADW: Wagers
-

@@ -37,4 +37,5 @@ includes:
   - instant_racing/example
   - chat
   - adw/races
+  - adw/wagers
 ---

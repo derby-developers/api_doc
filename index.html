@@ -5280,7 +5280,72 @@ It is not possible for a bonus game to have both a &ldquo;free_spins&rdquo; node
 </tr>
 </tbody></table>
 
-<h1 id="adw-wagers">ADW: Wagers</h1>
+          <h1 id="adw-wagers">ADW: Wagers</h1>
+
+<p>The most notable difference between these wagers and instant racing wagers is that you pass runner ids and pool ids retrieved from the race.</p>
+
+<blockquote>
+<p>Win/Place Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>curl -H "Application-Name: super-fun-game" \
+  -H "Authorization: Bearer ABC123" \
+  -H "Content-Type: application/json" \
+  -d '{"amount": 10, "pool": {"id": 7207684 }, "runners": [{"id": 6959587}] }' \
+  https://api.derbygames.com/api/instant_racing/wagers
+</code></pre>
+
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">39415867</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"response"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"response_status"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"amount"</span><span class="p">:</span><span class="s2">"10.0"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"box"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"jackpot"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"serialized_runners"</span><span class="p">:</span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"base_amount"</span><span class="p">:</span><span class="s2">"5.0"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"race_id"</span><span class="p">:</span><span class="mi">907415</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"pool_id"</span><span class="p">:</span><span class="mi">7207684</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"user"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">32119</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"wager_count"</span><span class="p">:</span><span class="mi">5767</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"practice_wager_count"</span><span class="p">:</span><span class="mi">569</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"multi_race_wager_count"</span><span class="p">:</span><span class="mi">744</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"balance"</span><span class="p">:</span><span class="mf">99.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"withdrawable_balance"</span><span class="p">:</span><span class="mf">99.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"practice_balance"</span><span class="p">:</span><span class="mf">4511.0</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"failure_message"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="mi">1526391558</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"race"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">907415</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"finalized"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"action_message"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Wincanton Racecourse"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"race_type"</span><span class="p">:</span><span class="s2">"Thoroughbred"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"track_id"</span><span class="p">:</span><span class="mi">254</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"number"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"post_datetime"</span><span class="p">:</span><span class="s2">"2018-05-15T06:48:14-07:00"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"runners"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">6959587</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"number"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"race_id"</span><span class="p">:</span><span class="mi">907415</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_position"</span><span class="p">:</span><span class="mi">100220071</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"horse"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">154393</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Ice Tres"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"horse_type"</span><span class="p">:</span><span class="s2">"Thoroughbred"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
       </div>
       <div class="dark-box">

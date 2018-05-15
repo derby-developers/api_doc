@@ -5,10 +5,10 @@ The most notable difference between these wagers and instant racing wagers is th
 > Win/Place Example
 
 ```curl
-curl -H "Application-Name: elite-mobile" \
-  -H "Authorization: Bearer 1fa83ec2d3960a54c59873c5d8b8de437fbefa6583a4d070513eb613ed80c0ca" \
+curl -H "Application-Name: racechamp3_ios" \
+  -H "Authorization: Bearer abc1234" \
   -H "Content-Type: application/json" \
-  -d '{"amount": 10, "pool": {"id": 7207624 }, "runners": [{"id": 6952530}] }' \
+  -d '{"amount": "10.0", "pool": {"id": 7207631 }, "runners": [{"id": 6952547}] }' \
   https://api.derbygames.com/api/wagers
 ```
 

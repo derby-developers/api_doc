@@ -4210,6 +4210,1078 @@ It is not possible for a bonus game to have both a &ldquo;free_spins&rdquo; node
 <span class="nt">&lt;/html&gt;</span>
 </code></pre>
 
+          <h1 id="adw-races">ADW: Races</h1>
+
+<h2 id="1-get-the-current-race">1. Get the Current Race</h2>
+
+<p>One race at a time is specified as the current race.</p>
+
+<p>A new current race is selected approximately 30 seconds before the race is scheduled to start, so make sure to use the id (as specified below) to keep track of the race that you currently have rendered onscreen</p>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>curl -H "Authorization: Bearer ABC123" \
+  -H "Application-Name: racechamp_mobile_app" \
+  https://api.derbygames.com/api/races/current
+</code></pre>
+
+<h2 id="2-poll-the-race-that-was-acquired-with-the-above-endpoint">2. Poll the race that was acquired with the above endpoint</h2>
+
+<p>Once you have the currently selected race - you should poll that race by using the returned id from the current endpoint. This endpoint will always return the same race for a given id.</p>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>curl -H "Authorization: Bearer ABC123" \
+  -H "Application-Name: racechamp_mobile_app" \
+  https://api.derbygames.com/api/races/905096
+</code></pre>
+
+<blockquote>
+<p>Example ADW Race Object</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">905096</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"race_number"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"action_message"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"race_type"</span><span class="p">:</span><span class="s2">"Harness"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"distance"</span><span class="p">:</span><span class="mf">1609.344</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"distance_in_meters"</span><span class="p">:</span><span class="s2">"1609.344 m"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"distance_in_yards"</span><span class="p">:</span><span class="s2">"1609 yds"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"not_yet_open"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"finalized"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"track_id"</span><span class="p">:</span><span class="mi">56</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Harrington Raceway"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"city"</span><span class="p">:</span><span class="s2">"Harrington"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"DE"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"country"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"country_code"</span><span class="p">:</span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"equibase_id"</span><span class="p">:</span><span class="s2">"HAR"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"video_enabled"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"weather"</span><span class="p">:</span><span class="s2">"clear-day"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"selected"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"excluded"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"score"</span><span class="p">:</span><span class="mf">8.0</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"selected_at"</span><span class="p">:</span><span class="s2">"2018-05-14T14:15:42-07:00"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"race_class"</span><span class="p">:</span><span class="s2">"N/A"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"post_datetime"</span><span class="p">:</span><span class="s2">"2018-05-14T14:20:01-07:00"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"runners"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">6938036</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"number"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"16/1"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"jockey"</span><span class="p">:</span><span class="s2">"Russell Foster"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"trainer"</span><span class="p">:</span><span class="s2">"Arty Foster Jr"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"owner"</span><span class="p">:</span><span class="s2">"Arty L Foster III,Cordova,MD;Wanda May Saulsbury,Cordova,MD"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"multi_entry_flag"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"horse"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">303315</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"I'll Call U Later"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"horse_type"</span><span class="p">:</span><span class="s2">"Harness"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"favorite_count"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"history"</span><span class="p">:[</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"3/5"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-05-07"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"11/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-26"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"9/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-15"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"9/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-03-29"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"9/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-03-22"</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">6938038</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"number"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"12/1"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"jockey"</span><span class="p">:</span><span class="s2">"Montrell Teague"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"trainer"</span><span class="p">:</span><span class="s2">"Tim Crissman"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"owner"</span><span class="p">:</span><span class="s2">"Crissman Inc,Dover,DE"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"multi_entry_flag"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"horse"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">13980</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Fancy Colt"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"horse_type"</span><span class="p">:</span><span class="s2">"Harness"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"favorite_count"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"history"</span><span class="p">:[</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"1/9"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-05-07"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"1/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-30"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"20/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-23"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"15/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-16"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"7/5"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-09"</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">6938039</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"number"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"40/1"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"jockey"</span><span class="p">:</span><span class="s2">"Cody Poliseno"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"trainer"</span><span class="p">:</span><span class="s2">"Carlo Poliseno"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"owner"</span><span class="p">:</span><span class="s2">"Louis W Tomczak Jr,Dover,DE"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"multi_entry_flag"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"horse"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">383467</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Proper One"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"horse_type"</span><span class="p">:</span><span class="s2">"Harness"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"favorite_count"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"history"</span><span class="p">:[</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"3/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-05-07"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"50/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-29"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"90/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-16"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"30/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-09"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"1/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-03-29"</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">6938041</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"number"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"8/5"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"jockey"</span><span class="p">:</span><span class="s2">"Anthony Morgan"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"trainer"</span><span class="p">:</span><span class="s2">"Gary Ewing"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"owner"</span><span class="p">:</span><span class="s2">"Gary E Ewing,Easton,MD"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"multi_entry_flag"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"horse"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">113843</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Rangers Sureshot"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"horse_type"</span><span class="p">:</span><span class="s2">"Harness"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"favorite_count"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"history"</span><span class="p">:[</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"25/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-05-07"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"5/2"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-23"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"2/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-16"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"1/5"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-09"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"2/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-03-26"</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">6938042</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"number"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"8/5"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"jockey"</span><span class="p">:</span><span class="s2">"Mike Cole"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"trainer"</span><span class="p">:</span><span class="s2">"Joseph Columbo"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"owner"</span><span class="p">:</span><span class="s2">"George\u0026 Tina Dennis Racing,Wyoming,DE"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"multi_entry_flag"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"horse"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">290735</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Safensound Hanover"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"horse_type"</span><span class="p">:</span><span class="s2">"Harness"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"favorite_count"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"history"</span><span class="p">:[</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"1/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-05-07"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"30/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-26"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"13/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-19"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"35/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-07"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"7/2"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-03-29"</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">6938043</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"number"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"2/1"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"jockey"</span><span class="p">:</span><span class="s2">"Victor Kirby"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"trainer"</span><span class="p">:</span><span class="s2">"Wayne Givens"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"owner"</span><span class="p">:</span><span class="s2">"Legacy Racing Of De Inc,Seaford,DE;Reginald A Hazzard II,Millsboro,DE"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"multi_entry_flag"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"horse"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">70554</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Papa Ray"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"horse_type"</span><span class="p">:</span><span class="s2">"Harness"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"favorite_count"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"history"</span><span class="p">:[</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"6/5"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-05-07"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"50/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-30"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"21/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-23"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"12/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-16"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"8/5"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-09"</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">6938044</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"number"</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"30/1"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"jockey"</span><span class="p">:</span><span class="s2">"Ross Wolfenden"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"trainer"</span><span class="p">:</span><span class="s2">"Robert W Clark"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"owner"</span><span class="p">:</span><span class="s2">"Kovach Stables LLC,Milford,DE"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"multi_entry_flag"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"horse"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">7033</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Feel Like a Fool"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"horse_type"</span><span class="p">:</span><span class="s2">"Harness"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"favorite_count"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"history"</span><span class="p">:[</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"2/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-05-02"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"1/2"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-18"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"4/5"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-11"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"17/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-03-26"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"3/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-03-19"</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">6938045</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"number"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"50/1"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"jockey"</span><span class="p">:</span><span class="s2">"Jason Green"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"trainer"</span><span class="p">:</span><span class="s2">"Frank Kryskowiak"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"owner"</span><span class="p">:</span><span class="s2">"Frank C Kryskowiak,Felton,DE"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"multi_entry_flag"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"horse"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">5418</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bettoriffic"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"horse_type"</span><span class="p">:</span><span class="s2">"Harness"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"favorite_count"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"history"</span><span class="p">:[</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"35/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-05-07"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"50/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-30"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"40/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-18"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"12/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-09"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"80/1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"final_position"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-03-26"</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nt">"pools"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">7205451</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_name"</span><span class="p">:</span><span class="s2">"Harrington Raceway"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_city"</span><span class="p">:</span><span class="s2">"Harrington"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_state"</span><span class="p">:</span><span class="s2">"DE"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"superfecta"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"multiplicity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_id"</span><span class="p">:</span><span class="mi">56</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"description"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"position_count"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"featured"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_amount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"payoff_amount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_payoff"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_minimum"</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_minimums"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"practice"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"derby"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">0.1</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"xpressbet"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">0.1</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">],</span><span class="w">
+         </span><span class="nt">"expected_post_time"</span><span class="p">:</span><span class="s2">"2018-05-14T14:20:00-07:00"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"size"</span><span class="p">:</span><span class="mf">4203.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"multi_race"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"races"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">905096</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"final"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"race_number"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"post_datetime"</span><span class="p">:</span><span class="s2">"2018-05-14T14:20:01-07:00"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"live_wager_count"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"live_user_count"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">7205442</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_name"</span><span class="p">:</span><span class="s2">"Harrington Raceway"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_city"</span><span class="p">:</span><span class="s2">"Harrington"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_state"</span><span class="p">:</span><span class="s2">"DE"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"trifecta"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"multiplicity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_id"</span><span class="p">:</span><span class="mi">56</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"description"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"position_count"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"featured"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_amount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"payoff_amount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_payoff"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_minimums"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"practice"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">5.0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"derby"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"xpressbet"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">],</span><span class="w">
+         </span><span class="nt">"expected_post_time"</span><span class="p">:</span><span class="s2">"2018-05-14T14:20:00-07:00"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"size"</span><span class="p">:</span><span class="mf">7138.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"multi_race"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"races"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">905096</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"final"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"race_number"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"post_datetime"</span><span class="p">:</span><span class="s2">"2018-05-14T14:20:01-07:00"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"live_wager_count"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"live_user_count"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">7205436</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_name"</span><span class="p">:</span><span class="s2">"Harrington Raceway"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_city"</span><span class="p">:</span><span class="s2">"Harrington"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_state"</span><span class="p">:</span><span class="s2">"DE"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"exacta"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"multiplicity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_id"</span><span class="p">:</span><span class="mi">56</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"description"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"position_count"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"featured"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_amount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"payoff_amount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_payoff"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_minimums"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"practice"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">10.0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"derby"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"xpressbet"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">],</span><span class="w">
+         </span><span class="nt">"expected_post_time"</span><span class="p">:</span><span class="s2">"2018-05-14T14:20:00-07:00"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"size"</span><span class="p">:</span><span class="mf">6540.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"multi_race"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"races"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">905096</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"final"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"race_number"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"post_datetime"</span><span class="p">:</span><span class="s2">"2018-05-14T14:20:01-07:00"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"live_wager_count"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"live_user_count"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">7205411</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_name"</span><span class="p">:</span><span class="s2">"Harrington Raceway"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_city"</span><span class="p">:</span><span class="s2">"Harrington"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_state"</span><span class="p">:</span><span class="s2">"DE"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"win_place"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"multiplicity"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_id"</span><span class="p">:</span><span class="mi">56</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"description"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"position_count"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"featured"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_amount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"payoff_amount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_payoff"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_minimums"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"practice"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">10.0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"derby"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"xpressbet"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">],</span><span class="w">
+         </span><span class="nt">"expected_post_time"</span><span class="p">:</span><span class="s2">"2018-05-14T14:20:00-07:00"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"size"</span><span class="p">:</span><span class="mf">5000.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"multi_race"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"races"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">905096</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"final"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"race_number"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"post_datetime"</span><span class="p">:</span><span class="s2">"2018-05-14T14:20:01-07:00"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"live_wager_count"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"live_user_count"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">7205404</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_name"</span><span class="p">:</span><span class="s2">"Harrington Raceway"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_city"</span><span class="p">:</span><span class="s2">"Harrington"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_state"</span><span class="p">:</span><span class="s2">"DE"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"win_place_show"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"multiplicity"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_id"</span><span class="p">:</span><span class="mi">56</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"description"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"position_count"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"featured"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_amount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"payoff_amount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_payoff"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_minimums"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"practice"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">10.0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"derby"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"xpressbet"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">],</span><span class="w">
+         </span><span class="nt">"expected_post_time"</span><span class="p">:</span><span class="s2">"2018-05-14T14:20:00-07:00"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"size"</span><span class="p">:</span><span class="mf">5000.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"multi_race"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"races"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">905096</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"final"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"race_number"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"post_datetime"</span><span class="p">:</span><span class="s2">"2018-05-14T14:20:01-07:00"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"live_wager_count"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"live_user_count"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">7205398</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_name"</span><span class="p">:</span><span class="s2">"Harrington Raceway"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_city"</span><span class="p">:</span><span class="s2">"Harrington"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_state"</span><span class="p">:</span><span class="s2">"DE"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"show"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"multiplicity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_id"</span><span class="p">:</span><span class="mi">56</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"description"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"position_count"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"featured"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_amount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"payoff_amount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_payoff"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_minimums"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"practice"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">10.0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"derby"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"xpressbet"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">],</span><span class="w">
+         </span><span class="nt">"expected_post_time"</span><span class="p">:</span><span class="s2">"2018-05-14T14:20:00-07:00"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"size"</span><span class="p">:</span><span class="mf">1113.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"multi_race"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"races"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">905096</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"final"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"race_number"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"post_datetime"</span><span class="p">:</span><span class="s2">"2018-05-14T14:20:01-07:00"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"live_wager_count"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"live_user_count"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">7205390</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_name"</span><span class="p">:</span><span class="s2">"Harrington Raceway"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_city"</span><span class="p">:</span><span class="s2">"Harrington"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_state"</span><span class="p">:</span><span class="s2">"DE"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"place"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"multiplicity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_id"</span><span class="p">:</span><span class="mi">56</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"description"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"position_count"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"featured"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_amount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"payoff_amount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_payoff"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_minimums"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"practice"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">10.0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"derby"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"xpressbet"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">],</span><span class="w">
+         </span><span class="nt">"expected_post_time"</span><span class="p">:</span><span class="s2">"2018-05-14T14:20:00-07:00"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"size"</span><span class="p">:</span><span class="mf">1562.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"multi_race"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"races"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">905096</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"final"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"race_number"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"post_datetime"</span><span class="p">:</span><span class="s2">"2018-05-14T14:20:01-07:00"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"live_wager_count"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"live_user_count"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">7205383</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_name"</span><span class="p">:</span><span class="s2">"Harrington Raceway"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_city"</span><span class="p">:</span><span class="s2">"Harrington"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_state"</span><span class="p">:</span><span class="s2">"DE"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"win"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"multiplicity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"track_id"</span><span class="p">:</span><span class="mi">56</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"description"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"position_count"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"featured"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_amount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"payoff_amount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_payoff"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wager_minimums"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"practice"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">10.0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"derby"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"xpressbet"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">],</span><span class="w">
+         </span><span class="nt">"expected_post_time"</span><span class="p">:</span><span class="s2">"2018-05-14T14:20:00-07:00"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"size"</span><span class="p">:</span><span class="mf">4022.0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"multi_race"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"races"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">905096</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"final"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"race_number"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"post_datetime"</span><span class="p">:</span><span class="s2">"2018-05-14T14:20:01-07:00"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"live_wager_count"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"live_user_count"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nt">"wins"</span><span class="p">:[</span><span class="w">
+
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nt">"winning_tickets"</span><span class="p">:[</span><span class="w">
+
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"race"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"action"</span><span class="p">:</span><span class="s2">"changed"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"map_url"</span><span class="p">:</span><span class="s2">"https://dj1.derbycdn.net/assets/maps/har.png"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>the integer id of the race</td>
+</tr>
+<tr>
+<td>race_number</td>
+<td>the number of the race for a given track/day</td>
+</tr>
+<tr>
+<td>race_type</td>
+<td>Thoroughbred, Harness, Quarterhorse</td>
+</tr>
+<tr>
+<td>finalized</td>
+<td>whether the race is finalized (true or false). A finalized race has finished and all wagers paid out</td>
+</tr>
+<tr>
+<td>post_datetime</td>
+<td>the time that the race is scheduled to begin (a string formatted datetime). This value can and does change frequently! A polling process will be necessary to ensure the estimated post datetime (and associated countdowns) are working</td>
+</tr>
+<tr>
+<td>status</td>
+<td>&ldquo;Open&rdquo;, &ldquo;Closed&rdquo; or &ldquo;Final&rdquo; - only a race with a status of &ldquo;Open&rdquo; can accept wagers</td>
+</tr>
+<tr>
+<td>runners</td>
+<td>array of ADW Runner objects</td>
+</tr>
+<tr>
+<td>pools</td>
+<td>array of ADW Pool objects</td>
+</tr>
+</tbody></table>
+
+<h1 id="adw-runners">ADW Runners</h1>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+     </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">6938045</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"number"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"50/1"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"jockey"</span><span class="p">:</span><span class="s2">"Jason Green"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"trainer"</span><span class="p">:</span><span class="s2">"Frank Kryskowiak"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"owner"</span><span class="p">:</span><span class="s2">"Frank C Kryskowiak,Felton,DE"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"multi_entry_flag"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"horse"</span><span class="p">:{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">5418</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bettoriffic"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"horse_type"</span><span class="p">:</span><span class="s2">"Harness"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"favorite_count"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"history"</span><span class="p">:[</span><span class="w">
+           </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"35/1"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"final_position"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-05-07"</span><span class="w">
+           </span><span class="p">},</span><span class="w">
+           </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"50/1"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-30"</span><span class="w">
+           </span><span class="p">},</span><span class="w">
+           </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"40/1"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"final_position"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-18"</span><span class="w">
+           </span><span class="p">},</span><span class="w">
+           </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"12/1"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"final_position"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-04-09"</span><span class="w">
+           </span><span class="p">},</span><span class="w">
+           </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"odds"</span><span class="p">:</span><span class="s2">"80/1"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"scratched"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"final_position"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"race_date"</span><span class="p">:</span><span class="s2">"2018-03-26"</span><span class="w">
+           </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>the integer id of the runner</td>
+</tr>
+<tr>
+<td>number</td>
+<td>the number of the runner in the race - like instant racing - this is the number used to determine which horse you&rsquo;re betting on. Note: this number is an integer and there can occasionally be duplicate numbers in a race. when two horses share a number - if you choose that number and either horse wins, you win</td>
+</tr>
+<tr>
+<td>scratched</td>
+<td>whether or not a horse has been &ldquo;scratched&rdquo; or taken out of a race - you cannot bet on scratched runners. In the case where there is, for example, two #1 horses in a race, one with scratched: true and one with scratched: false - you can still bet on the #1 horse</td>
+</tr>
+<tr>
+<td>odds</td>
+<td>the current odds of the horse. these change even more frequently than post_datetime and should be updated in the race polling</td>
+</tr>
+<tr>
+<td>final_position</td>
+<td>the position the horse finished the race. will be null until a short period of time after the race has finished. for most races - only final positions 1 through 4 are served up in the race. it is possible for horses to tie in a race, so a given race could for example have runners with the final positions 1, 2, 2 and 4, indicating a tie for second</td>
+</tr>
+<tr>
+<td>horse</td>
+<td>a description of the horse racing, the last ~5 races that a given horse has raced</td>
+</tr>
+</tbody></table>
+
+<h1 id="adw-pools">ADW: Pools</h1>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+     </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">7205411</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"track_name"</span><span class="p">:</span><span class="s2">"Harrington Raceway"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"track_city"</span><span class="p">:</span><span class="s2">"Harrington"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"track_state"</span><span class="p">:</span><span class="s2">"DE"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"win_place"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"multiplicity"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"track_id"</span><span class="p">:</span><span class="mi">56</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"description"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"position_count"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"featured"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"wager_amount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"payoff_amount"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"wager_payoff"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"wager_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"wager_minimums"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+           </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"practice"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">10.0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+           </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"derby"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+           </span><span class="nt">"provider_name"</span><span class="p">:</span><span class="s2">"xpressbet"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"single_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"multiple_bet_minimum"</span><span class="p">:</span><span class="mf">1.0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+     </span><span class="p">],</span><span class="w">
+     </span><span class="nt">"expected_post_time"</span><span class="p">:</span><span class="s2">"2018-05-14T14:20:00-07:00"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"size"</span><span class="p">:</span><span class="mf">5000.0</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"multi_race"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"races"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+           </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">905096</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"final"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"race_number"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"post_datetime"</span><span class="p">:</span><span class="s2">"2018-05-14T14:20:01-07:00"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"live_wager_count"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"live_user_count"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+     </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>the integer id of the pool</td>
+</tr>
+<tr>
+<td>name</td>
+<td>the name of the pool</td>
+</tr>
+<tr>
+<td>multiplicity</td>
+<td>the number of pools that this pool represents - most pools are <code class="prettyprint">multiplicity=1</code>, however the win_place and win_place_show have multiplicity of 2 and 3 respectively. This means that, for example, when you place a win_place bet, you are making two bets,  one in the win and and one in the place pool, so a $2 win_place bet will actually cost $4 ($2 in the win pool and $2 in the place pool)</td>
+</tr>
+<tr>
+<td>wager_minimums</td>
+<td>the minimum required wager for the pool, by provider.</td>
+</tr>
+<tr>
+<td>races</td>
+<td>the races involved in a pool</td>
+</tr>
+</tbody></table>
+
+<h1 id="adw-wagers">ADW: Wagers</h1>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">

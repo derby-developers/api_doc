@@ -38,4 +38,5 @@ includes:
   - chat
   - adw/races
   - adw/wagers
+  - adw/video
 ---

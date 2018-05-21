@@ -5347,6 +5347,55 @@ It is not possible for a bonus game to have both a &ldquo;free_spins&rdquo; node
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+          <h1 id="adw-video">ADW: Video</h1>
+
+<h2 id="get-live-video-for-the-current-track">Get live Video for the current track</h2>
+
+<p><code class="prettyprint">GET /api/tracks/&lt;track id&gt;/video?stream_format=&lt;format&gt;</code></p>
+<pre class="highlight plaintext"><code>curl -H "Application-Name: racechamp3_ios" \
+  -H "Authorization: Bearer abc1234" \
+  -H "Content-Type: application/json" \
+  https://api.derbygames.com/api/tracks/101/video?stream_format=rtsp
+</code></pre>
+
+<h2 id="parameters">Parameters</h2>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>track_id</td>
+<td>the id of the track for the race you&rsquo;re currently betting on (<code class="prettyprint">track_id</code> in the race node)</td>
+</tr>
+<tr>
+<td>stream_format</td>
+<td>the format of the video - options are either &ldquo;flash&rdquo; or &ldquo;rtsp&rdquo; (rtsp recommended for mobile devices)</td>
+</tr>
+</tbody></table>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"video_url"</span><span class="p">:</span><span class="s2">"https://stream.robertsstream.com/streammobile.php?stream=louisiana_mbr\u0026referer=XpressBet\u0026t=1526933818\u0026h=97a3c83ca96f5cc9379e88be1070b18d\u0026usr=1332350\u0026optp=siteid%3Axpres%7Coriginid%3ADJA"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"error_code"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="video-response">Video Response</h2>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>video_url</td>
+<td>the url of the video in question</td>
+</tr>
+</tbody></table>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">

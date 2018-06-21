@@ -45,8 +45,38 @@ An array of `Leader` objects.
 
 ## Leaders near the current user
 
-`GET /headers/around_me`
+`GET /leaders/around_me`
 
 ### Returns
 
 An array of `Leader` objects.
+
+# Winners
+
+## Winner Object
+
+```json
+ {
+  "id": 1,
+  "position": 1,
+  "score": 10000.0,
+  "date": "2018-06-20",
+  "user":
+    {
+      "id": 2,
+      "screen_name": "Jimbo",
+      "image_url": "https://example.com/giphy.gif",
+      "winning_wager_count": 10,
+      "board": "daily"
+    }
+  }
+```
+
+## Get Winners
+
+`GET /leaders/winners`
+
+## Returns
+
+The winners of the last 7 daily leaderboards, most recent first, in descending order of rank
+

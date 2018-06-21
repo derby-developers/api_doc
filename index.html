@@ -1511,11 +1511,38 @@ https://api.derbygames.com/api/accounts
 
 <h2 id="leaders-near-the-current-user">Leaders near the current user</h2>
 
-<p><code class="prettyprint">GET /headers/around_me</code></p>
+<p><code class="prettyprint">GET /leaders/around_me</code></p>
 
 <h3 id="returns">Returns</h3>
 
 <p>An array of <code class="prettyprint">Leader</code> objects.</p>
+
+<h1 id="winners">Winners</h1>
+
+<h2 id="winner-object">Winner Object</h2>
+<pre class="highlight json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">10000.0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-20"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"user"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"screen_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jimbo"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/giphy.gif"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"winning_wager_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"board"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daily"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-winners">Get Winners</h2>
+
+<p><code class="prettyprint">GET /leaders/winners</code></p>
+
+<h2 id="returns">Returns</h2>
+
+<p>The winners of the last 7 daily leaderboards, most recent first, in descending order of rank</p>
 
           <h1 id="tournaments">Tournaments</h1>
 

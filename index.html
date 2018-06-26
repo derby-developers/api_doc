@@ -713,6 +713,30 @@ Leveling-up can also change the locks array. Game names will be removed from thi
 </tr>
 </tbody></table>
 
+<h2 id="sync-user-winnings">Sync User Winnings</h2>
+
+<p><code class="prettyprint">PUT /users/sync</code></p>
+<pre class="highlight plaintext"><code>curl -X PUT \
+  -H "Application-Name: super-fun-game" \
+  -H "Content-Type: application/json" \
+  -d '{ "winnings": {"amount_won": 1000 }' \
+  https://api.derbygames.com/api/users/sync
+</code></pre>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>winnings</td>
+<td>no</td>
+<td>a node containing the <code class="prettyprint">amount_won</code> since last sync</td>
+</tr>
+</tbody></table>
+
 <aside class="notice">
   one, some or all nodes for a user can be sent simultaneously
 </aside>

@@ -293,6 +293,22 @@ Parameter | Required? | Description
 --------- | --------- | -----------
 ticket_count | no | the current ticket count balance
 
+## Sync User Winnings
+
+`PUT /users/sync`
+
+```curl
+curl -X PUT \
+  -H "Application-Name: super-fun-game" \
+  -H "Content-Type: application/json" \
+  -d '{ "winnings": {"amount_won": 1000 }' \
+  https://api.derbygames.com/api/users/sync
+```
+
+Parameter | Required? | Description
+--------- | --------- | -----------
+winnings | no | a node containing the `amount_won` since last sync
+
 
 <aside class="notice">
   one, some or all nodes for a user can be sent simultaneously

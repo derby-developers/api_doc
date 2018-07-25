@@ -123,6 +123,7 @@ Paramater | Required? | Description
 ------| --------- | -----------
 service | yes | 'google' or 'apple'
 receipt | yes | receipt blob
+virtual_currency_value | no | currency value to award (will override the existing package value)
 
 ### Returns
 
